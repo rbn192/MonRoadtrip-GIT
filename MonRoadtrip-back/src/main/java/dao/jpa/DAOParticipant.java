@@ -2,33 +2,50 @@ package dao.jpa;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import dao.IDAOParticipant;
 import model.Participant;
+import model.Participant;
+import util.Context;
 
 public class DAOParticipant implements IDAOParticipant {
 
 	@Override
 	public Participant findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
+		Participant p = em.find(Participant.class, id);
+		em.close();
+		return p;
 	}
 
 	@Override
 	public List<Participant> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
+		List<Participant> Participants = em.createQuery("SELECT p from Participant p").getResultList();
+		em.close();
+		return Participants;
 	}
 
 	@Override
-	public Participant save(Participant o) {
-		// TODO Auto-generated method stub
-		return null;
+	public Participant save(Participant p) {
+		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
+		em.getTransaction().begin();
+		p = em.merge(p);
+		em.getTransaction().commit();
+		em.close();
+		return p;
 	}
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
-		
+		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
+		em.getTransaction().begin();
+		Participant p = em.find(Participant.class, id);
+		em.remove(p);
+		em.getTransaction().commit();
+		em.close();
 	}
+
 
 }
