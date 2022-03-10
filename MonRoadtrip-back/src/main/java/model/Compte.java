@@ -17,7 +17,8 @@ import javax.persistence.SequenceGenerator;
 public abstract class Compte {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqCompteJPA")
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqCompteJPA")
+	@GeneratedValue(strategy = GenerationType.TABLE)
     protected Integer id;
 
     protected String nom;
