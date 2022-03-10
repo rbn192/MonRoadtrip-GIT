@@ -17,7 +17,6 @@ public class Activite {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_activite")
 	private Integer id;
 	private LocalDate date;
 	private LocalTime heure;

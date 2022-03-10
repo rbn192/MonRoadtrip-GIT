@@ -14,7 +14,6 @@ public class Participant {
 	private int age;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_participant")
 	private Integer id;
 	
 	public Participant() {

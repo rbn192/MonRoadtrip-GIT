@@ -15,7 +15,7 @@ public class Client extends Compte {
 	
     private double solde;
 	@Enumerated(EnumType.STRING)
-	@Column(columnDefinition = "ENUM('Carte','Paypal')")
+	@Column(columnDefinition = "ENUM('Carte','Paypal')", name="type_de_paiement")
     private TypeDePaiement typeDePaiement;
 	
 	@OneToMany (mappedBy = "client")

@@ -4,12 +4,19 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Organisateur extends Compte {
 	
 	@OneToMany
+	@JoinTable(
+			name="activite_organisateur",
+			joinColumns = @JoinColumn(name="organisateur"),
+			inverseJoinColumns = @JoinColumn(name="activite")
+			)
 	private List<Activite> activites;
 	
 	public Organisateur() {

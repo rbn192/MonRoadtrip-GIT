@@ -21,9 +21,9 @@ public class Reservation {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_reservation")
 	private Integer id;
 	
+	@Column(name="date_reservation")
 	private LocalDate dateReservation;
 	
 	@Enumerated(EnumType.STRING)

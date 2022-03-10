@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +24,7 @@ public abstract class Compte {
     protected String prenom;
 	protected String mail;
     protected String password;
+    @Column(name="date_naissance")
     protected LocalDate dateNaissance;
     
     public Compte() {

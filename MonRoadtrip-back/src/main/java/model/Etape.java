@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -20,9 +21,15 @@ public class Etape {
 	private String ville;
 	
 	@OneToMany
+	@JoinTable(
+			name="activite_etape",
+			joinColumns = @JoinColumn(name="etape"),
+			inverseJoinColumns = @JoinColumn(name="activite")
+			)
 	private List<Activite> activites;
 	
 	@ManyToOne
+	@JoinColumn(name = "id_logement")
 	private Logement logement;
 	
 	@ManyToOne
@@ -31,7 +38,6 @@ public class Etape {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_etape")
 	private Integer id;
 	
 	public Etape() {}

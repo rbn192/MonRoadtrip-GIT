@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -10,13 +11,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Logement {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_logement")
 	private Integer id;
 	private LocalDate date;
 	private double prix;
@@ -30,7 +31,8 @@ public class Logement {
 	@JoinColumn(name="id_hote_fk")
 	private Hote hote;
 	
-	// étape ?
+	@OneToMany (mappedBy = "logement")
+	private List<Etape> etapes;
 
 	public Logement() {
 	}    
@@ -111,6 +113,14 @@ public class Logement {
 		this.hote = hote;
 	}
 
+
+	public List<Etape> getEtapes() {
+		return etapes;
+	}
+
+	public void setEtapes(List<Etape> etapes) {
+		this.etapes = etapes;
+	}
 
 	@Override
 	public String toString() {

@@ -16,9 +16,12 @@ import javax.persistence.OneToMany;
 @Entity
 public class Roadtrip {
 	
+	@Column(name="depart_lieu")
 	private String departLieu;
 	private String destination;
+	@Column(name="date_depart")
 	private LocalDate dateDepart;
+	@Column(name="date_arrivee")
 	private LocalDate dateArrivee;
 	private Double prix;
 	
@@ -31,7 +34,6 @@ public class Roadtrip {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_roadtrip")
 	private Integer id;
 	
 	
