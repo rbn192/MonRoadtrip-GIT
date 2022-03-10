@@ -2,36 +2,60 @@ package dao.jpa;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import dao.IDAOActivite;
 import model.Activite;
+import util.Context;
 
 
 public class DAOActivite implements IDAOActivite {
 
 	@Override
 	public Activite findById(Integer id) {
-		// TODO Auto-generated method stub
+		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
+		Activite a = em.find(Activite.class, id);
+		em.close();
 		return null;
 	}
 
 	@Override
 	public List<Activite> findAll() {
-		// TODO Auto-generated method stub
+		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
+		List<Activite> Activites = em.createQuery("SELECT a from Activite a").getResultList();
+		em.close();
 		return null;
 	}
 
 	@Override
-	public Activite save(Activite o) {
-		// TODO Auto-generated method stub
-		return null;
+	public Activite save(Activite a) {
+		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
+		em.getTransaction().begin();
+		a = em.merge(a);
+		em.getTransaction().commit();
+		em.close();
+		return a;
 	}
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
+		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
+		em.getTransaction().begin();
+		Activite a = em.find(Activite.class, id);
+		em.remove(a);
+		em.getTransaction().commit();
+		em.close();
 		
 	}
 
-	
+	@Override
+	public List<Activite> findAllDisponibles() {
+
+		EntityManager em  = Context.getSingleton().getEmf().createEntityManager();
+		List<Activite> Activites = em.createQuery("SELECT a from Activite a WHERE a.date > now() ").getResultList();
+		em.close();
+		return Activites;
+
+	}
 
 }
