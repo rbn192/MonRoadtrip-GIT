@@ -1,7 +1,8 @@
-package dao;
+package dao.jdbc;
 
 import java.util.List;
 
+import dao.IDAO;
 import model.Reservation;
 
 public class DAOReservation implements IDAO<Reservation, Integer> {
