@@ -36,20 +36,20 @@
         <tbody>
           <tr>
             <div class="my-3">
-              <label name="mail" type="email" class="sr-only" for="inlineFormInputGroupUsername">Identifiant</label>
+              <label type="email" class="sr-only" for="inlineFormInputGroupUsername">Identifiant</label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <div class="input-group-text">@</div>
                 </div>
-                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
+                <input name="mail" type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
               </div>
             </div>
           </tr>
           <tr>
             <div class="my-1">
-              <label name="password" type="password" class="sr-only" for="inlineFormInputGroupUsername">Mot de passe</label>
+              <label type="password" class="sr-only" for="inlineFormInputGroupUsername">Mot de passe</label>
               <div class="input-group">
-                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Mot de passe">
+                <input name="password" type="password" class="form-control" id="inlineFormInputGroupUsername" placeholder="Mot de passe">
               </div>
             </div>
           </tr>
