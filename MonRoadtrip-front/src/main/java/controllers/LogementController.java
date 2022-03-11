@@ -14,6 +14,7 @@ import model.Activite;
 import model.Adresse;
 import model.Client;
 import model.Compte;
+import model.Hote;
 import model.Logement;
 import util.Context;
 
@@ -29,10 +30,10 @@ public class LogementController extends HttpServlet {
 			List<Logement> logements = Context.getSingleton().getDaoLogement().findAll();
 
 			request.setAttribute("logements", logements);
-			getServletContext().getRequestDispatcher("/gestionLogement.jsp").forward(request, response);
 			for(Logement l : logements) {
 				System.out.println(l.getPrix());
 			}
+			getServletContext().getRequestDispatcher("/gestionLogement.jsp").forward(request, response);
 		}
 
 		//findById
@@ -51,28 +52,42 @@ public class LogementController extends HttpServlet {
 		{
 
 
+			//Compte connected =(Compte) request.getSession().getAttribute("connected");
+
+			//Hote hote = (Hote) Context.getSingleton().getDaoCompte().findById(connected.getId());
+
+			Hote hote = (Hote) Context.getSingleton().getDaoCompte().findById(2);
 			Adresse adresse = new Adresse(request.getParameter("numero"),request.getParameter("voie"),request.getParameter("cp"),request.getParameter("ville"));
 
-			Logement logement = new Logement(LocalDate.parse(request.getParameter("date")),Double.parseDouble(request.getParameter("prix")),adresse,Integer.parseInt(request.getParameter("nbPlaces")),null);
+			Logement logement = new Logement(LocalDate.parse(request.getParameter("date")),Double.parseDouble(request.getParameter("prix")),adresse,Integer.parseInt(request.getParameter("nbPlaces")),hote);
+
 
 
 
 			Context.getSingleton().getDaoLogement().save(logement);
+			response.sendRedirect("gestionLogement");
 
 		}
-		
+
 		else if(request.getParameter("tache").equals("update")) 
+
 		{
+			System.out.println("update test");
 			int id = Integer.parseInt(request.getParameter("id"));
 			int version = Integer.parseInt(request.getParameter("version"));
-			
+
+			Hote hote = (Hote) Context.getSingleton().getDaoCompte().findById(2);
+
 			Adresse adresse = new Adresse(request.getParameter("numero"),request.getParameter("voie"),request.getParameter("cp"),request.getParameter("ville"));
 
-			Logement logement = new Logement(id,LocalDate.parse(request.getParameter("date")),Double.parseDouble(request.getParameter("prix")),adresse,Integer.parseInt(request.getParameter("nbPlaces")),null);
-				//logement.setVersion(version);
-				Context.getSingleton().getDaoLogement().save(logement);
+			Logement logement = new Logement(id,LocalDate.parse(request.getParameter("date")),Double.parseDouble(request.getParameter("prix")),adresse,Integer.parseInt(request.getParameter("nbPlaces")),hote);
+			//logement.setVersion(version);
+			Context.getSingleton().getDaoLogement().save(logement);
 
-			
+			System.out.println(logement);
+			System.out.println(id);
+
+
 			response.sendRedirect("gestionLogement");
 		}
 
