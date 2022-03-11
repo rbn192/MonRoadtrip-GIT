@@ -19,7 +19,7 @@ public class ConnexionController extends HttpServlet {
   	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		getServletContext().getRequestDispatcher("/Roadtrip.html").forward(request, response);
+		getServletContext().getRequestDispatcher("/connexion.jsp").forward(request, response);
 
 	}
 
@@ -28,12 +28,12 @@ public class ConnexionController extends HttpServlet {
 
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("password");
-		
+			
 		Compte connected=Context.getSingleton().getDaoCompte().seConnecter(mail,password);
 		
 		request.getSession().setAttribute("connected", connected);
 		
-		if(connected instanceof Hote) {response.sendRedirect("gestionLogement.jsp");}
+		if(connected instanceof Hote) {response.sendRedirect("gestionLogement");}
 
 		else if(connected instanceof Organisateur) {response.sendRedirect("organisateur.html");}//à modifier : gestionActivite.jsp
 		
@@ -42,7 +42,7 @@ public class ConnexionController extends HttpServlet {
 		else 
 		{
 			request.setAttribute("error", "Identifiants invalides");
-			getServletContext().getRequestDispatcher("/Roadtrip.html").forward(request, response);
+			getServletContext().getRequestDispatcher("/connexion.jsp").forward(request, response);
 		}
 		
 		
