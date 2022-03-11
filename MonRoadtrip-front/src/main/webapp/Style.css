@@ -1,0 +1,93 @@
+body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+  background-color: #F4EFE7;
+}
+
+.carousel {
+  margin-bottom: 4rem;
+}
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+.carousel-item {
+  height: 32rem;
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+
+.titre{
+  margin-top: 5%;
+}
+
+#ajouter
+{
+display:flex;
+justify-content:center
+}
+
+
+/*-----Pages inscription et connexion-----*/
+
+#bodyInscription, #bodyConnexion {
+display:flex;
+align-items:center;
+flex-direction:column;
+background-image: url('img/fond.jpg');
+background-size: cover;
+}
+
+#connexion {
+  margin: 10%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+#inscription, #gestionCompte {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+#formInscription, #formConnexion {
+  display:flex;
+  flex-direction: column;
+  background-color: rgb(0 0 0 / 70%);
+  color:white;
+  padding:25px;
+  border-radius:20px;
+}
+
+.btnInscription, .btnConnexion{
+  width: 100%;
+}
+
+/*-----Page gestion compte-----*/
+#formGestionCompte {
+  display:flex;
+  flex-direction: column;
+  background-color: rgb(0 0 0 / 70%);
+  color:white;
+  padding:25px;
+  border-radius:20px;
+  margin-left:50px;
+  margin-right:50px;
+}
+
+#infos, #roadtrips_client, #logements_hote, #activites_organisateur {
+  color: white;
+}
+
+.form-groupGestionCompte{
+  display:flex;
+  justify-content: space-around;
+}

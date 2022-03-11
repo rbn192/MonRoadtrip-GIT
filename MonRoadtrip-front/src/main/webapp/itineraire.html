@@ -1,0 +1,118 @@
+<style>
+
+</style>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <title>Itinéraire</title>
+  </head>
+
+  <body>
+
+    <h3>Liste des étapes</h3>
+    <table border>
+      <tr>
+        <td>Numéro d'étape</td>
+        <td>Lieu de l'étape</td>
+        <td>Durée (jours)</td>
+        <td>Date d'arrivée</td>
+        <td>Date de départ</td>
+        <td>Actions</td>
+      </tr>
+      <tr>
+        <td><a href="#">1</a></td>
+        <td>Paris</td>
+        <td>5</td>
+        <td>2022-05-01</td>
+        <td>2022-05-06</td>
+        <td><input type="button" name="modif etape" value="Modifier" class="btn btn-warning button">
+          <input type="button" name="suppr etape" value="Supprimer" class="btn btn-danger button"></td>
+      </tr>
+      <tr>
+        <td><a href="#">2</a></td>
+        <td>Toulouse</td>
+        <td>3</td>
+        <td>2022-05-06</td>
+        <td>2022-05-08</td>
+        <td><input type="button" name="modif etape" value="Modifier" class="btn btn-warning button">
+          <input type="button" name="suppr etape" value="Supprimer" class="btn btn-danger button"></td>
+
+      </tr>
+    </table>
+    <input type="button" name="ajout etape" value="Ajouter" class="btn btn-info button">
+
+    <hr>
+
+    <h5>Liste des activités de l'étape sélectionnée</h5>
+    <table border>
+      <tr>
+        <td>Numéro d'activité</td>
+        <td>Catégorie</td>
+        <td>Adresse de l'activité</td>
+        <td>Date</td>
+        <td>Heure</td>
+        <td>Durée (heures)</td>
+        <td>Prix</td>
+        <td>Actions</td>
+      </tr>
+      <tr>
+        <td><a href="#">1</a></td>
+        <td>Visite guidée</td>
+        <td>7 rue Rougemont</td>
+        <td>2022-05-02</td>
+        <td>14:00</td>
+        <td>1,5</td>
+        <td>30 €</td>
+        <td><input type="button" name="modif activite" value="Modifier" class="btn btn-warning button">
+          <input type="button" name="suppr activite" value="Supprimer" class="btn btn-danger button"></td>
+      </tr>
+      <tr>
+        <td><a href="#">2</a></td>
+        <td>Restaurant</td>
+        <td>18 rue Rougemont</td>
+        <td>2022-05-02</td>
+        <td>20:00</td>
+        <td>2</td>
+        <td>--</td>
+        <td><input type="button" name="modif activite" value="Modifier" class="btn btn-warning button">
+          <input type="button" name="suppr activite" value="Supprimer" class="btn btn-danger button"></td>
+      </tr>
+    </table>
+    <input type="button" name="ajout activite" value="Ajouter" class="btn btn-info button">
+
+    <hr>
+
+    <h5>Logement de l'étape sélectionnée</h5>
+    <table border>
+      <tr>
+        <td>Catégorie</td>
+        <td>Adresse du logement</td>
+        <td>Nuits</td>
+        <td>Prix</td>
+        <td>Actions</td>
+      </tr>
+      <tr>
+        <td>Chambres d'hôtes</td>
+        <td>45 rue Rougemont</td>
+        <td>5</td>
+        <td>50€/nuit</td>
+        <td><input type="button" name="modif logement" value="Modifier" class="btn btn-warning button">
+          <input type="button" name="suppr logement" value="Supprimer" class="btn btn-danger button"></td>
+      </tr>
+    </table>
+    <input type="button" name="ajout logement" value="Ajouter" class="btn btn-info button">
+
+    <hr>
+
+    <h5>Itinéraire :</h5>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5661875.706410285!2d-2.434900432556569!3d46.13904121191319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54a02933785731%3A0x6bfd3f96c747d9f7!2sFrance!5e0!3m2!1sfr!2sfr!4v1646140896002!5m2!1sfr!2sfr" width="500" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </body>
+
+</html>
