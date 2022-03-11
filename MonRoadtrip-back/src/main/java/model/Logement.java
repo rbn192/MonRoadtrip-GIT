@@ -46,6 +46,15 @@ public class Logement {
 		this.hote = hote;
 		this.id = id;
 	}
+	
+	public Logement(Integer id, LocalDate date, double prix, Adresse adresse, int nbPlaces, Hote hote) {
+		this.date = date;
+		this.prix = prix;
+		this.adresse = adresse;
+		this.nbPlaces = nbPlaces;
+		this.hote = hote;
+		this.id = id;
+	}
 
 	public Logement(LocalDate date, double prix, Adresse adresse, int nbPlaces, int note, Hote hote) {
 		this.date = date;
@@ -53,6 +62,14 @@ public class Logement {
 		this.adresse = adresse;
 		this.nbPlaces = nbPlaces;
 		this.note = note;
+		this.hote = hote;
+	}
+	
+	public Logement(LocalDate date, double prix, Adresse adresse, int nbPlaces, Hote hote) {
+		this.date = date;
+		this.prix = prix;
+		this.adresse = adresse;
+		this.nbPlaces = nbPlaces;
 		this.hote = hote;
 	}
 
