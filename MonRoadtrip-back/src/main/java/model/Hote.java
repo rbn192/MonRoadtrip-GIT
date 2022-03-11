@@ -10,8 +10,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Hote extends Compte {
 	
-	@OneToMany
-	@JoinColumn(name="id_logement")
+	@OneToMany(mappedBy="hote")
 	private List<Logement> logements;
 	
 	public Hote() {
@@ -36,7 +35,7 @@ public class Hote extends Compte {
 	@Override
 	public String toString() {
 		return "Hote [nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", password=" + password + ", id=" + id
-				+ ", dateNaissance=" + dateNaissance + ", logements=" + logements + "]";
+				+ ", dateNaissance=" + dateNaissance +  "]";
 	}
 
 	
