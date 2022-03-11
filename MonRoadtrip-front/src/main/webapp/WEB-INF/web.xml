@@ -4,8 +4,17 @@
   <welcome-file-list>
     <welcome-file>home</welcome-file>
   </welcome-file-list>
- 
   <listener>
     <listener-class>listeners.StartProject</listener-class>
   </listener>
+  <servlet>
+    <description></description>
+    <display-name>LogementController</display-name>
+    <servlet-name>LogementController</servlet-name>
+    <servlet-class>controllers.LogementController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogementController</servlet-name>
+    <url-pattern>/LogementController</url-pattern>
+  </servlet-mapping>
 </web-app>
