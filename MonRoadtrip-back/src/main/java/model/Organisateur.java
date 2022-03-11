@@ -11,12 +11,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Organisateur extends Compte {
 	
-	@OneToMany
-	@JoinTable(
-			name="activite_organisateur",
-			joinColumns = @JoinColumn(name="organisateur"),
-			inverseJoinColumns = @JoinColumn(name="activite")
-			)
+	@OneToMany(mappedBy="organisateur")
 	private List<Activite> activites;
 	
 	public Organisateur() {
