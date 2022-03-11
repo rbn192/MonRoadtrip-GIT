@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     <title>Gestion des logements</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+    crossorigin="anonymous"></script>
+
+  <link href="Style.css" rel="stylesheet">
 
   <body id="bodyGestionCompte">
 
@@ -31,7 +41,7 @@
       <form id="formGestionLogement" method="post" action="gestionLogement">
       	<input type="hidden" name="tache" value="update">
 		<input type="hidden" name="id" value="${logement.id}">
-		<input type="hidden" name="version" value="${logement.version}">
+		
 
         <table id="infos">
           <tr>
@@ -50,6 +60,10 @@
           <tr>
             <td>CP :</td>
             <td><input name="cp" type="text" value="${logement.adresse.cp}"></td>
+          </tr>
+          <tr>
+            <td>Date :</td>
+            <td><input name="date" type="date" value="${logement.date}"></td>
           </tr>
           <tr>
             <td>Nombre de places :</td>
