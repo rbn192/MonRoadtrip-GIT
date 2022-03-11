@@ -28,7 +28,7 @@
     <div id="gestionCompte">
       <h1>Modification du logement</h1>
 
-      <form id=formGestionCompte>
+      <form id="formGestionLogement" method="post" action="gestionLogement">
       	<input type="hidden" name="tache" value="update">
 		<input type="hidden" name="id" value="${logement.id}">
 		<input type="hidden" name="version" value="${logement.version}">
@@ -36,20 +36,20 @@
         <table id="infos">
           <tr>
             <td>Numero :</td>
-            <td><input name="numero" type="text" value="${logement.numero}"></td>
+            <td><input name="numero" type="text" value="${logement.adresse.numero}"></td>
             
           </tr>
           <tr>
             <td>Voie :</td>
-            <td><input name="voie" type="text" value="${logement.voie}"></td>
+            <td><input name="voie" type="text" value="${logement.adresse.voie}"></td>
           </tr>
           <tr>
             <td>Ville :</td>
-            <td><input name="ville" type="text" value="${logement.ville}"></td>
+            <td><input name="ville" type="text" value="${logement.adresse.ville}"></td>
           </tr>
           <tr>
             <td>CP :</td>
-            <td><input name="cp" type="text" value="${logement.cp}"></td>
+            <td><input name="cp" type="text" value="${logement.adresse.cp}"></td>
           </tr>
           <tr>
             <td>Nombre de places :</td>
