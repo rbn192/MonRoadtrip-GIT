@@ -1,0 +1,101 @@
+<!doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Organisateur</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+    crossorigin="anonymous"></script>
+
+  <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="Roadtrip.html">Accueil</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto"> </ul>
+
+        <form class="form-inline mt-2 mt-md-0">
+            <a href="gestioncompte.html" style="color: white">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Gestion de compte</a></button>
+          <a class="nav-link" href="connexion.html" style="color: white">Deconnexion</a>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+<main>
+
+    <div>
+     
+    <h2 class="titre" align="center">Liste des activités </h2>
+    </div>
+
+    <table border="1px" align="center" width="90%">
+
+
+        <thead>
+          <tr align="center">
+            <th>Id</th>
+            <th>cp</th>
+            <th>numero</th>
+            <th>ville</th>
+            <th>voie</th>
+            <th>categorie</th>
+            <th>date</th>
+            <th>heure</th>
+            <th>nombre de places</th>
+            <th>note</th>
+            <th>prix</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        
+        <tbody align="center">
+            <tr>
+                <td>1</td>
+                <td>75000</td>
+                <td>1</td>
+                <td>Paris</td>
+                <td>rue de rivoli</td>
+                <td>Visite musée</td>
+                <td>2022-03-11</td>
+                <td>10:00</td>
+                <td>10</td>
+                <td>8</td>
+                <td>20</td>
+                <td><a href="updateActivite.html"><button type="button" class="btn btn-primary">Modifier</button></a>
+                <button type="button" class="btn btn-danger">Supprimer</button></td>
+              </tr>
+
+        </tbody>
+    </table>
+
+    <br>
+    <div id="ajouter">
+      <input type="button" value="Ajouter" class="btn btn-info button">
+    </div>
+
+
+
+
+
+</main>
+
+</body>
+
+</html>

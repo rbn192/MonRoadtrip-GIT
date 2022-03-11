@@ -46,6 +46,14 @@ public class Reservation {
 
 	public Reservation() {}
 	
+	public Reservation(LocalDate dateReservation, Statut statut, Participant participant, Roadtrip roadTrip, Client client) {
+		this.dateReservation = dateReservation;
+		this.statut = statut;
+		this.participant = participant;
+		this.roadTrip = roadTrip;
+		this.client = client;
+	}
+	
 	public Reservation(Integer id, LocalDate dateReservation, Statut statut, Participant participant, List<Etape> etapes,
 			Roadtrip roadTrip, Client client) {
 		this.dateReservation = dateReservation;
@@ -54,6 +62,7 @@ public class Reservation {
 		this.roadTrip = roadTrip;
 		this.client = client;
 		this.id=id;
+		this.etapes=etapes;
 	}
 	
 	public Reservation(LocalDate dateReservation, Statut statut, Participant participant, List<Etape> etapes,
@@ -63,6 +72,7 @@ public class Reservation {
 		this.participant = participant;
 		this.roadTrip = roadTrip;
 		this.client = client;
+		this.etapes=etapes;
 	}
 
 	public LocalDate getDateReservation() {

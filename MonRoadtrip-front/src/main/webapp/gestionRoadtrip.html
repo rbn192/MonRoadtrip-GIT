@@ -1,0 +1,110 @@
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Gestion du compte</title>
+  </head>
+
+  <body id="bodyGestionCompte">
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="Roadtrip.html">Accueil</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto"> </ul>
+
+          <form class="form-inline mt-2 mt-md-0">
+            <a class="nav-link" href="gestioncompte.html" style="color: white">Connecté : Robin</a>
+            <a class="nav-link" href="gestioncompte.html" style="color: white">Gérer mon compte</a>
+            <a class="nav-link" href="connexion.html" style="color: white">Se déconnecter</a>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <br>
+
+    <div id="gestionCompte">
+      <h1>Vos Roadtrips</h1>
+
+      <form id=formGestionCompte>
+
+        <table id="roadtrips_client">
+          <tr>
+            <th>Date du départ</th>
+            <th>Lieu de départ</th>
+            <th>Lieu d'arrivée</th>
+            <th>Nombre d'étapes</th>
+          </tr>
+          <tr>
+            <td>2022-03-01</td>
+            <td>Paris</td>
+            <td>Madrid</td>
+            <td><a href="#">3</a></td>
+          </tr>
+        </table>
+
+
+
+        <table id="logements_hote">
+          <tr>
+            <th>Nom du logement</th>
+            <th>Ville</th>
+            <th>Voie</th>
+            <th>Numéro</th>
+            <th>CP</th>
+            <th>Prix</th>
+            <th>Nombre de places</th>
+            <th>Note</th>
+            <th>Statut</th>
+          </tr>
+          <tr>
+            <td>Villa 1</td>
+            <td>Poitiers</td>
+            <td>Avenue Jean Rostand</td>
+            <td>18</td>
+            <td>86000</td>
+            <td>89</td>
+            <td>3</td>
+            <td>4</td>
+            <td><a href="#">Réservé</a></td>
+          </tr>
+        </table>
+
+
+        <table id="activites_organisateur">
+          <tr>
+            <th>Nom de l'activité</th>
+            <th>Ville</th>
+            <th>Voie</th>
+            <th>Numéro</th>
+            <th>CP</th>
+            <th>Prix</th>
+            <th>Note</th>
+            <th>Nombre de places disponibles</th>
+            <th>Nombre de participants</th>
+          </tr>
+          <tr>
+            <td>Musée Sainte-Croix</td>
+            <td>Poitiers</td>
+            <td>Rue St Simplicien</td>
+            <td>61</td>
+            <td>86000</td>
+            <td>20</td>
+            <td>6</td>
+            <td>19</td>
+            <td><a href="#">6</a></td>
+          </tr>
+        </table>
+
+
+      </form>
+    </div>
+  </body>
+</html>
