@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html>
 <head>
   <meta charset="utf-8">
   <title>Gestion des logements</title>
@@ -15,14 +14,13 @@
     integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
     crossorigin="anonymous"></script>
 
-  <link href="style.css" rel="stylesheet">
+  <link href="Style.css" rel="stylesheet">
 
 </head>
-
-<body>
-
+<div class="page">
+<main>
   <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <a class="navbar-brand" href="Roadtrip.html">Accueil</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +38,7 @@
     </nav>
   </header>
 
-<main>
+
 
     <div>
      
@@ -131,12 +129,9 @@
 			class="btn btn-danger button">
 
 	</form>
-
-      
 </main>
+</div>
 
-</body>
-</html>
 
 <script>
 
