@@ -1,3 +1,5 @@
+<!doctype html>
+
 
 <html>
   <head>
@@ -31,48 +33,34 @@
     <br>
 
     <div id="gestionCompte">
-      <h1>Informations du compte :</h1>
+      <h1>Modification du logement :</h1>
 
       <form id=formGestionCompte>
 
         <table id="infos">
           <tr>
-            <td>Prenom:</td>
-            <td><input type="text" value="Robin"></td>
-            <td><input type="button" name="Modifier" value="Modifier"></td>
+            <td>Numero :</td>
+            <td><input type="text" value="1"></td>
           </tr>
           <tr>
-            <td>Nom:</td>
-            <td><input type="text" value="Pierson"></td>
-            <td><input type="button" name="Modifier" value="Modifier"></td>
+            <td>Voie :</td>
+            <td><input type="text" value="rue des peupliers"></td>
           </tr>
           <tr>
-            <td>Date de naissance:</td>
-            <td><input type="date" value="1997-03-18"></td>
-            <td><input type="button" name="Modifier" value="Modifier"></td>
+            <td>Ville :</td>
+            <td><input type="text" value="Paris"></td>
           </tr>
           <tr>
-            <td>Email:</td>
-            <td><input type="text" value="client@client"></td>
-            <td><input type="button" name="Modifier" value="Modifier"></td>
+            <td>CP :</td>
+            <td><input type="text" value="75000"></td>
           </tr>
           <tr>
-            <td>MDP:</td>
-            <td><input type="password" value="mdp123"></td>
-            <td><input type="button" name="Modifier" value="Modifier"></td>
+            <td>Nombre de places :</td>
+            <td><input type="number" value="4"></td>
           </tr>
           <tr>
-            <td>Type de compte:</td>
-            <td><input type="text" value="client" disabled="true"></td>
-          </tr>
-          <tr>
-            <td>Type de paiement:</td>
-            <td>
-              <select class="typeDePaiement" name="typeDePaiement">
-                <option value="1">Carte</option>
-                <option value="2">Paypal</option>
-              </select>
-            </td>
+            <td>Prix :</td>
+            <td><input type="number" placeholder="prix" value="20" min=0 max=999 step=0.01> €</td>
           </tr>
         </table>
       </form>
