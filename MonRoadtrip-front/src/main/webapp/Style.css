@@ -23,6 +23,18 @@ body {
   height: 32rem;
 }
 
+
+.titre{
+  margin-top: 5%;
+}
+
+#ajouter
+{
+display:flex;
+justify-content:center
+}
+
+
 /*-----Pages inscription et connexion-----*/
 
 #bodyInscription, #bodyConnexion {
