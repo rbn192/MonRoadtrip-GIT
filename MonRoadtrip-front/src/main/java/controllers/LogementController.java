@@ -74,7 +74,7 @@ public class LogementController extends HttpServlet {
 		{
 			System.out.println("update test");
 			int id = Integer.parseInt(request.getParameter("id"));
-			int version = Integer.parseInt(request.getParameter("version"));
+			//int version = Integer.parseInt(request.getParameter("version"));
 
 			Hote hote = (Hote) Context.getSingleton().getDaoCompte().findById(2);
 
