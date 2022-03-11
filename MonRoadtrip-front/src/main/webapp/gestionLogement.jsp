@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<!DOCTYPE html>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <head>
   <meta charset="utf-8">
   <title>Gestion des logements</title>
@@ -68,14 +68,14 @@
 
             <tr>
                 <td>${l.id}</td>
-                <td>${l.numero}</td>
-                <td>${l.voie}</td>
-                <td>${l.cp}</td>
-                <td>${l.ville}</td>
+                <td>${l.adresse.numero}</td>
+                <td>${l.adresse.voie}</td>
+                <td>${l.adresse.cp}</td>
+                <td>${l.adresse.ville}</td>
                 <td>${l.date}</td>
                 <td>${l.nbPlaces}</td>
                 <td>${l.prix}</td>
-                <td><a href="updateLogement.html"><button type="button" class="btn btn-primary">Modifier</button></a>
+                <td><a href="updateLogement.jsp"><button type="button" class="btn btn-primary">Modifier</button></a>
                 <button type="button" class="btn btn-danger">Supprimer</button></td>
               </tr>
               
@@ -95,7 +95,7 @@
 	<br> <br>
 
 
-	<form action="logement" method="post" id="addFormLogement">
+	<form action="gestionLogement" method="post" id="addFormLogement" style="display:none">
 		<input type="hidden" name="tache" value="insert">
 
 		<div>
@@ -120,8 +120,6 @@
 		<div>
 			Prix : <input required type="number" name="prix" min=0 max=999 step=0.01> €
 		</div>
-
-
 
 
 		<input type="submit" class="btn btn-success mb-2"
