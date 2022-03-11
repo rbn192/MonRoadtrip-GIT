@@ -1,38 +1,87 @@
 package controllers;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
+
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class LogementController
- */
+import model.Activite;
+import model.Adresse;
+import model.Client;
+import model.Compte;
+import model.Logement;
+import util.Context;
+
+@WebServlet("/gestionLogement")
 public class LogementController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
-    public LogementController() {
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		//findAll
+		if(request.getParameter("id")==null) 
+		{
+			List<Logement> logements = Context.getSingleton().getDaoLogement().findAll();
+
+			request.setAttribute("logements", logements);
+			getServletContext().getRequestDispatcher("/WEB-INF/gestionLogement.jsp").forward(request, response);
+
+		}
+
+		//findById
+		else 
+		{
+			int id = Integer.parseInt(request.getParameter("id"));
+			Logement l = Context.getSingleton().getDaoLogement().findById(id);
+			request.setAttribute("logement", l);
+			getServletContext().getRequestDispatcher("/WEB-INF/updateLogement.jsp").forward(request, response);
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		if(request.getParameter("tache").equals("insert")) 
+		{
 
+
+			Adresse adresse = new Adresse(request.getParameter("numero"),request.getParameter("voie"),request.getParameter("cp"),request.getParameter("ville"));
+
+			Logement logement = new Logement(LocalDate.parse(request.getParameter("date")),Double.parseDouble(request.getParameter("prix")),adresse,Integer.parseInt(request.getParameter("nbPlaces")),null);
+
+
+
+			Context.getSingleton().getDaoLogement().save(logement);
+
+		}
+		
+		else if(request.getParameter("tache").equals("update")) 
+		{
+			int id = Integer.parseInt(request.getParameter("id"));
+			int version = Integer.parseInt(request.getParameter("version"));
+			
+			Adresse adresse = new Adresse(request.getParameter("numero"),request.getParameter("voie"),request.getParameter("cp"),request.getParameter("ville"));
+
+			Logement logement = new Logement(id,LocalDate.parse(request.getParameter("date")),Double.parseDouble(request.getParameter("prix")),adresse,Integer.parseInt(request.getParameter("nbPlaces")),null);
+				//logement.setVersion(version);
+				Context.getSingleton().getDaoLogement().save(logement);
+
+			
+			response.sendRedirect("gestionLogement");
+		}
+
+		else if(request.getParameter("tache").equals("delete"))
+		{
+			int id = Integer.parseInt(request.getParameter("id"));
+			Context.getSingleton().getDaoLogement().delete(id);
+			response.sendRedirect("gestionLogement");
+		}
+
+
+	}
 }
+
