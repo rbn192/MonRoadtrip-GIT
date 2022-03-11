@@ -36,12 +36,10 @@
 					</ul>
 
 					<form class="form-inline mt-2 mt-md-0">
-						<a href="gestioncompte.html" style="color: white">
-							<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Gestion
-								de compte
-						</a>
-						</button>
-						<a class="nav-link" href="disconnect" style="color: white">Deconnexion</a>
+						<a class="nav-link" href="gestioncompte.html" style="color: white">Connecté
+							: Lucie</a> <a class="nav-link" href="gestioncompte.html"
+							style="color: white">Gérer mon compte</a> <a class="nav-link"
+							href="disconnect" style="color: white">Se déconnecter</a>
 					</form>
 				</div>
 			</nav>
