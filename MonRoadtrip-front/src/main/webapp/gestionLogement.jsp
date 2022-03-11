@@ -41,7 +41,7 @@
 								de compte
 						</a>
 						</button>
-						<a class="nav-link" href="connexion.html" style="color: white">Deconnexion</a>
+						<a class="nav-link" href="disconnect" style="color: white">Deconnexion</a>
 					</form>
 				</div>
 			</nav>
@@ -111,7 +111,7 @@
 
 
 		<form action="gestionLogement" method="post" id="addFormLogement"
-			style="display: none">
+			style="display: none" align="center">
 			<input type="hidden" name="tache" value="insert">
 
 			<div>

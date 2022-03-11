@@ -6,7 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import dao.IDAOCompte;
+import model.Client;
 import model.Compte;
+import model.Hote;
+import model.Organisateur;
 import util.Context;
 
 public class DAOCompte implements IDAOCompte {
@@ -53,12 +56,14 @@ public class DAOCompte implements IDAOCompte {
 		Query q = em.createQuery("SELECT c from Compte c where c.mail = :mail and c.password = :password");
 		q.setParameter("mail", mail);
 		q.setParameter("password", password);
+		
+
 		Compte c=null;
 		try {
-			c = (Compte) q.getSingleResult();
-
-
-
+			
+				c=(Compte) q.getSingleResult();
+			
+			
 		} catch (Exception e) {
 
 		}
