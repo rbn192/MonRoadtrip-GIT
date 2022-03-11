@@ -21,16 +21,18 @@ import util.Context;
 public class LogementController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 
+		System.out.println("bjr");
 		//findAll
 		if(request.getParameter("id")==null) 
 		{
 			List<Logement> logements = Context.getSingleton().getDaoLogement().findAll();
 
 			request.setAttribute("logements", logements);
-			getServletContext().getRequestDispatcher("/WEB-INF/gestionLogement.jsp").forward(request, response);
-
+			getServletContext().getRequestDispatcher("/gestionLogement.jsp").forward(request, response);
+			for(Logement l : logements) {
+				System.out.println(l.getPrix());
+			}
 		}
 
 		//findById
@@ -39,7 +41,7 @@ public class LogementController extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("id"));
 			Logement l = Context.getSingleton().getDaoLogement().findById(id);
 			request.setAttribute("logement", l);
-			getServletContext().getRequestDispatcher("/WEB-INF/updateLogement.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/updateLogement.jsp").forward(request, response);
 		}
 	}
 
