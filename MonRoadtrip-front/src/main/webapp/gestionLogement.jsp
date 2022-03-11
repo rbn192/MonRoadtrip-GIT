@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,10 +53,10 @@
         <thead>
           <tr align="center">
             <th>Id</th>
-            <th>cp</th>
             <th>numero</th>
-            <th>ville</th>
             <th>voie</th>
+            <th>cp</th>
+            <th>ville</th>
             <th>date</th>
             <th>nombre de places</th>
             <th>prix</th>
@@ -66,39 +66,81 @@
         </thead>
         
         <tbody align="center">
+        	<c:forEach items="${logements}" var="l">
 
             <tr>
-                <td>1</td>
-                <td>75000</td>
-                <td>1</td>
-                <td>Paris</td>
-                <td>rue delessert</td>
-                <td>2022-03-11</td>
-                <td>2</td>
-                <td>200</td>
+                <td>${l.id}</td>
+                <td>${l.numero}</td>
+                <td>${l.voie}</td>
+                <td>${l.cp}</td>
+                <td>${l.ville}</td>
+                <td>${l.date}</td>
+                <td>${l.nbPlaces}</td>
+                <td>${l.prix}</td>
                 <td><a href="updateLogement.html"><button type="button" class="btn btn-primary">Modifier</button></a>
                 <button type="button" class="btn btn-danger">Supprimer</button></td>
               </tr>
+              
+              </c:forEach>
               
 
 
         </tbody>
         </table>
 
+        
+        
         <br>
-        <div id="ajouter">
-          <input type="button" value="Ajouter" class="btn btn-info button">
-        </div>
+	<div id="ajouter">
+		<input type="button" value="Ajouter" id="btnShowAddForm" class="btn btn-info button">
+	</div>
+	<br> <br>
 
-       
 
+	<form action="logement" method="post" id="addFormLogement">
+		<input type="hidden" name="tache" value="insert">
+
+		<div>
+			Numéro : <input required type="text" name="numero">
+		</div>
+		<div>
+			Voie : <input required type="text"
+				name="voie">
+		</div>
+		<div>
+			CP : <input required type="text" name="cp">
+		</div>
+		<div>
+			Ville : <input required type="text" name="ville">
+		</div>
+		<div>
+			Date : <input required type="date" name="date">
+		</div>
+		<div>
+			Nombre de places : <input required type="number" name="nbPlaces" min=0 max=99>
+		</div>
+		<div>
+			Prix : <input required type="number" name="prix" min=0 max=999 step=0.01> €
+		</div>
+
+
+
+
+		<input type="submit" class="btn btn-success mb-2"
+			value="Ajouter un logement"> <input type="reset"
+			class="btn btn-danger button">
+
+	</form>
+
+      
 </main>
 
 </body>
 </html>
 
+<script>
 
-
-
-
-Id	cp	numero	ville	voie	date	nombre de places	prix	action
+	btnShowAddForm.onclick = function() {
+		$("#addFormLogement").show();
+	}
+</script>

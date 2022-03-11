@@ -4,9 +4,6 @@
   <welcome-file-list>
     <welcome-file>home</welcome-file>
   </welcome-file-list>
-  <listener>
-    <listener-class>listeners.StartProject</listener-class>
-  </listener>
   <servlet>
     <description></description>
     <display-name>LogementController</display-name>
