@@ -5,4 +5,11 @@
     <welcome-file>Roadtrip.html</welcome-file>
   </welcome-file-list>
   
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <include-prelude>/habillage.jsp</include-prelude>
+    </jsp-property-group>
+  </jsp-config>
+    
 </web-app>
