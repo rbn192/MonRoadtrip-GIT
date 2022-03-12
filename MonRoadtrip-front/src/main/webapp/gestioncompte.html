@@ -1,81 +1,104 @@
+<head>
+<meta charset="utf-8">
+<title>Gestion du compte</title>
 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Gestion du compte</title>
-  </head>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+	crossorigin="anonymous"></script>
 
-  <body id="bodyGestionCompte">
+<link href="Style.css" rel="stylesheet">
 
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="Roadtrip.html">Accueil</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto"> </ul>
+</head>
 
-          <form class="form-inline mt-2 mt-md-0">
-            <a class="nav-link" href="gestioncompte.html" style="color: white">Connecté : Robin</a>
-            <a class="nav-link" href="gestionRoadtrip.html" style="color: white">Mes Roadtrips</a>
-            <a class="nav-link" href="connexion.html" style="color: white">Se déconnecter</a>
-          </form>
-        </div>
-      </nav>
-    </header>
+<body>
+	<div>
+		<header>
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+				<a class="navbar-brand" href="Roadtrip.html">Accueil</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarCollapse" aria-controls="navbarCollapse"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav mr-auto">
+					</ul>
 
-    <br>
+					<form class="form-inline mt-2 mt-md-0">
+						<a class="nav-link" href="gestioncompte.html" style="color: white">Connecté
+							: Robin</a> <a class="nav-link" href="gestioncompte.html"
+							style="color: white">Gérer mon compte</a> <a class="nav-link"
+							href="disconnect" style="color: white">Se déconnecter</a>
+					</form>
+				</div>
+			</nav>
+		</header>
 
-    <div id="gestionCompte">
-      <h1>Informations du compte :</h1>
+		<main class="mainGestion">
 
-      <form id=formGestionCompte>
+			<div>
+				<h2 class="titre" align="center">Informations du compte</h2>
+			</div>
 
-        <table id="infos">
-          <tr>
-            <td>Prenom:</td>
-            <td><input type="text" value="Robin"></td>
-            <td><input type="button" name="Modifier" value="Modifier"></td>
-          </tr>
-          <tr>
-            <td>Nom:</td>
-            <td><input type="text" value="Pierson"></td>
-            <td><input type="button" name="Modifier" value="Modifier"></td>
-          </tr>
-          <tr>
-            <td>Date de naissance:</td>
-            <td><input type="date" value="1997-03-18"></td>
-            <td><input type="button" name="Modifier" value="Modifier"></td>
-          </tr>
-          <tr>
-            <td>Email:</td>
-            <td><input type="text" value="client@client"></td>
-            <td><input type="button" name="Modifier" value="Modifier"></td>
-          </tr>
-          <tr>
-            <td>MDP:</td>
-            <td><input type="password" value="mdp123"></td>
-            <td><input type="button" name="Modifier" value="Modifier"></td>
-          </tr>
-          <tr>
-            <td>Type de compte:</td>
-            <td><input type="text" value="client" disabled="true"></td>
-          </tr>
-          <tr>
-            <td>Type de paiement:</td>
-            <td>
-              <select class="typeDePaiement" name="typeDePaiement">
-                <option value="1">Carte</option>
-                <option value="2">Paypal</option>
-              </select>
-            </td>
-          </tr>
-        </table>
-      </form>
-    </div>
-  </body>
-</html>
+
+			<form id=formGestionCompte>
+
+				<table id="infos">
+					<tr>
+						<td>Prenom:</td>
+						<td><input type="text" value="Robin"></td>
+						<td><input type="button" name="Modifier" value="Modifier"></td>
+					</tr>
+					<tr>
+						<td>Nom:</td>
+						<td><input type="text" value="Pierson"></td>
+						<td><input type="button" name="Modifier" value="Modifier"></td>
+					</tr>
+					<tr>
+						<td>Date de naissance:</td>
+						<td><input type="date" value="1997-03-18"></td>
+						<td><input type="button" name="Modifier" value="Modifier"></td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td><input type="text" value="client@client"></td>
+						<td><input type="button" name="Modifier" value="Modifier"></td>
+					</tr>
+					<tr>
+						<td>MDP:</td>
+						<td><input type="password" value="mdp123"></td>
+						<td><input type="button" name="Modifier" value="Modifier"></td>
+					</tr>
+					<tr>
+						<td>Type de compte:</td>
+						<td><input type="text" value="client" disabled="true"></td>
+					</tr>
+					<tr>
+						<td>Type de paiement:</td>
+						<td><select class="typeDePaiement" name="typeDePaiement">
+								<option value="1">Carte</option>
+								<option value="2">Paypal</option>
+						</select></td>
+					</tr>
+				</table>
+			</form>
+		</main>
+	</div>
+	<footer class="container">
+		<p class="float-right">
+			<a href="">Retour en haut</a>
+		</p>
+		<p>
+			&copy; 2022 - Mon road trip&middot; <a href="#">Confidentialité</a>
+		</p>
+	</footer>
+</body>
