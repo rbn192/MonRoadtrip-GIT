@@ -35,7 +35,7 @@ public class ConnexionController extends HttpServlet {
 		
 		if(connected instanceof Hote) {response.sendRedirect("gestionLogement");}
 
-		else if(connected instanceof Organisateur) {response.sendRedirect("organisateur.html");}//à modifier : gestionActivite.jsp
+		else if(connected instanceof Organisateur) {response.sendRedirect("gestionActivite");}
 		
 		else if(connected instanceof Client) {response.sendRedirect("gestionRoadtrip.html");}
 
