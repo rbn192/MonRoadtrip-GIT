@@ -64,6 +64,30 @@ public class Activite {
 		this.organisateur = organisateur;
 	}
 
+	public Activite(LocalDate date, LocalTime heure, double prix, Adresse adresse, String categorie, int nbPlaces,
+			Organisateur organisateur) {
+		this.date = date;
+		this.heure = heure;
+		this.prix = prix;
+		this.adresse = adresse;
+		this.categorie = categorie;
+		this.nbPlaces = nbPlaces;
+		this.organisateur = organisateur;
+	}
+
+
+	public Activite(Integer id, LocalDate date, LocalTime heure, double prix, Adresse adresse, String categorie,
+			int nbPlaces, Organisateur organisateur) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.heure = heure;
+		this.prix = prix;
+		this.adresse = adresse;
+		this.categorie = categorie;
+		this.nbPlaces = nbPlaces;
+		this.organisateur = organisateur;
+	}
 
 
 	public Integer getId() {

@@ -12,7 +12,7 @@
 	<c:redirect url="gestionLogement.jsp" />
 </c:if>
 <c:if test="${connected.getClass().getSimpleName()=='Organisateur'}">
-	<c:redirect url="organisateur.html" />
+	<c:redirect url="gestionActivite.jsp" />
 </c:if>
 
 <body id="bodyConnexion">

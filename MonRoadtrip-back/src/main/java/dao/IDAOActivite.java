@@ -7,7 +7,7 @@ import model.Activite;
 
 public interface IDAOActivite extends IDAO<Activite,Integer>{
 
-	List<Activite> findAllDisponibles();
+	public List<Activite> findAllDisponibles();
 
 
 }
