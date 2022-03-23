@@ -3,20 +3,20 @@ package util;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import dao.IDAOActivite;
-import dao.IDAOCompte;
-import dao.IDAOEtape;
-import dao.IDAOLogement;
-import dao.IDAOParticipant;
-import dao.IDAOReservation;
-import dao.IDAORoadtrip;
-import dao.jpa.DAOActivite;
-import dao.jpa.DAOCompte;
-import dao.jpa.DAOEtape;
-import dao.jpa.DAOLogement;
-import dao.jpa.DAOParticipant;
-import dao.jpa.DAOReservation;
-import dao.jpa.DAORoadtrip;
+import monRoadtrip.dao.IDAOActivite;
+import monRoadtrip.dao.IDAOCompte;
+import monRoadtrip.dao.IDAOEtape;
+import monRoadtrip.dao.IDAOLogement;
+import monRoadtrip.dao.IDAOParticipant;
+import monRoadtrip.dao.IDAOReservation;
+import monRoadtrip.dao.IDAORoadtrip;
+import monRoadtrip.dao.jpa.DAOActivite;
+import monRoadtrip.dao.jpa.DAOCompte;
+import monRoadtrip.dao.jpa.DAOEtape;
+import monRoadtrip.dao.jpa.DAOLogement;
+import monRoadtrip.dao.jpa.DAOParticipant;
+import monRoadtrip.dao.jpa.DAOReservation;
+import monRoadtrip.dao.jpa.DAORoadtrip;
 
 
 public class Context {

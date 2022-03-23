@@ -5,19 +5,19 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Activite;
-import model.Adresse;
-import model.Client;
-import model.Etape;
-import model.Hote;
-import model.Logement;
-import model.Organisateur;
-import model.Participant;
-import model.Reservation;
-import model.Roadtrip;
-import model.Statut;
-import model.Transport;
-import model.TypeDePaiement;
+import monRoadtrip.model.Activite;
+import monRoadtrip.model.Adresse;
+import monRoadtrip.model.Client;
+import monRoadtrip.model.Etape;
+import monRoadtrip.model.Hote;
+import monRoadtrip.model.Logement;
+import monRoadtrip.model.Organisateur;
+import monRoadtrip.model.Participant;
+import monRoadtrip.model.Reservation;
+import monRoadtrip.model.Roadtrip;
+import monRoadtrip.model.Statut;
+import monRoadtrip.model.Transport;
+import monRoadtrip.model.TypeDePaiement;
 import util.Context;
 
 public class Test {
