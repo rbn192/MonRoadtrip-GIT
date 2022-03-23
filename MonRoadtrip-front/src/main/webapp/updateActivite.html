@@ -1,8 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<!doctype html>
+
 
 <head>
-<title>Gestion des logements</title>
+<meta charset="utf-8">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="Style.css">
+<title>Gestion des activités</title>
 </head>
 
 <body>
@@ -21,7 +27,7 @@
 
 					<form class="form-inline mt-2 mt-md-0">
 						<a class="nav-link" href="gestioncompte.html" style="color: white">Connecté
-							: Lucie</a> <a class="nav-link" href="gestioncompte.html"
+							: Robin</a> <a class="nav-link" href="gestioncompte.html"
 							style="color: white">Gérer mon compte</a> <a class="nav-link"
 							href="disconnect" style="color: white">Se déconnecter</a>
 					</form>
@@ -29,59 +35,67 @@
 			</nav>
 		</header>
 
-		<main class="mainGestionLogement">
+		<main class="mainGestionActivite">
 
-			<div id="updateLogement">
-				<h3 class="titre" align="center">Modification du logement</h3>
+			<div id="updateActivite">
+				<h3 class="titre" align="center">Modification de l'activité</h3>
 
-				<form id="formGestionLogement" method="post"
-					action="gestionLogement">
-					<input type="hidden" name="tache" value="update"> <input
-						type="hidden" name="id" value="${logement.id}">
+				<form id=formGestionActivite>
 
 					<table id="infos">
 						<tr>
 							<td>Numero :</td>
-							<td><input name="numero" type="text"
-								value="${logement.adresse.numero}"></td>
-
+							<td><input type="text" value="1"></td>
 						</tr>
 						<tr>
 							<td>Voie :</td>
-							<td><input name="voie" type="text"
-								value="${logement.adresse.voie}"></td>
+							<td><input type="text" value="rue des peupliers"></td>
 						</tr>
 						<tr>
 							<td>Ville :</td>
-							<td><input name="ville" type="text"
-								value="${logement.adresse.ville}"></td>
+							<td><input type="text" value="Paris"></td>
 						</tr>
 						<tr>
 							<td>CP :</td>
-							<td><input name="cp" type="text"
-								value="${logement.adresse.cp}"></td>
+							<td><input type="text" value="75000"></td>
+						</tr>
+						<tr>
+							<td>Catégorie :</td>
+							<td><input type="text" value="Rando"></td>
 						</tr>
 						<tr>
 							<td>Date :</td>
-							<td><input name="date" type="date" value="${logement.date}"></td>
+							<td><input type="date"></td>
+						</tr>
+						<tr>
+							<td>Heure :</td>
+							<td><input type="time"></td>
 						</tr>
 						<tr>
 							<td>Nombre de places :</td>
-							<td><input name="nbPlaces" type="number"
-								value="${logement.nbPlaces}" min=0 max=99></td>
+							<td><input type="number" value="4"></td>
 						</tr>
 						<tr>
 							<td>Prix :</td>
-							<td><input name="prix" type="number"
-								value="${logement.prix}" min=0 max=999 step=0.01> €</td>
+							<td><input type="number" placeholder="prix" value="20" min=0
+								max=999 step=0.01> €</td>
+						</tr>
+
+						<tr>
+							<td>Catégorie de l'activité :</td>
+							<td><select class="categorie" name="categorie">
+									<option value="1">Randonnée</option>
+									<option value="2">Musée</option>
+									<option value="3">Restaurant</option>
+							</select></td>
 						</tr>
 					</table>
-
+					
 					<br>
 
 					<div class="form-row">
 						<div class="form-group col-lg-4">
-							<a href="gestionLogement"><button type="button"
+							<a href="gestionActivite"><button type="button"
 									class="btn btn-warning btnUpdate">Annuler</button></a>
 						</div>
 						<div class="form-group col-lg-8">
@@ -92,7 +106,6 @@
 			</div>
 		</main>
 	</div>
-
 	<footer class="container">
 		<p class="float-right">
 			<a href="">Retour en haut</a>

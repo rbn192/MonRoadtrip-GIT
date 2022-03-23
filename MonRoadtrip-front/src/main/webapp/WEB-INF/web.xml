@@ -2,10 +2,14 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>MonRoadtrip-front</display-name>
   <welcome-file-list>
-    <welcome-file>home</welcome-file>
+    <welcome-file>Roadtrip.html</welcome-file>
   </welcome-file-list>
- 
-  <listener>
-    <listener-class>listeners.StartProject</listener-class>
-  </listener>
+  
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <include-prelude>/habillage.jsp</include-prelude>
+    </jsp-property-group>
+  </jsp-config>
+    
 </web-app>
