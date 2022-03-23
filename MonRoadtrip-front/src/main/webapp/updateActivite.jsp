@@ -1,13 +1,7 @@
-<!doctype html>
-
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 
 <head>
-<meta charset="utf-8">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="Style.css">
 <title>Gestion des activités</title>
 </head>
 
@@ -40,57 +34,58 @@
 			<div id="updateActivite">
 				<h3 class="titre" align="center">Modification de l'activité</h3>
 
-				<form id=formGestionActivite>
+				<form id="formGestionActivite" method="post"
+					action="gestionActivite">
+					<input type="hidden" name="tache" value="update"> <input
+						type="hidden" name="id" value="${activite.id}">
 
 					<table id="infos">
 						<tr>
 							<td>Numero :</td>
-							<td><input type="text" value="1"></td>
+							<td><input name="numero" type="text"
+								value="${activite.adresse.numero}"></td>
+
 						</tr>
 						<tr>
 							<td>Voie :</td>
-							<td><input type="text" value="rue des peupliers"></td>
+							<td><input name="voie" type="text"
+								value="${activite.adresse.voie}"></td>
 						</tr>
 						<tr>
 							<td>Ville :</td>
-							<td><input type="text" value="Paris"></td>
+							<td><input name="ville" type="text"
+								value="${activite.adresse.ville}"></td>
 						</tr>
 						<tr>
 							<td>CP :</td>
-							<td><input type="text" value="75000"></td>
+							<td><input name="cp" type="text"
+								value="${activite.adresse.cp}"></td>
 						</tr>
 						<tr>
 							<td>Catégorie :</td>
-							<td><input type="text" value="Rando"></td>
+							<td><input name="categorie" type="text"
+								value="${activite.categorie}"></td>
 						</tr>
 						<tr>
 							<td>Date :</td>
-							<td><input type="date"></td>
+							<td><input name="date" type="date" value="${activite.date}"></td>
 						</tr>
 						<tr>
 							<td>Heure :</td>
-							<td><input type="time"></td>
+							<td><input name="heure" type="time" value="${activite.heure}"></td>
 						</tr>
 						<tr>
 							<td>Nombre de places :</td>
-							<td><input type="number" value="4"></td>
+							<td><input name="nbPlaces" type="number"
+								value="${activite.nbPlaces}" min=0 max=99></td>
 						</tr>
 						<tr>
 							<td>Prix :</td>
-							<td><input type="number" placeholder="prix" value="20" min=0
-								max=999 step=0.01> €</td>
-						</tr>
-
-						<tr>
-							<td>Catégorie de l'activité :</td>
-							<td><select class="categorie" name="categorie">
-									<option value="1">Randonnée</option>
-									<option value="2">Musée</option>
-									<option value="3">Restaurant</option>
-							</select></td>
+							<td><input name="prix" type="number"
+								value="${activite.prix}" min=0 max=999 step=0.01> €</td>
 						</tr>
 					</table>
-					
+
 					<br>
 
 					<div class="form-row">
@@ -106,6 +101,7 @@
 			</div>
 		</main>
 	</div>
+
 	<footer class="container">
 		<p class="float-right">
 			<a href="">Retour en haut</a>
