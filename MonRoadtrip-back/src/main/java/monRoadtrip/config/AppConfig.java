@@ -52,8 +52,8 @@ public class AppConfig {
 	private Properties jpaProperties() {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
-		properties.setProperty("hibernate.hbm2ddl.auto", "validate"); //validate, create, update
-		properties.setProperty("hibernate.show_sql", "true");
+		properties.setProperty("hibernate.hbm2ddl.auto", "update"); //validate, create, update
+		properties.setProperty("hibernate.show_sql", "false");
 		properties.setProperty("hibernate.format_sql", "true");
 		return properties;
 	}
