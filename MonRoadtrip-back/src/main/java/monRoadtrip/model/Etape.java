@@ -14,11 +14,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Etape {
 
+	@JsonView(JsonViews.Common.class)
 	private int duree;
+	@JsonView(JsonViews.Common.class)
 	private LocalDate date;
+	@JsonView(JsonViews.Common.class)
 	private String ville;
 	
 	@OneToMany
@@ -31,10 +36,12 @@ public class Etape {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_logement")
+	@JsonView(JsonViews.Common.class)
 	private Logement logement;
 	
 	@ManyToOne
 	@JoinColumn(name="id_reservation_fk")
+	@JsonView(JsonViews.Common.class)
 	private Reservation reservation;
 	
 	@Id
