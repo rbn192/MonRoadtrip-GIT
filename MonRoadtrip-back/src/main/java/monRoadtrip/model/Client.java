@@ -19,6 +19,8 @@ import com.fasterxml.jackson.annotation.JsonView;
 public class Client extends Compte {
 	
     private double solde;
+    
+    @JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('Carte','Paypal')", name="type_de_paiement")
     private TypeDePaiement typeDePaiement;
