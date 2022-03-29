@@ -37,8 +37,6 @@ public class ReservationService {
 
 	public void delete(Integer id) {
 		delete(getById(id));
-	}
-
-		
+	}		
 
 }
