@@ -1,5 +1,11 @@
 package monRoadtrip.exceptions;
 
-public class ClientException {
+public class ClientException extends RuntimeException {
+	public ClientException() {
 
+	}
+
+	public ClientException(String message) {
+		super(message);
+	}
 }

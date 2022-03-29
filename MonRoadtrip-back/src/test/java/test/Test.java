@@ -24,7 +24,8 @@ public class Test {
 
 	public static void main(String[] args) {
 		
-		Client client = new Client("Vincent","Emilie","emilie@gmail.com","password",LocalDate.parse("1997-06-13"),null,500,TypeDePaiement.Carte);
+		Adresse adresse = new Adresse("13","rue des peupliers","44000","Nantes");
+		Client client = new Client("Vincent","Emilie","emilie@gmail.com","password",LocalDate.parse("1997-06-13"),null,500,TypeDePaiement.Carte, adresse);
 		
 		client = (Client) Context.getSingleton().getDaoCompte().save(client);
 
@@ -32,7 +33,7 @@ public class Test {
 		hote = (Hote) Context.getSingleton().getDaoCompte().save(hote);
 		Organisateur organisateur = new Organisateur("Pierson","Robin","robin@gmail.com","password",LocalDate.parse("1997-03-18"));
 		
-		Adresse adresse = new Adresse("13","rue des peupliers","44000","Nantes");
+		
 
 		Hote hote2 = (Hote) Context.getSingleton().getDaoCompte().findById(2);
 		Logement l1 = new Logement(LocalDate.now(),130,adresse,4,10,hote2);
