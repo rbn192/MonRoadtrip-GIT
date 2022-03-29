@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Activite;
-import model.Adresse;
-import model.Compte;
-import model.Organisateur;
+import monRoadtrip.model.Activite;
+import monRoadtrip.model.Adresse;
+import monRoadtrip.model.Compte;
+import monRoadtrip.model.Organisateur;
 import util.Context;
 
 @WebServlet("/gestionActivite")
