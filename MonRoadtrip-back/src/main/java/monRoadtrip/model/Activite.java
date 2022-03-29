@@ -2,6 +2,7 @@ package monRoadtrip.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Version;
 
 @Entity
 public class Activite {
@@ -32,7 +34,8 @@ public class Activite {
 	@JoinColumn(name="id_organisateur_fk")
 	private Organisateur organisateur;
 
-	// étape ?
+	@Version
+	private int version;
 
 	public Activite() {
 	}
@@ -52,7 +55,6 @@ public class Activite {
 
 	public Activite(Integer id, LocalDate date, LocalTime heure, double prix, Adresse adresse, String categorie,
 			int nbPlaces, int note, Organisateur organisateur) {
-		super();
 		this.id = id;
 		this.date = date;
 		this.heure = heure;
@@ -78,7 +80,6 @@ public class Activite {
 
 	public Activite(Integer id, LocalDate date, LocalTime heure, double prix, Adresse adresse, String categorie,
 			int nbPlaces, Organisateur organisateur) {
-		super();
 		this.id = id;
 		this.date = date;
 		this.heure = heure;
@@ -147,6 +148,12 @@ public class Activite {
 	public void setOrganisateur(Organisateur organisateur) {
 		this.organisateur = organisateur;
 	}
+	public int getVersion() {
+		return version;
+	}
+	public void setVersion(int version) {
+		this.version = version;
+	}
 
 	@Override
 	public String toString() {
@@ -155,6 +162,21 @@ public class Activite {
 				+ organisateur + "]";
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Activite other = (Activite) obj;
+		return Objects.equals(id, other.id);
+	}
 
 }
