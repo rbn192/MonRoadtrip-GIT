@@ -22,4 +22,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Intege
 	@Transactional
 	@Query("delete from Reservation r where r.participant=:participant")
 	void deleteByParticipant(@Param("participant") Participant participant);
+	
+	@Query("select r from Reservation r where r.client=:client")
+	void getAllByClient(@Param("client") Client client);
 }
