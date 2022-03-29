@@ -86,23 +86,17 @@ public class LogementRestController {
 				logement.setDate(LocalDate.of(dateRecuperee.get(0), dateRecuperee.get(1), dateRecuperee.get(2)));
 			} else if (k.equals("hote")) {
 					String value = v.toString();
-					System.out.println(value);
 					Hote hote = new Hote();
 					hote.setId(Integer.parseInt(value.substring(value.indexOf("=") + 1, value.length() - 1)));
 					logement.setHote(hote);
 				} else if (k.equals("adresse")) {
-					System.out.println(v.toString().indexOf("numero"));
-					String value = v.toString().substring(1, v.toString().length()-1);
-					
+					String value = v.toString().substring(1, v.toString().length()-1);		
 					HashMap<String, String> map = (HashMap<String, String>) Arrays.asList(value.split(",")).stream().map(s -> s.split("=")).collect(Collectors.toMap(e -> e[0], e -> e[1]));
-					System.out.println(value);
-					System.out.println(map);
 					map.forEach((key,val) -> {
 						Field field = ReflectionUtils.findField(Adresse.class, key.trim());
 						ReflectionUtils.makeAccessible(field);
 						ReflectionUtils.setField(field, adresse, val);
 					});
-					System.out.println(adresse);
 					logement.setAdresse(adresse);
 				}
 			else {
