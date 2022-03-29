@@ -15,23 +15,33 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+
 
 @Entity
 public class Logement {
 
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private LocalDate date;
+	@JsonView(JsonViews.Common.class)
+	private LocalDate date;	
+	@JsonView(JsonViews.Common.class)
 	private double prix;
 	@Embedded
+	@JsonView(JsonViews.Common.class)
 	private Adresse adresse;
+	@JsonView(JsonViews.Common.class)
 	@Column(name = "nb_places")
 	private int nbPlaces;
+	@JsonView(JsonViews.Common.class)
 	private int note; //1-10
 	
 	@ManyToOne
 	@JoinColumn(name="id_hote_fk")
+	@JsonView(JsonViews.Common.class)
 	private Hote hote;
 	
 	@OneToMany (mappedBy = "logement")

@@ -19,6 +19,7 @@ import monRoadtrip.model.Reservation;
 import monRoadtrip.model.Roadtrip;
 import monRoadtrip.model.Statut;
 import monRoadtrip.repositories.ReservationRepository;
+import monRoadtrip.services.ClientService;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {AppConfig.class})
@@ -27,13 +28,16 @@ class ReservationRepositoryTest {
 	@Autowired
 	ReservationRepository reservationRepository;
 	
+	@Autowired
+	ClientService clientService;
+	
 	@Test
 	@Transactional
 	void insertTest() {
 		Participant participant = new Participant("Sati", "Chaymae", 26);
 		Roadtrip roadtrip = new Roadtrip("Nantes", "Strasbourg", LocalDate.parse("2022-06-25"), LocalDate.parse("2022-07-18"), null, null);
-		Client client = new Client("Sati","Chaymae",null, null, null);
-		System.out.println(client);
+		Client client = new Client("Sati","Chaymae","chaymae@gmail.com","client",LocalDate.parse("1996-07-13"));
+		clientService.create(client);
 		
 		Reservation reservation = new Reservation(LocalDate.parse("2022-03-29"),Statut.A_venir,participant, roadtrip, client);
 		reservationRepository.save(reservation);
