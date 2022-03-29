@@ -10,12 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Activite;
-import model.Adresse;
-import model.Client;
-import model.Compte;
-import model.Hote;
-import model.Logement;
+import monRoadtrip.model.Adresse;
+import monRoadtrip.model.Hote;
+import monRoadtrip.model.Logement;
 import util.Context;
 
 @WebServlet("/gestionLogement")
