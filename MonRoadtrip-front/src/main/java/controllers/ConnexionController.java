@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Client;
-import model.Compte;
-import model.Hote;
-import model.Organisateur;
+import monRoadtrip.model.Client;
+import monRoadtrip.model.Compte;
+import monRoadtrip.model.Hote;
+import monRoadtrip.model.Organisateur;
 import util.Context;
 
 @WebServlet("/connexion")
