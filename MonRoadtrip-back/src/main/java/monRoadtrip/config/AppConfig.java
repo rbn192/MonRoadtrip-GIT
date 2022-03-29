@@ -21,8 +21,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @PropertySource("classpath:infos.properties")
 @EnableTransactionManagement
-@ComponentScan({ "monroadtrip.dao","monroadtrip.services" })
-@EnableJpaRepositories({ "monroadtrip.repositories" })
+@ComponentScan({ "monRoadtrip.dao","monRoadtrip.services" })
+@EnableJpaRepositories({ "monRoadtrip.repositories" })
 public class AppConfig {
 	
 
@@ -43,7 +43,7 @@ public class AppConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(BasicDataSource dataSource) {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(dataSource);
-		emf.setPackagesToScan("monroadtrip.model");
+		emf.setPackagesToScan("monRoadtrip.model");
 		emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		emf.setJpaProperties(jpaProperties());
 		return emf;
@@ -51,9 +51,9 @@ public class AppConfig {
 
 	private Properties jpaProperties() {
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL10Dialect");
-		properties.setProperty("hibernate.hbm2ddl.auto", "validate");
-		properties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
+		properties.setProperty("hibernate.hbm2ddl.auto", "validate"); //validate, create, update
+		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.format_sql", "true");
 		return properties;
 	}
