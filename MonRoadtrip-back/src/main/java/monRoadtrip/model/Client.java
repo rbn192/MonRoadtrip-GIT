@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -20,25 +21,30 @@ public class Client extends Compte {
 	
 	@OneToMany (mappedBy = "client")
 	private List<Reservation> reservations;
+	
+	@Embedded
+	private Adresse adresse;
     
 	public Client() {
 		
 	}
 	
 	public Client(String nom, String prenom, String mail, String password, LocalDate dateNaissance, List<Reservation> reservations, double solde,
-			TypeDePaiement typeDePaiement) {
+			TypeDePaiement typeDePaiement, Adresse adresse) {
 		super(nom, prenom, mail, password, dateNaissance);
 		this.reservations = reservations;
 		this.solde = solde;
 		this.typeDePaiement = typeDePaiement;
+		this.adresse = adresse;
 	}
 	
 	public Client(Integer id, String nom, String prenom, String mail, String password, LocalDate dateNaissance, List<Reservation> reservations, double solde,
-			TypeDePaiement typeDePaiement) {
+			TypeDePaiement typeDePaiement, Adresse adresse) {
 		super(id, nom, prenom, mail, password, dateNaissance);
 		this.reservations = reservations;
 		this.solde = solde;
 		this.typeDePaiement = typeDePaiement;
+		this.adresse = adresse;
 	}
 	
 	public Client(String nom, String prenom, String mail, String password, LocalDate dateNaissance) {
@@ -71,6 +77,14 @@ public class Client extends Compte {
 
 	public void setTypeDePaiement(TypeDePaiement typeDePaiement) {
 		this.typeDePaiement = typeDePaiement;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 
 	@Override

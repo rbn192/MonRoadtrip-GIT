@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Version;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -27,6 +28,9 @@ public abstract class Compte {
     protected String password;
     @Column(name="date_naissance")
     protected LocalDate dateNaissance;
+    
+    @Version
+    protected int version;
     
     public Compte() {
 	}
