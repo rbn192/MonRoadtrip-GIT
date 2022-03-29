@@ -1,7 +1,6 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.time.LocalDate;
@@ -38,6 +37,7 @@ public class ClientServiceTest {
 	
 	@Test
 	@Transactional
+	@Rollback
 	void insertTest() {
 		Client c = new Client("Pierson","Robin", "r@r", "123", LocalDate.of(2022, 3, 29), null, 20, TypeDePaiement.Carte, new Adresse("1","rue Jean","91180","Arpajon"));
 		clientService.create(c);
@@ -46,6 +46,7 @@ public class ClientServiceTest {
 	
 	@Test
 	@Transactional
+	@Rollback
 	void deleteTest() {
 		Client c = new Client("Pierson","Robin", "r@r", "123", LocalDate.of(2022, 3, 29), null, 20, TypeDePaiement.Carte, new Adresse("1","rue Jean","91180","Arpajon"));
 		clientService.create(c);
