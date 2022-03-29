@@ -23,12 +23,14 @@ import monRoadtrip.model.Client;
 import monRoadtrip.model.TypeDePaiement;
 import monRoadtrip.services.ClientService;
 
+
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { AppConfig.class })
 public class ClientServiceTest {
 
 	@Autowired
 	ClientService clientService;
+
 	
 	@Test
 	void injectionTest() {
@@ -42,6 +44,8 @@ public class ClientServiceTest {
 		Client c = new Client("Pierson","Robin", "r@r", "123", LocalDate.of(2022, 3, 29), null, 20, TypeDePaiement.Carte, new Adresse("1","rue Jean","91180","Arpajon"));
 		clientService.create(c);
 		System.out.println(c.getId());
+		//System.out.println(clientService.getAll());
+
 	}
 	
 	@Test

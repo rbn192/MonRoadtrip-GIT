@@ -13,11 +13,15 @@ import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @SequenceGenerator(name = "seqCompteJPA",sequenceName = "seqCompte")
 public abstract class Compte {
 
+	@JsonView(JsonViews.Common.class)
 	@Id
 	//@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqCompteJPA")
 	@GeneratedValue(strategy = GenerationType.TABLE)

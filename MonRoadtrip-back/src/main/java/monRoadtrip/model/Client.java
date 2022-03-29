@@ -10,6 +10,10 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+
 @Entity
 @PrimaryKeyJoinColumn(name="id_compte_fk")
 public class Client extends Compte {
@@ -22,6 +26,7 @@ public class Client extends Compte {
 	@OneToMany (mappedBy = "client")
 	private List<Reservation> reservations;
 	
+	@JsonView(JsonViews.Common.class)
 	@Embedded
 	private Adresse adresse;
     
