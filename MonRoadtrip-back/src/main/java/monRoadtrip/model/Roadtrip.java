@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -12,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Version;
 
 @Entity
 public class Roadtrip {
@@ -36,6 +36,9 @@ public class Roadtrip {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Version
+	private int version;
+
 	
 	public Roadtrip() {}
 	
@@ -123,6 +126,18 @@ public class Roadtrip {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
+	
+	
+	public int getVersion() {
+		return version;
+	}
+
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
 
 	@Override
 	public String toString() {
