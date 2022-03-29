@@ -61,8 +61,11 @@ public class AppConfig {
 	
 	@Bean
 	public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
-		return new JpaTransactionManager(entityManagerFactory);
+		JpaTransactionManager transactionManager = new JpaTransactionManager();
+		transactionManager.setEntityManagerFactory(entityManagerFactory);
+		return transactionManager;
 	}
+	
 
 	@Bean
 	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
