@@ -1,4 +1,4 @@
-package monRoadTrip.test;
+package test.monRoadtrip;
 
 import java.time.LocalDate;
 import java.util.Arrays;

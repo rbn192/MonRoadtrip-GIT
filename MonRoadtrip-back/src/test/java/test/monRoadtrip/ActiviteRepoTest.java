@@ -1,4 +1,4 @@
-package test;
+package test.monRoadtrip;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
