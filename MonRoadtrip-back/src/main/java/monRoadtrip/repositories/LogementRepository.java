@@ -16,5 +16,8 @@ public interface LogementRepository extends JpaRepository<Logement, Integer>{
 	@Transactional
 	@Query("delete from Logement l where l.hote=:hote")
 	void deleteByHote(@Param("hote") Hote hote);
+	
+	@Query("select l from Logement l where l.hote=:hote")
+	void getAllByHote(@Param("hote") Hote hote);
 
 }
