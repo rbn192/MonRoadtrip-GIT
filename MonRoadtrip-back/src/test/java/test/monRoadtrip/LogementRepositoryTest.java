@@ -1,4 +1,4 @@
-package monRoadTrip.test;
+package test.monRoadtrip;
 
 import java.time.LocalDate;
 
