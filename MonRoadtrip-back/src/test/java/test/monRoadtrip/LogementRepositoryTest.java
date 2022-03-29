@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,7 @@ import monRoadtrip.model.Adresse;
 import monRoadtrip.model.Hote;
 import monRoadtrip.model.Logement;
 import monRoadtrip.repositories.LogementRepository;
+import monRoadtrip.services.ClientService;
 import monRoadtrip.services.LogementService;
 
 @ExtendWith(SpringExtension.class)
@@ -25,13 +27,19 @@ class LogementRepositoryTest {
 	
 	@Autowired
 	LogementService logementService;
+	
+	@Autowired
+	ClientService clientService;
 
 	@Test
 	@Transactional
+	@Commit
 	void insertTest() {
 		
 		Adresse adresse = new Adresse("13","rue des peupliers","44000","Nantes");
 		Hote hote = new Hote("Pierson","Robin","robin@gmail.com","hote",LocalDate.parse("1997-03-17"));
+		
+		
 		Logement logement = new Logement(LocalDate.parse("2022-07-26"), 100, adresse, 0, hote);
 		
 		logementRepository.save(logement);
