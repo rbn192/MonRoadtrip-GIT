@@ -1,14 +1,20 @@
 package monRoadtrip.restcontroller;
 
+import java.lang.reflect.Field;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.util.ReflectionUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -64,7 +70,22 @@ public class EtapeRestController {
 		return etapeService.save(etape);
 	}
 	
-	//partial update TO DO	
+	@JsonView({JsonViews.Common.class})
+	@PatchMapping("/{id}") //pour l'update partielle d'un objet
+	public Etape partialUpdate(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
+		Etape etape = etapeService.getById(id);
+		fields.forEach((key,value)->{
+			if(key.equals("date")) {
+				List<Integer> dateRecuperee = (List<Integer>) value;
+				etape.setDate(LocalDate.of(dateRecuperee.get(0), dateRecuperee.get(1), dateRecuperee.get(2)));
+			} else {
+			Field field = ReflectionUtils.findField(Etape.class, key);
+			ReflectionUtils.makeAccessible(field);
+			ReflectionUtils.setField(field, etape, value);
+			}
+		});
+		return etapeService.save(etape);
+	}
 	
 	@JsonView({JsonViews.Common.class})
 	@DeleteMapping("/{id}")
