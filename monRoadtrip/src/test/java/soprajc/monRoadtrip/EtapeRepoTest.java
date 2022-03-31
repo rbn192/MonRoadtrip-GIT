@@ -10,30 +10,27 @@ import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import monRoadtrip.config.AppConfig;
 import soprajc.monRoadtrip.model.Activite;
 import soprajc.monRoadtrip.model.Adresse;
 import soprajc.monRoadtrip.model.Etape;
 import soprajc.monRoadtrip.services.EtapeService;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {AppConfig.class})
+@SpringBootTest
 class EtapeRepoTest {
 
 	@Autowired
 	EtapeService etapeService;	
 	
+	@Disabled
 	@Test
 	@Transactional
-//	@Commit
-	@Rollback
+	@Commit
+//	@Rollback
 	void creationEtapeTest() {
 		Adresse adresse = new Adresse("1", "rue", "11000", "Ville");
 		List<Activite> activites = new ArrayList();
@@ -45,16 +42,17 @@ class EtapeRepoTest {
 	@Disabled
 	@Test
 	@Transactional
-//	@Commit
+	@Commit
 	void deleteEtapeTest() {
-		etapeService.deleteById(4);
+		etapeService.deleteById(1);
 	}
 	
+//	@Disabled
 	@Test
 	@Transactional
 	@Commit
 	void addActiviteTest() {
-		etapeService.addActivite(etapeService.getById(4), 1);
-		System.out.println(etapeService.getById(4));
+		etapeService.addActivite(etapeService.getById(2), 1);
+		System.out.println(etapeService.getById(2));
 	}
 }
