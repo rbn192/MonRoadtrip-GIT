@@ -4,22 +4,19 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import monRoadtrip.config.AppConfig;
 import soprajc.monRoadtrip.model.Adresse;
+import soprajc.monRoadtrip.model.Client;
 import soprajc.monRoadtrip.model.Hote;
 import soprajc.monRoadtrip.model.Logement;
 import soprajc.monRoadtrip.repositories.LogementRepository;
 import soprajc.monRoadtrip.services.CompteService;
 import soprajc.monRoadtrip.services.LogementService;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {AppConfig.class})
+@SpringBootTest
 class LogementRepositoryTest {
 	
 	@Autowired

@@ -9,19 +9,16 @@ import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import monRoadtrip.config.AppConfig;
 import soprajc.monRoadtrip.model.Activite;
 import soprajc.monRoadtrip.model.Adresse;
 import soprajc.monRoadtrip.services.ActiviteService;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {AppConfig.class})
+@SpringBootTest
 class ActiviteRepoTest {
 
 	@Autowired
@@ -29,16 +26,17 @@ class ActiviteRepoTest {
 	
 	@Test
 	@Transactional
-//	@Commit
-	@Rollback
-	@Disabled
+	@Commit
+//	@Rollback
+//	@Disabled
 	void creationActiviteTest() {
-		Adresse adresse = new Adresse("1", "rue", "11000", "Ville");
+		Adresse adresse = new Adresse("1", "rue", "11000", "Ville123");
 		Activite a = new Activite(LocalDate.of(2022, 03, 30), LocalTime.of(14, 0), 150, adresse, "visite", 4, null);
 		activiteService.save(a);
 		assertNotNull(a.getNbPlaces());
 	}
 	
+	@Disabled
 	@Test
 	@Transactional
 //	@Commit
