@@ -7,12 +7,13 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import monRoadtrip.exceptions.ParticipantException;
 import monRoadtrip.model.Participant;
 import monRoadtrip.repositories.ParticipantRepository;
 
-
+@Service
 public class ParticipantService {
 
 	@Autowired
@@ -24,7 +25,7 @@ public class ParticipantService {
 	public List<Participant> getAll() {
 		return participantRepo.findAll();
 	}
-
+	
 	public Participant getById(Integer id) {
 		return participantRepo.findById(id).orElseThrow(ParticipantException::new);
 	}

@@ -7,13 +7,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Version;
+import javax.validation.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class Participant {
 
+	@JsonView(JsonViews.Common.class)
+	@NotEmpty
 	private String nom;
+	
+	@JsonView(JsonViews.Common.class)
+	@NotEmpty
 	private String prenom;
+	
+	@JsonView(JsonViews.Common.class)
 	private int age;
+	
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;

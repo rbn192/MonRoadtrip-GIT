@@ -14,25 +14,38 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Roadtrip {
 	
+	@JsonView(JsonViews.Common.class)
 	@Column(name="depart_lieu")
 	private String departLieu;
+	
+	@JsonView(JsonViews.Common.class)
 	private String destination;
+	
+	@JsonView(JsonViews.Common.class)
 	@Column(name="date_depart")
 	private LocalDate dateDepart;
+	
+	@JsonView(JsonViews.Common.class)
 	@Column(name="date_arrivee")
 	private LocalDate dateArrivee;
+	
+	@JsonView(JsonViews.Common.class)
 	private Double prix;
 	
 	@OneToMany(mappedBy = "roadTrip")
 	private List<Reservation> reservations;
 	
+	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('Voiture','Moto','Bus','Train','Avion')")
 	private Transport transport;
 	
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
