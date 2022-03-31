@@ -1,0 +1,24 @@
+server:
+  servlet:
+    context-path: /monroadtrip
+spring:
+  datasource:
+    dbcp2:
+      initial-size: 5
+      max-total: 10
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password:
+    url: jdbc:mysql://localhost:3306/mon_roadtrip?serverTimezone=UTC
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        show_sql: false
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp

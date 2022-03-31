@@ -1,9 +1,8 @@
-package test.monRoadtrip;
+package soprajc.monRoadtrip;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,10 +18,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import monRoadtrip.config.AppConfig;
-import monRoadtrip.model.Activite;
-import monRoadtrip.model.Adresse;
-import monRoadtrip.model.Etape;
-import monRoadtrip.services.EtapeService;
+import soprajc.monRoadtrip.model.Activite;
+import soprajc.monRoadtrip.model.Adresse;
+import soprajc.monRoadtrip.model.Etape;
+import soprajc.monRoadtrip.services.EtapeService;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {AppConfig.class})

@@ -1,4 +1,4 @@
-package monRoadtrip.restcontroller;
+package soprajc.monRoadtrip.restcontroller;
 
 import java.lang.reflect.Field;
 import java.time.LocalDate;
@@ -28,13 +28,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import monRoadtrip.exceptions.ActiviteException;
-import monRoadtrip.model.Activite;
-import monRoadtrip.model.Adresse;
-import monRoadtrip.model.Compte;
-import monRoadtrip.model.JsonViews;
-import monRoadtrip.services.ActiviteService;
-import monRoadtrip.services.CompteService;
+import soprajc.monRoadtrip.exceptions.ActiviteException;
+import soprajc.monRoadtrip.model.Activite;
+import soprajc.monRoadtrip.model.Adresse;
+import soprajc.monRoadtrip.model.JsonViews;
+import soprajc.monRoadtrip.services.ActiviteService;
+import soprajc.monRoadtrip.services.CompteService;
 
 @RestController
 @RequestMapping("/api/activite")

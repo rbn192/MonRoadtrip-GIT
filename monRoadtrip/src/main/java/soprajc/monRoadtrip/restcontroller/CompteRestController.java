@@ -1,4 +1,4 @@
-package monRoadtrip.restcontroller;
+package soprajc.monRoadtrip.restcontroller;
 
 import java.lang.reflect.Field;
 import java.time.LocalDate;
@@ -26,12 +26,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import monRoadtrip.exceptions.CompteException;
-import monRoadtrip.model.Adresse;
-import monRoadtrip.model.Client;
-import monRoadtrip.model.Compte;
-import monRoadtrip.model.JsonViews;
-import monRoadtrip.services.CompteService;
+
+import soprajc.monRoadtrip.exceptions.CompteException;
+import soprajc.monRoadtrip.model.Adresse;
+import soprajc.monRoadtrip.model.Client;
+import soprajc.monRoadtrip.model.Compte;
+import soprajc.monRoadtrip.model.JsonViews;
+import soprajc.monRoadtrip.services.CompteService;
 
 @RestController
 @RequestMapping("/api/compte")

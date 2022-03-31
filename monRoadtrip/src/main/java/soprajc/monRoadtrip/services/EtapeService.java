@@ -1,15 +1,15 @@
-package monRoadtrip.services;
+package soprajc.monRoadtrip.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import monRoadtrip.exceptions.EtapeException;
-import monRoadtrip.model.Activite;
-import monRoadtrip.model.Etape;
-import monRoadtrip.model.Logement;
-import monRoadtrip.repositories.EtapeRepository;
+import soprajc.monRoadtrip.exceptions.EtapeException;
+import soprajc.monRoadtrip.model.Activite;
+import soprajc.monRoadtrip.model.Etape;
+import soprajc.monRoadtrip.model.Logement;
+import soprajc.monRoadtrip.repositories.EtapeRepository;
 
 @Service
 public class EtapeService {
