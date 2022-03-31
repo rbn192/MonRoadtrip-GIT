@@ -5,13 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import monRoadtrip.config.AppConfig;
+import soprajc.monRoadtrip.model.Client;
 import soprajc.monRoadtrip.model.Participant;
 import soprajc.monRoadtrip.model.Reservation;
 import soprajc.monRoadtrip.model.Roadtrip;
@@ -19,8 +17,7 @@ import soprajc.monRoadtrip.model.Statut;
 import soprajc.monRoadtrip.repositories.ReservationRepository;
 import soprajc.monRoadtrip.services.ClientService;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {AppConfig.class})
+@SpringBootTest
 class ReservationRepositoryTest {
 	
 	@Autowired
