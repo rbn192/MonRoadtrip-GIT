@@ -2,12 +2,18 @@ package monRoadtrip.model;
 
 import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Embeddable
 public class Adresse {
 
+	@JsonView(JsonViews.Common.class)
 	protected String numero;
+	@JsonView(JsonViews.Common.class)
 	protected String voie;
+	@JsonView(JsonViews.Common.class)
 	protected String cp;
+	@JsonView(JsonViews.Common.class)
 	protected String ville;
 	
 	public Adresse() {

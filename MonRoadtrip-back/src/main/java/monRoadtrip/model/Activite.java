@@ -14,22 +14,31 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Activite {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@JsonView(JsonViews.Common.class)
 	private LocalDate date;
+	@JsonView(JsonViews.Common.class)
 	private LocalTime heure;
+	@JsonView(JsonViews.Common.class)
 	private double prix;
+	@JsonView(JsonViews.Common.class)
 	@Embedded
 	private Adresse adresse;
+	@JsonView(JsonViews.Common.class)
 	private String categorie;
+	@JsonView(JsonViews.Common.class)
 	@Column(name = "nb_places")
 	private int nbPlaces;
 	private int note; //1-10
 
+	@JsonView(JsonViews.Common.class)
 	@ManyToOne
 	@JoinColumn(name="id_organisateur_fk")
 	private Organisateur organisateur;
