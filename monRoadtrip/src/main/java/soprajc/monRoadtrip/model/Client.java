@@ -11,6 +11,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 
@@ -100,6 +101,10 @@ public class Client extends Compte {
 				+ ", dateNaissance=" + dateNaissance + ", solde=" + solde
 				+ ", typeDePaiement=" + typeDePaiement + "]";
 	}
+
+
+
+
 
 	    
 }

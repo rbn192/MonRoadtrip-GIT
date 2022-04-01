@@ -33,7 +33,7 @@ class EtapeRepoTest {
 	void creationEtapeTest() {
 		Adresse adresse = new Adresse("3", "rue", "11000", "City");
 		List<Activite> activites = new ArrayList();
-		Etape e = new Etape(3, LocalDate.of(2022, 03, 30), activites, null, null, "City");
+		Etape e = new Etape(3, LocalDate.of(2022, 7, 30), activites, null, null, "City");
 		etapeService.save(e);
 		assertNotNull(e.getDuree());
 	}
