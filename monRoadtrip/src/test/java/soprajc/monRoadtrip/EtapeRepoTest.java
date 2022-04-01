@@ -26,15 +26,14 @@ class EtapeRepoTest {
 	@Autowired
 	EtapeService etapeService;	
 	
-	@Disabled
 	@Test
 	@Transactional
 	@Commit
 //	@Rollback
 	void creationEtapeTest() {
-		Adresse adresse = new Adresse("1", "rue", "11000", "Ville");
+		Adresse adresse = new Adresse("3", "rue", "11000", "City");
 		List<Activite> activites = new ArrayList();
-		Etape e = new Etape(3, LocalDate.of(2022, 03, 30), activites, null, null, "Ville");
+		Etape e = new Etape(3, LocalDate.of(2022, 03, 30), activites, null, null, "City");
 		etapeService.save(e);
 		assertNotNull(e.getDuree());
 	}
@@ -47,7 +46,7 @@ class EtapeRepoTest {
 		etapeService.deleteById(1);
 	}
 	
-//	@Disabled
+	@Disabled
 	@Test
 	@Transactional
 	@Commit

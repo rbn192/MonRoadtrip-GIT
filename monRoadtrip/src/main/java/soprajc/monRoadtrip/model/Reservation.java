@@ -40,6 +40,7 @@ public class Reservation {
 	private Participant participant;
 	
 	@OneToMany(mappedBy = "reservation")
+	@JsonView(JsonViews.Common.class)
 	private List<Etape> etapes;
 	
 	@ManyToOne
