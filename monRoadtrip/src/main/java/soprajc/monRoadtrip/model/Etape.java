@@ -26,6 +26,7 @@ public class Etape {
 	@JsonView(JsonViews.Common.class)
 	private String ville;
 	
+	@JsonView(JsonViews.Common.class)
 	@OneToMany
 	@JoinTable(
 			name="activite_etape",

@@ -64,33 +64,35 @@ public class EtapeRestController {
 		return etapeService.save(etape);
 	}
 	
-	/*@JsonView({JsonViews.Common.class})
-	@PatchMapping("/{id}") //pour l'update partielle d'un objet
-	public Etape partialUpdate(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
-		Etape etape = etapeService.getById(id);
-		fields.forEach((key,value)->{
-			if(key.equals("date")) {
-				List<Integer> dateRecuperee = (List<Integer>) value;
-				etape.setDate(LocalDate.of(dateRecuperee.get(0), dateRecuperee.get(1), dateRecuperee.get(2)));
-			} else if (key.equals("activites")) {
-				
-			} else if (key.equals("logement")) {
-				
-			} else if (key.equals("reservation")) {
-				
-			} else {
-			Field field = ReflectionUtils.findField(Etape.class, key);
-			ReflectionUtils.makeAccessible(field);
-			ReflectionUtils.setField(field, etape, value);
-			}
-		});
-		return etapeService.save(etape);
-	}*/
-	
 	@JsonView({JsonViews.Common.class})
 	@DeleteMapping("/{id}")
 	@ResponseStatus(code=HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Integer id) {
 		etapeService.deleteById(id);
 	}
+	
+	@JsonView({JsonViews.Common.class})
+	@PostMapping("/{etapeId}/add/logement/{logementId}")
+	public Etape addLogement(@PathVariable Integer etapeId, @PathVariable Integer logementId) {
+		return etapeService.addLogement(getById(etapeId), logementId);
+	}
+	
+	@JsonView({JsonViews.Common.class})
+	@PostMapping("/{etapeId}/add/activite/{activiteId}")
+	public Etape addActivite(@PathVariable Integer etapeId, @PathVariable Integer activiteId) {
+		return etapeService.addActivite(getById(etapeId), activiteId);
+	}
+	
+	@JsonView({JsonViews.Common.class})
+	@PostMapping("/{etapeId}/remove/logement/{logementId}")
+	public Etape removeLogement(@PathVariable Integer etapeId) {
+		return etapeService.removeLogement(getById(etapeId));
+	}
+	
+	@JsonView({JsonViews.Common.class})
+	@PostMapping("/{etapeId}/remove/activite/{activiteId}")
+	public Etape removeActivite(@PathVariable Integer etapeId, @PathVariable Integer activiteId) {
+		return etapeService.removeActivite(getById(etapeId), activiteId);
+	}
+	
 }
