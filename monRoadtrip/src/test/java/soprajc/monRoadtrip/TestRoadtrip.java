@@ -27,7 +27,7 @@ class TestRoadtrip {
 	@Commit
 	void insertRoadtrip() {
 
-		Roadtrip roadtrip = new Roadtrip("depart", "destination", LocalDate.of(2022, 03, 29), LocalDate.of(2022, 03, 29), null, null);
+		Roadtrip roadtrip = new Roadtrip("depart", "destination", LocalDate.of(2022, 9, 29), LocalDate.of(2022, 9, 29), null, null);
 		roadtripRepo.save(roadtrip);
 			}
 

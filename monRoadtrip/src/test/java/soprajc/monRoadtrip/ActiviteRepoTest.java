@@ -31,7 +31,7 @@ class ActiviteRepoTest {
 //	@Disabled
 	void creationActiviteTest() {
 		Adresse adresse = new Adresse("1", "rue", "11000", "Ville123");
-		Activite a = new Activite(LocalDate.of(2022, 03, 30), LocalTime.of(14, 0), 150, adresse, "visite", 4, null);
+		Activite a = new Activite(LocalDate.of(2022, 8, 30), LocalTime.of(14, 0), 150, adresse, "visite", 4, null);
 		activiteService.save(a);
 		assertNotNull(a.getNbPlaces());
 	}

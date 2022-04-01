@@ -4,8 +4,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 @Entity
 public class Hote extends Compte {
@@ -37,6 +39,8 @@ public class Hote extends Compte {
 		return "Hote [nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", password=" + password + ", id=" + id
 				+ ", dateNaissance=" + dateNaissance +  "]";
 	}
+
+
 
 	
 }
