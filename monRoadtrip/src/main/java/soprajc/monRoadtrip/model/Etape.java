@@ -41,11 +41,11 @@ public class Etape {
 	
 	@ManyToOne
 	@JoinColumn(name="id_reservation_fk")
-	@JsonView(JsonViews.Common.class)
 	private Reservation reservation;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(JsonViews.Common.class)
 	private Integer id;
 	
 	@Version
