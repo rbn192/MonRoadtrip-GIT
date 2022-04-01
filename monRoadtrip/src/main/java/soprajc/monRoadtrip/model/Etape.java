@@ -3,7 +3,6 @@ package soprajc.monRoadtrip.model;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +12,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -20,8 +21,10 @@ import com.fasterxml.jackson.annotation.JsonView;
 public class Etape {
 
 	@JsonView(JsonViews.Common.class)
+	@Min(value=1)
 	private int duree;
 	@JsonView(JsonViews.Common.class)
+	@Future 
 	private LocalDate date;
 	@JsonView(JsonViews.Common.class)
 	private String ville;

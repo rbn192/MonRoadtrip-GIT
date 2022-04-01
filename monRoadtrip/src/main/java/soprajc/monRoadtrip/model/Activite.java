@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -23,6 +25,7 @@ public class Activite {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@JsonView(JsonViews.Common.class)
+	@Future
 	private LocalDate date;
 	@JsonView(JsonViews.Common.class)
 	private LocalTime heure;
