@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import soprajc.monRoadtrip.model.Client;
@@ -16,6 +17,8 @@ import soprajc.monRoadtrip.model.Roadtrip;
 import soprajc.monRoadtrip.model.Statut;
 import soprajc.monRoadtrip.repositories.ReservationRepository;
 import soprajc.monRoadtrip.services.ClientService;
+import soprajc.monRoadtrip.services.ParticipantService;
+import soprajc.monRoadtrip.services.RoadtripService;
 
 @SpringBootTest
 class ReservationRepositoryTest {
@@ -24,13 +27,22 @@ class ReservationRepositoryTest {
 	ReservationRepository reservationRepository;
 	
 	@Autowired
+	ParticipantService participantService;
+	
+	@Autowired
 	ClientService clientService;
+	
+	@Autowired
+	RoadtripService roadtripService;
 	
 	@Test
 	@Transactional
+	@Commit
 	void insertTest() {
 		Participant participant = new Participant("Sati", "Chaymae", 26);
+		participantService.save(participant);
 		Roadtrip roadtrip = new Roadtrip("Nantes", "Strasbourg", LocalDate.parse("2022-06-25"), LocalDate.parse("2022-07-18"), null, null);
+		roadtripService.save(roadtrip);
 		Client client = new Client("Sati","Chaymae","chaymae@gmail.com","client",LocalDate.parse("1996-07-13"));
 		clientService.create(client);
 		
