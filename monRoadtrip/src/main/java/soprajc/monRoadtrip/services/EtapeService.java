@@ -22,6 +22,7 @@ public class EtapeService {
 	
 	@Autowired
 	private ActiviteService activiteService;
+
 	
 	public List<Etape> getAll() {
 		return etapeRepo.findAll();
