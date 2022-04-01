@@ -53,18 +53,18 @@ class ReservationRepositoryTest {
 		reservationRepository.saveAll(reservations);
 	}
 	
-	@Test
-	@Transactional
-	void deleteTest() {
-		Participant participant = new Participant("Sati", "Chaymae", 26);
-		Roadtrip roadtrip = new Roadtrip("Nantes", "Strasbourg", LocalDate.parse("2022-06-25"), LocalDate.parse("2022-07-18"), null, null);
-		Client client = new Client("Sati","Chaymae",null, null, null);
-		System.out.println(client);
-		
-		Reservation reservation = new Reservation(LocalDate.parse("2022-03-29"),Statut.A_venir,participant, roadtrip, client);
-		reservationRepository.save(reservation);
-		
-		reservationRepository.deleteById(reservation.getId());
-	}
+//	@Test
+//	@Transactional
+//	void deleteTest() {
+//		Participant participant = new Participant("Sati", "Chaymae", 26);
+//		Roadtrip roadtrip = new Roadtrip("Nantes", "Strasbourg", LocalDate.parse("2022-06-25"), LocalDate.parse("2022-07-18"), null, null);
+//		Client client = new Client("Sati","Chaymae",null, null, null);
+//		System.out.println(client);
+//		
+//		Reservation reservation = new Reservation(LocalDate.parse("2022-03-29"),Statut.A_venir,participant, roadtrip, client);
+//		reservationRepository.save(reservation);
+//		
+//		reservationRepository.deleteById(reservation.getId());
+//	}
 
 }
