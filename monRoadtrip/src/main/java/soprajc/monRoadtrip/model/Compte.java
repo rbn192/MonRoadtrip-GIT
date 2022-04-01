@@ -12,11 +12,13 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 
 
 
@@ -37,11 +39,15 @@ public abstract class Compte {
 	@GeneratedValue(strategy = GenerationType.TABLE)
     protected Integer id;
 
+	
     protected String nom;
     protected String prenom;
+    @NotEmpty
 	protected String mail;
+    @NotEmpty
     protected String password;
     @Column(name="date_naissance")
+    @Past
     protected LocalDate dateNaissance;
     
     @Version
