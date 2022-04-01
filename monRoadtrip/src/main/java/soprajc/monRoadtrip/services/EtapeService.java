@@ -22,6 +22,7 @@ public class EtapeService {
 	
 	@Autowired
 	private ActiviteService activiteService;
+
 	
 	public List<Etape> getAll() {
 		return etapeRepo.findAll();
@@ -56,6 +57,17 @@ public class EtapeService {
 	public Etape addActivite(Etape etape, Integer id) {
 		Activite activite = activiteService.getById(id);
 		etape.getActivites().add(activite);
+		return etapeRepo.save(etape);
+	}	
+	
+	public Etape removeLogement(Etape etape) {
+		etape.setLogement(null);
+		return etapeRepo.save(etape);
+	}
+	
+	public Etape removeActivite(Etape etape, Integer id) {
+		Activite activite = activiteService.getById(id);
+		etape.getActivites().remove(activite);
 		return etapeRepo.save(etape);
 	}
 	

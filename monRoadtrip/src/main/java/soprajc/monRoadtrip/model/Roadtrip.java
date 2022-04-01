@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -21,17 +23,21 @@ public class Roadtrip {
 	
 	@JsonView(JsonViews.Common.class)
 	@Column(name="depart_lieu")
+	@NotEmpty
 	private String departLieu;
 	
 	@JsonView(JsonViews.Common.class)
+	@NotEmpty
 	private String destination;
 	
 	@JsonView(JsonViews.Common.class)
 	@Column(name="date_depart")
+	@Future
 	private LocalDate dateDepart;
 	
 	@JsonView(JsonViews.Common.class)
 	@Column(name="date_arrivee")
+	@Future
 	private LocalDate dateArrivee;
 	
 	@JsonView(JsonViews.Common.class)

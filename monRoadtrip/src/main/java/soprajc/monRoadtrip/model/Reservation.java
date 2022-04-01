@@ -15,33 +15,43 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
+import javax.validation.constraints.Future;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class Reservation {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(JsonViews.Common.class)
 	private Integer id;
 	
+	@JsonView(JsonViews.Common.class)
 	@Column(name="date_reservation")
 	private LocalDate dateReservation;
 	
+	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
 	private Statut statut;
 	
 	@ManyToOne
 	@JoinColumn(name="id_participant_fk")
+	@JsonView(JsonViews.Common.class)
 	private Participant participant;
 	
 	@OneToMany(mappedBy = "reservation")
+	@JsonView(JsonViews.Common.class)
 	private List<Etape> etapes;
 	
 	@ManyToOne
 	@JoinColumn(name="id_roadtrip_fk")
+	@JsonView(JsonViews.Common.class)
 	private Roadtrip roadTrip;
 	
 	@ManyToOne
 	@JoinColumn(name="id_client_fk")
+	@JsonView(JsonViews.Common.class)
 	private Client client;
 	
 	@Version
