@@ -1,5 +1,7 @@
 package soprajc.monRoadtrip.repositories;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,5 +26,9 @@ public interface ReservationRepository extends JpaRepository<Reservation, Intege
 	void deleteByParticipant(@Param("participant") Participant participant);
 	
 	@Query("select r from Reservation r where r.client=:client")
-	void getAllByClient(@Param("client") Client client);
+	Optional<Reservation> getAllByClient(@Param("client") Client client);
+	
+	@Query("select r from Reservation r where r.participant=:participant")
+	Optional<Reservation> findByParticipant(@Param("participant") Participant participant);
+	
 }
