@@ -7,6 +7,8 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,7 +37,9 @@ public class Activite {
 	@Embedded
 	private Adresse adresse;
 	@JsonView(JsonViews.Common.class)
-	private String categorie;
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "ENUM('Musée','Concert','Randonnée','Monument','Restaurant', 'Insolite)")
+	private Categorie categorie;
 	@JsonView(JsonViews.Common.class)
 	@Column(name = "nb_places")
 	private int nbPlaces;
@@ -45,14 +49,37 @@ public class Activite {
 	@ManyToOne
 	@JoinColumn(name="id_organisateur_fk")
 	private Organisateur organisateur;
+	
+	@JsonView(JsonViews.Common.class)
+	private String intitule;
 
 	@Version
 	private int version;
 
+	public Activite(@Future LocalDate date, LocalTime heure, double prix, Adresse adresse, Categorie categorie,
+			int nbPlaces, Organisateur organisateur, String intitule) {
+		this.date = date;
+		this.heure = heure;
+		this.prix = prix;
+		this.adresse = adresse;
+		this.categorie = categorie;
+		this.nbPlaces = nbPlaces;
+		this.organisateur = organisateur;
+		this.intitule = intitule;
+	}
+
+	public String getIntitule() {
+		return intitule;
+	}
+
+	public void setIntitule(String intitule) {
+		this.intitule = intitule;
+	}
+
 	public Activite() {
 	}
 
-	public Activite(LocalDate date, LocalTime heure, double prix, Adresse adresse, String categorie, int nbPlaces, int note,
+	public Activite(LocalDate date, LocalTime heure, double prix, Adresse adresse, Categorie categorie, int nbPlaces, int note,
 			Organisateur organisateur) {
 		this.date = date;
 		this.heure = heure;
@@ -65,7 +92,7 @@ public class Activite {
 	}
 
 
-	public Activite(Integer id, LocalDate date, LocalTime heure, double prix, Adresse adresse, String categorie,
+	public Activite(Integer id, LocalDate date, LocalTime heure, double prix, Adresse adresse, Categorie categorie,
 			int nbPlaces, int note, Organisateur organisateur) {
 		this.id = id;
 		this.date = date;
@@ -78,7 +105,7 @@ public class Activite {
 		this.organisateur = organisateur;
 	}
 
-	public Activite(LocalDate date, LocalTime heure, double prix, Adresse adresse, String categorie, int nbPlaces,
+	public Activite(LocalDate date, LocalTime heure, double prix, Adresse adresse, Categorie categorie, int nbPlaces,
 			Organisateur organisateur) {
 		this.date = date;
 		this.heure = heure;
@@ -90,7 +117,7 @@ public class Activite {
 	}
 
 
-	public Activite(Integer id, LocalDate date, LocalTime heure, double prix, Adresse adresse, String categorie,
+	public Activite(Integer id, LocalDate date, LocalTime heure, double prix, Adresse adresse, Categorie categorie,
 			int nbPlaces, Organisateur organisateur) {
 		this.id = id;
 		this.date = date;
@@ -121,7 +148,7 @@ public class Activite {
 	public double getPrix() {
 		return prix;
 	}
-	public String getCategorie() {
+	public Categorie getCategorie() {
 		return categorie;
 	}
 	public int getNbPlaces() {
@@ -148,7 +175,7 @@ public class Activite {
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
-	public void setCategorie(String categorie) {
+	public void setCategorie(Categorie categorie) {
 		this.categorie = categorie;
 	}
 	public void setNbPlaces(int nbPlaces) {
