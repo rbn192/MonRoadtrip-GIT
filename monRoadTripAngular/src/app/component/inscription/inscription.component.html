@@ -1,0 +1,115 @@
+<div class="container">
+  <h1>Inscription</h1>
+  <form (ngSubmit)="submit()" [formGroup]="form">
+    <div class="form-group">
+      <label>Type de compte :</label>
+      <select class="form-control" formControlName="type">
+        <option value="client">Client</option>
+        <option value="organisateur">Organisateur</option>
+        <option value="hote">Hôte</option>
+      </select>
+      <!--<div *ngIf="form.get('type')?.dirty">information obligatoire</div>-->
+    </div>
+    <div class="form-group">
+      <label>Prénom :</label>
+      <input class="form-control" formControlName="prenom" />
+      <div *ngIf="form.get('prenom')?.dirty && form.get('prenom')?.invalid">
+        information obligatoire
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Nom :</label>
+      <input class="form-control" formControlName="nom" />
+      <div *ngIf="form.get('nom')?.dirty && form.get('nom')?.invalid">
+        information obligatoire
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Date de naissance :</label>
+      <input class="form-control" formControlName="dateNaissance" type="date" />
+      <div
+        *ngIf="
+          form.get('dateNaissance')?.dirty && form.get('dateNaissance')?.invalid
+        "
+      >
+        information obligatoire
+      </div>
+    </div>
+    <div formGroupName="emailPasswordGroup">
+      <div class="form-group">
+        <label>E-mail :</label>
+        <input type="email" class="form-control" formControlName="email" />
+        <div
+          *ngIf="
+            form.get('emailPasswordGroup.email')?.dirty &&
+            form.get('emailPasswordGroup.email')?.invalid
+          "
+        >
+          email incorrect
+        </div>
+        <div
+          *ngIf="
+            form.get('emailPasswordGroup')?.hasError('mailAndPasswordEquals')
+          "
+        >
+          le mail et le mot de passe sont identiques
+        </div>
+      </div>
+      <div formGroupName="passwordGroup">
+        <div class="form-group">
+          <label>Mot de passe :</label>
+          <input type="text" class="form-control" formControlName="password" />
+        </div>
+        <div class="form-group">
+          <label>Confirmation mot de passe :</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="confirm"
+          />
+        </div>
+        <div *ngIf="form.get('emailPasswordGroup.passwordGroup')?.invalid">
+          les deux saisies sont différentes
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Numéro :</label>
+      <input class="form-control" formControlName="numero" />
+      <div *ngIf="form.get('numero')?.dirty && form.get('numero')?.invalid">
+        information obligatoire
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Voie :</label>
+      <input class="form-control" formControlName="voie" />
+      <div *ngIf="form.get('voie')?.dirty && form.get('voie')?.invalid">
+        information obligatoire
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Code postal :</label>
+      <input class="form-control" formControlName="cp" />
+      <div *ngIf="form.get('cp')?.dirty && form.get('cp')?.invalid">
+        information obligatoire
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Ville :</label>
+      <input class="form-control" formControlName="ville" />
+      <div *ngIf="form.get('ville')?.dirty && form.get('ville')?.invalid">
+        information obligatoire
+      </div>
+    </div>
+    <div>
+      <button
+        type="submit"
+        class="btn btn-outline-success"
+        [disabled]="form.invalid"
+      >
+        Inscription
+      </button>
+      <a routerLink="/home" class="btn btn-outline-warning">Retour</a>
+    </div>
+  </form>
+</div>

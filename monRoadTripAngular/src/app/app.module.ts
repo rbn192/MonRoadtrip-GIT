@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { InscriptionComponent } from './component/inscription/inscription.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent],
+  declarations: [AppComponent, PageNotFoundComponent, InscriptionComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
