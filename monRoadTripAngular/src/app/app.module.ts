@@ -7,9 +7,15 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { HomeComponent } from './component/home/home.component';
+import { InscriptionComponent } from './component/inscription/inscription.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    PageNotFoundComponent,
+    HomeComponent,
+    InscriptionComponent,
+  ],
   imports: [
     HttpClientModule,
     BrowserModule,

@@ -45,17 +45,20 @@ public abstract class Compte implements UserDetails{
 	@GeneratedValue(strategy = GenerationType.TABLE)
     protected Integer id;
 
-	
+	@JsonView(JsonViews.Common.class)
     protected String nom;
-    protected String prenom;
+	@JsonView(JsonViews.Common.class)
+	protected String prenom;
     @NotEmpty
-	@Column(name = "mail", nullable = false, unique = true, length = 200)
-	protected String mail;
+	@Column(name = "mail", nullable = false, unique = true, length = 200)	
+	@JsonView(JsonViews.Common.class)
+    protected String mail;
     @NotEmpty
 	@Column(name = "password", nullable = false, length = 255)
     protected String password;
     @Column(name="date_naissance")
     @Past
+	@JsonView(JsonViews.Common.class)
     protected LocalDate dateNaissance;
     
     @Version
