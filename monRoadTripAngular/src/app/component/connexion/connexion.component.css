@@ -1,0 +1,118 @@
+body {
+  padding-top: 6rem;
+  color: #5a5a5a;
+  background-color: #f4efe7;
+}
+
+#accueil {
+  padding-top: 3rem;
+}
+
+.carousel {
+  margin-bottom: 4rem;
+}
+
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+.carousel-item {
+  height: 32rem;
+}
+
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 150%;
+}
+
+#ajouter {
+  display: flex;
+  justify-content: center;
+}
+
+#addFormLogement,
+#addFormActivite {
+  display: none;
+}
+
+/*-----Pages inscription et connexion-----*/
+#bodyInscription,
+#bodyConnexion {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("src/assets/img/fond.jpg");
+  background-size: cover;
+}
+
+#connexion {
+  margin: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#inscription,
+#updateLogement,
+#updateActivite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#formInscription,
+#formConnexion {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(0 0 0/ 70%);
+  color: white;
+  padding: 25px;
+  border-radius: 20px;
+}
+
+.btnInscription,
+.btnConnexion,
+.btnUpdate {
+  width: 100%;
+}
+
+/*-----Pages gestion-----*/
+
+.mainGestion {
+  height: 100%;
+}
+
+#formGestionCompte,
+#formGestionLogement,
+#formGestionActivite {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(0 0 0/ 70%);
+  color: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+#infos {
+  color: white;
+}
+
+.form-groupGestionCompte {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
