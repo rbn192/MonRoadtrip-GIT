@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { HomeComponent } from './component/home/home.component';
 import { ConnexionComponent } from './component/connexion/connexion.component';
+import { InscriptionComponent } from './component/inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,12 @@ import { ConnexionComponent } from './component/connexion/connexion.component';
     PageNotFoundComponent,
     HomeComponent,
     ConnexionComponent,
+  ],
+  declarations: [
+    AppComponent,
+    PageNotFoundComponent,
+    HomeComponent,
+    InscriptionComponent,
   ],
   imports: [
     HttpClientModule,
