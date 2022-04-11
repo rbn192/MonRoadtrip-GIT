@@ -1,0 +1,68 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>Connexion</title>
+</head>
+
+<body id="bodyConnexion">
+  <div id="connexion">
+    <h1>Connexion</h1>
+    <div id="formConnexion">
+      <div *ngIf="err" class="alert alert-danger">{{ message }}</div>
+      <table>
+        <tbody>
+          <tr>
+            <div class="my-3">
+              <!-- <label class="sr-only">Username</label>-->
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">@</div>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Username"
+                  [(ngModel)]="login"
+                />
+              </div>
+            </div>
+          </tr>
+          <tr>
+            <div class="my-1">
+              <!--<label class="sr-only" for="inlineFormInputGroupUsername"
+                >Mot de passe</label
+              >-->
+              <div class="input-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Mot de passe"
+                  [(ngModel)]="password"
+                />
+              </div>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+
+      <div class="form-row">
+        <div class="form-group col-lg-8">
+          <button
+            (click)="check()"
+            type="submit"
+            class="btn btn-primary btnConnexion"
+          >
+            Se connecter
+          </button>
+        </div>
+        <div class="form-group col-lg-4">
+          <a href="home"
+            ><button type="button" class="btn btn-warning btnConnexion">
+              Retour
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

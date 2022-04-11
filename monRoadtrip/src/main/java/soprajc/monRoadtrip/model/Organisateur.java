@@ -8,10 +8,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Organisateur extends Compte {
 	
 	@OneToMany(mappedBy="organisateur")
+	@JsonView(JsonViews.OrganisateurWithActivites.class)
 	private List<Activite> activites;
 	
 	public Organisateur() {
