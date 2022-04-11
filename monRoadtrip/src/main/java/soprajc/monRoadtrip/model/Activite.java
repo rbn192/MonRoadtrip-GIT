@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 public class Activite {
 
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;

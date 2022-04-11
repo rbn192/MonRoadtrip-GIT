@@ -1,11 +1,15 @@
+import { ActiviteEditComponent } from './component/activite/activite-edit/activite-edit.component';
+import { AcliviteListComponent } from './component/activite/activite-list/activite-list.component';
 import { routes } from './routes';
-import { NgModule } from '@angular/core';
+import { NgModule, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { LogementEditComponent } from './component/logement/logement-edit/logement-edit.component';
+import { LogementListComponent } from './component/logement/logement-list/logement-list.component';
 import { HomeComponent } from './component/home/home.component';
 import { ConnexionComponent } from './component/connexion/connexion.component';
 import { InscriptionComponent } from './component/inscription/inscription.component';
@@ -18,6 +22,10 @@ import { ClientInscriptionComponent } from './component/inscription/client-inscr
   declarations: [
     AppComponent,
     PageNotFoundComponent,
+    ActiviteEditComponent,
+    AcliviteListComponent,
+    LogementEditComponent,
+    LogementListComponent,
     HomeComponent,
     InscriptionComponent,
     ConnexionComponent,

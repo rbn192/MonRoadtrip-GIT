@@ -7,17 +7,17 @@ spring:
       initial-size: 5
       max-total: 10
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password:
-    url: jdbc:mysql://localhost:3306/mon_roadtrip?serverTimezone=UTC
+    password: root
+    url: jdbc:mysql://localhost:8889/Roadtrip?serverTimezone=UTC
     username: root
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         format_sql: true
-        show_sql: false
+        show_sql: true
   mvc:
     view:
       prefix: /WEB-INF/views/
