@@ -1,3 +1,5 @@
+import { CompteService } from './../../services/compte.service';
+import { Compte } from './../../model/compte';
 import { ConnexionService } from './../../services/connexion.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,11 +14,13 @@ export class ConnexionComponent implements OnInit {
   password: string = '';
   err: boolean = false;
   message: string = '';
+  compte: Compte = new Compte();
 
   constructor(
     private authService: ConnexionService,
     private router: Router,
-    private aR: ActivatedRoute
+    private aR: ActivatedRoute,
+    private compteService: CompteService
   ) {}
 
   ngOnInit(): void {
@@ -38,7 +42,11 @@ export class ConnexionComponent implements OnInit {
         );
         localStorage.setItem('role', value);
         this.err = false;
-        this.router.navigateByUrl('**');
+        this.compteService.getCompteByMail(this.login).subscribe((result) => {
+          this.compte = result;
+        });
+
+        this.router.navigateByUrl('compte/edit/' + this.login);
         console.log('hello');
         console.log(this.login);
       },

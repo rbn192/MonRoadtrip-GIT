@@ -1,3 +1,4 @@
+import { CompteModifComponent } from './component/compte-modif/compte-modif.component';
 import { InscriptionComponent } from './component/inscription/inscription.component';
 import { HomeComponent } from './component/home/home.component';
 import { ConnexionComponent } from './component/connexion/connexion.component';
@@ -9,5 +10,6 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'inscription', component: InscriptionComponent },
+  { path: 'compte/edit/:login', component: CompteModifComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

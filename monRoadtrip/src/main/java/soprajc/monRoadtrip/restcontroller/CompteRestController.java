@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
@@ -35,6 +36,7 @@ import soprajc.monRoadtrip.model.Adresse;
 import soprajc.monRoadtrip.model.Client;
 import soprajc.monRoadtrip.model.Compte;
 import soprajc.monRoadtrip.model.JsonViews;
+import soprajc.monRoadtrip.repositories.CompteRepository;
 import soprajc.monRoadtrip.services.CompteService;
 
 @RestController
@@ -47,6 +49,9 @@ public class CompteRestController {
 
 	@Autowired
 	CompteService compteService;
+	
+	@Autowired
+	CompteRepository compteRepo;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -137,6 +142,15 @@ public class CompteRestController {
 			}
 		});
 		return compteService.save(compte);
+	}
+	
+	@GetMapping("/search/{email}")
+	@JsonView(JsonViews.Common.class)
+	public Compte checkEmail(@PathVariable String email) {
+		System.out.println("email");
+		Compte c = compteRepo.getCompteByMail(email);
+		System.out.println("compte c "+c);
+		return c;
 	}
 
 }

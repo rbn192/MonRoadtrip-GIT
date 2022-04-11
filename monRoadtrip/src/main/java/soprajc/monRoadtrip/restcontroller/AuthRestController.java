@@ -22,4 +22,10 @@ public class AuthRestController {
 	public String hello() {
 		return "hello";
 	}
-}
+	
+	@GetMapping("/id")
+	public Integer idcompte(@AuthenticationPrincipal Compte compte) {
+		return compte.getId();
+	};
+	}
+
