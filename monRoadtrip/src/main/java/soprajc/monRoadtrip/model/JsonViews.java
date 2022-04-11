@@ -11,5 +11,9 @@ public class JsonViews {
 		
 	}
 	
+	public static class CompteWithMdp extends Common{
+		
+	}
+	
 	
 }

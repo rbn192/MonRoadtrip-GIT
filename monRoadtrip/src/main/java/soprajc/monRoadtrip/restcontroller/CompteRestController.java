@@ -151,13 +151,23 @@ public class CompteRestController {
 		return compteService.save(compte);
 	}
 	
-	@GetMapping("/search/{email}")
+	/*@GetMapping("/find/{email}")
 	@JsonView(JsonViews.Common.class)
 	public Compte checkEmail(@PathVariable String email) {
 		System.out.println("email");
 		Compte c = compteRepo.getCompteByMail(email);
 		System.out.println("compte c "+c);
 		return c;
+	}*/
+	
+	@GetMapping("/find/{email}")
+	@JsonView(JsonViews.CompteWithMdp.class)
+	public Compte getPass(@PathVariable String email) {
+		System.out.println("email");
+		Compte c = compteRepo.getCompteByMail(email);
+		System.out.println("compte c "+c);
+		return c;
 	}
+	*/
 
 }

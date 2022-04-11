@@ -40,7 +40,7 @@ export class AppComponent {
     return this.authService.isAuthenticated();
   }
   gestionCompte() {
-    this.router.navigateByUrl('/compte/edit/' + this.login);
+    this.router.navigateByUrl('/compte/edit');
   }
   logout() {
     localStorage.clear();
