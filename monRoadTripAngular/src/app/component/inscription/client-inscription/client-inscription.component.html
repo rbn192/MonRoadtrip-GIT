@@ -1,0 +1,149 @@
+<div class="container">
+  <h1>Inscription d'un client</h1>
+  <form (ngSubmit)="submit()" [formGroup]="form">
+    <div class="form-group">
+      <label>Prénom :</label>
+      <input class="form-control" formControlName="prenom" />
+      <div
+        *ngIf="form.get('prenom')?.dirty && form.get('prenom')?.invalid"
+        class="alert alert-warning"
+      >
+        Information obligatoire
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Nom :</label>
+      <input class="form-control" formControlName="nom" />
+      <div
+        *ngIf="form.get('nom')?.dirty && form.get('nom')?.invalid"
+        class="alert alert-warning"
+      >
+        Information obligatoire
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Date de naissance :</label>
+      <input class="form-control" formControlName="dateNaissance" type="date" />
+      <div
+        *ngIf="
+          form.get('dateNaissance')?.dirty && form.get('dateNaissance')?.invalid
+        "
+        class="alert alert-warning"
+      >
+        Information obligatoire
+      </div>
+    </div>
+    <div formGroupName="adresseGroup">
+      <div class="form-group">
+        <label>Numéro :</label>
+        <input class="form-control" formControlName="numero" />
+        <div
+          *ngIf="form.get('numero')?.dirty && form.get('numero')?.invalid"
+          class="alert alert-warning"
+        >
+          Information obligatoire
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Voie :</label>
+        <input class="form-control" formControlName="voie" />
+        <div
+          *ngIf="form.get('voie')?.dirty && form.get('voie')?.invalid"
+          class="alert alert-warning"
+        >
+          Information obligatoire
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Code postal :</label>
+        <input class="form-control" formControlName="cp" />
+        <div
+          *ngIf="form.get('cp')?.dirty && form.get('cp')?.invalid"
+          class="alert alert-warning"
+        >
+          Information obligatoire
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Ville :</label>
+        <input class="form-control" formControlName="ville" />
+        <div
+          *ngIf="form.get('ville')?.dirty && form.get('ville')?.invalid"
+          class="alert alert-warning"
+        >
+          Information obligatoire
+        </div>
+      </div>
+    </div>
+    <div formGroupName="mailPasswordGroup">
+      <div class="form-group">
+        <label>E-mail :</label>
+        <input type="mail" class="form-control" formControlName="mail" />
+        <div
+          *ngIf="
+            form.get('mailPasswordGroup.mail')?.dirty &&
+            form.get('mailPasswordGroup.mail')?.invalid
+          "
+          class="alert alert-warning"
+        >
+          Cette adresse mail est incorrecte
+        </div>
+        <div
+          *ngIf="form.get('mailPasswordGroup.mail')?.hasError('mailExist')"
+          class="alert alert-danger"
+        >
+          Cet adresse mail est déjà utilisée par un autre utilisateur
+        </div>
+        <div
+          *ngIf="
+            form.get('mailPasswordGroup')?.hasError('mailAndPasswordEquals')
+          "
+          class="alert alert-danger"
+        >
+          Le mail et le mot de passe ne doivent pas être identiques
+        </div>
+      </div>
+      <div formGroupName="passwordGroup">
+        <div class="form-group">
+          <label>Mot de passe :</label>
+          <input type="text" class="form-control" formControlName="password" />
+          <div
+            *ngIf="
+              form.get('mailPasswordGroup.passwordGroup.password')?.dirty &&
+              form.get('mailPasswordGroup.passwordGroup.password')?.invalid
+            "
+            class="alert alert-success"
+          >
+            Le mot de passe doit faire en 5 et 25 caractères comprennant au
+            moins une majuscule, une minuscule, un chiffre et un caractere
+            spécial (*_!@-)
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Confirmation mot de passe :</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="confirm"
+          />
+        </div>
+        <div
+          *ngIf="form.get('mailPasswordGroup.passwordGroup')?.invalid"
+          class="alert alert-danger"
+        >
+          Les deux saisies de mot de passe sont différentes
+        </div>
+      </div>
+    </div>
+    <div>
+      <button
+        type="submit"
+        class="btn btn-outline-success"
+        [disabled]="form.invalid"
+      >
+        Inscription
+      </button>
+      <a routerLink="/inscription" class="btn btn-outline-warning">Retour</a>
+    </div>
+  </form>
+</div>
