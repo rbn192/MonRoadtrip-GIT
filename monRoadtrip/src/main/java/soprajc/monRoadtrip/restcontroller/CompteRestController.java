@@ -82,6 +82,12 @@ public class CompteRestController {
 		return compte;
 		//return save(compte, br);
 	}
+	
+	@GetMapping("/search/{mail}")
+	@JsonView(JsonViews.Common.class)
+	public boolean checkMail(@PathVariable String mail) {
+		return compteRepo.findByMail(mail).isPresent();
+	}
 
 	private Compte save(Compte compte, BindingResult br) {
 		if (br.hasErrors()) {

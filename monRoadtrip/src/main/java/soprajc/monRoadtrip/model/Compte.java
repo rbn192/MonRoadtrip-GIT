@@ -34,8 +34,8 @@ import com.fasterxml.jackson.annotation.JsonView;
 @JsonTypeInfo(use=JsonTypeInfo.Id.NAME,include = JsonTypeInfo.As.PROPERTY,property = "type")
 @JsonSubTypes({
 	@Type(value=Client.class,name="client"),
-	@Type(value=Hote.class,name="Hote"),
-	@Type(value=Organisateur.class,name="Organisateur")
+	@Type(value=Hote.class,name="hote"),
+	@Type(value=Organisateur.class,name="organisateur")
 })
 public abstract class Compte implements UserDetails{
 
