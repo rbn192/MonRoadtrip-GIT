@@ -14,7 +14,10 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-client-inscription',
   templateUrl: './client-inscription.component.html',
-  styleUrls: ['./client-inscription.component.css'],
+  styleUrls: [
+    './client-inscription.component.css',
+    '../../../app.component.css',
+  ],
 })
 export class ClientInscriptionComponent implements OnInit {
   form: FormGroup;
