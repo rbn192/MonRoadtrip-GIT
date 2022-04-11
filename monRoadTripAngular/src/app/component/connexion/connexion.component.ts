@@ -34,21 +34,18 @@ export class ConnexionComponent implements OnInit {
 
   check() {
     this.authService.authentication(this.login, this.password).subscribe({
-      next: (value: string) => {
+      next: (value: Compte) => {
         localStorage.setItem('login', this.login);
         localStorage.setItem(
           'token',
           'Basic ' + btoa(this.login + ':' + this.password)
         );
-        localStorage.setItem('role', value);
+        localStorage.setItem('role', value.type!);
+        localStorage.setItem('prenom', value.prenom!);
+        console.log(value);
         this.err = false;
-        this.compteService.getCompteByMail(this.login).subscribe((result) => {
-          this.compte = result;
-        });
 
         this.router.navigateByUrl('compte/edit/' + this.login);
-        console.log('hello');
-        console.log(this.login);
       },
       error: (error: any) => {
         this.err = true;
