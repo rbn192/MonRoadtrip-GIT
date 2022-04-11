@@ -32,6 +32,11 @@ export class AppComponent {
     return localStorage.getItem('prenom');
   }
 
+  get role() {
+    console.log(localStorage.getItem('role'));
+    return localStorage.getItem('role');
+  }
+
   get login() {
     return localStorage.getItem('login');
   }
