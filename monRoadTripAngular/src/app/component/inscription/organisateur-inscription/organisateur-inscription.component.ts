@@ -14,7 +14,10 @@ import {
 @Component({
   selector: 'app-organisateur-inscription',
   templateUrl: './organisateur-inscription.component.html',
-  styleUrls: ['./organisateur-inscription.component.css'],
+  styleUrls: [
+    './organisateur-inscription.component.css',
+    '../../../app.component.css',
+  ],
 })
 export class OrganisateurInscriptionComponent implements OnInit {
   form: FormGroup;
