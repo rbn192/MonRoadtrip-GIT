@@ -17,6 +17,7 @@ import { CompteModifComponent } from './component/compte-modif/compte-modif.comp
 import { HoteInscriptionComponent } from './component/inscription/hote-inscription/hote-inscription.component';
 import { OrganisateurInscriptionComponent } from './component/inscription/organisateur-inscription/organisateur-inscription.component';
 import { ClientInscriptionComponent } from './component/inscription/client-inscription/client-inscription.component';
+import { ItineraireComponent } from './component/itineraire/itineraire.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ClientInscriptionComponent } from './component/inscription/client-inscr
     HoteInscriptionComponent,
     OrganisateurInscriptionComponent,
     ClientInscriptionComponent,
+    ItineraireComponent,
   ],
   imports: [
     HttpClientModule,
