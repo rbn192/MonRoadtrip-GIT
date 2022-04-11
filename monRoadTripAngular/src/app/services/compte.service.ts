@@ -19,11 +19,17 @@ export class CompteService {
     return this.http.get<Compte>(CompteService.URL + '/search/' + mail);
   }
 
-  public inscriptionClient(compte: any): Observable<any> {
+  public inscriptionCompte(compte: any): Observable<any> {
     return this.http.post(
       //'http://localhost:8080/mon_roadtrip/api/compte/inscription',
       CompteService.URL + '/inscription',
       compte
+    );
+  }
+
+  public findByMail(mail: string): Observable<any> {
+    return this.http.get(
+      'http://localhost:8080/monroadtrip/api/compte/search/' + mail
     );
   }
 

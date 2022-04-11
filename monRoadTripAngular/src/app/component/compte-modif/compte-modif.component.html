@@ -22,44 +22,6 @@
 
 <body>
   <div>
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="home">Accueil</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-          aria-controls="navbarCollapse"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto"></ul>
-
-          <form class="form-inline mt-2 mt-md-0">
-            <input
-              class="form-control mr-sm-2"
-              type="text"
-              placeholder="Mot(s) clé(s)"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
-              Connecté : {{ compte.prenom }}
-            </button>
-            <a class="nav-link" href="inscription.html" style="color: white"
-              >Voir mes roadtrips</a
-            >
-            <a class="nav-link" href="connexion" style="color: white"
-              >Déconnexion</a
-            >
-          </form>
-        </div>
-      </nav>
-    </header>
-
     <main class="mainGestion">
       <div>
         <h2 class="titre" align="center">Informations du compte</h2>
@@ -67,33 +29,58 @@
       <div id="formGestionCompte">
         <table id="infos">
           <tr>
-            <td>Prenom:</td>
+            <td>Prénom :</td>
             <td><input type="text" value="Robin" /></td>
           </tr>
           <tr>
-            <td>Nom:</td>
+            <td>Nom :</td>
             <td><input type="text" [(ngModel)]="compte.nom" /></td>
           </tr>
           <tr>
-            <td>Date de naissance:</td>
+            <td>Date de naissance :</td>
             <td><input type="date" [(ngModel)]="compte.dateNaissance" /></td>
           </tr>
           <tr>
-            <td>Email:</td>
+            <td>Email :</td>
             <td><input type="text" [(ngModel)]="compte.mail" /></td>
           </tr>
           <tr>
-            <td>MDP:</td>
+            <td>Mot de passe :</td>
             <td><input type="password" [(ngModel)]="compte.password" /></td>
           </tr>
           <tr>
-            <td>Type de compte:</td>
+            <td>Type de compte :</td>
             <td>
               <input type="text" [(ngModel)]="compte.type" disabled="true" />
             </td>
           </tr>
           <tr>
-            <td>Type de paiement:</td>
+            <td>Numéro :</td>
+            <td>
+              <input type="text" [(ngModel)]="compte.adresse!.numero" />
+            </td>
+          </tr>
+          <tr>
+            <td>Voie :</td>
+            <td>
+              <input type="text" [(ngModel)]="compte.adresse!.voie" />
+            </td>
+          </tr>
+          <tr>
+            <td>Ville :</td>
+            <td>
+              <input type="text" [(ngModel)]="compte.adresse!.ville" />
+            </td>
+          </tr>
+          <tr>
+            <td>Code Postal :</td>
+            <td>
+              <input type="text" [(ngModel)]="compte.adresse!.cp" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>Type de paiement :</td>
             <td>
               <select class="typeDePaiement" name="typeDePaiement">
                 <option value="1">Carte</option>
