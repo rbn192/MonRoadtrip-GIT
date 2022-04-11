@@ -9,19 +9,16 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
 import { HomeComponent } from './component/home/home.component';
 import { ConnexionComponent } from './component/connexion/connexion.component';
 import { InscriptionComponent } from './component/inscription/inscription.component';
+import { CompteModifComponent } from './component/compte-modif/compte-modif.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
     HomeComponent,
-    ConnexionComponent,
-  ],
-  declarations: [
-    AppComponent,
-    PageNotFoundComponent,
-    HomeComponent,
     InscriptionComponent,
+    ConnexionComponent,
+    CompteModifComponent,
   ],
   imports: [
     HttpClientModule,

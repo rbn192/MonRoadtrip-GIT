@@ -45,7 +45,6 @@ public class Activite {
 	private int nbPlaces;
 	private int note; //1-10
 
-	@JsonView(JsonViews.Common.class)
 	@ManyToOne
 	@JoinColumn(name="id_organisateur_fk")
 	private Organisateur organisateur;
