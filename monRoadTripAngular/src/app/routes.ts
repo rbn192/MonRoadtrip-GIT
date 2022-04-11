@@ -1,3 +1,4 @@
+import { ItineraireComponent } from './component/itineraire/itineraire.component';
 import { OrganisateurInscriptionComponent } from './component/inscription/organisateur-inscription/organisateur-inscription.component';
 import { HoteInscriptionComponent } from './component/inscription/hote-inscription/hote-inscription.component';
 import { ClientInscriptionComponent } from './component/inscription/client-inscription/client-inscription.component';
@@ -31,6 +32,7 @@ export const routes: Routes = [
     component: OrganisateurInscriptionComponent,
   },
   { path: 'compte/edit', component: CompteModifComponent },
+  { path: 'itineraire/:depart/:arrivee', component: ItineraireComponent },
   //{ path: 'compte/edit/:login', component: CompteModifComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
