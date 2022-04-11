@@ -26,7 +26,8 @@
       <div>
         <h2 class="titre" align="center">Informations du compte</h2>
       </div>
-      <div class="formGestionCompte">
+      <div class="formGestionCompte" *ngIf="compte.type == 'client'">
+        >
         <table id="infos">
           <tr>
             <td>Prénom :</td>
@@ -42,7 +43,9 @@
           </tr>
           <tr>
             <td>Email :</td>
-            <td><input type="text" [(ngModel)]="compte.mail" /></td>
+            <td>
+              <input type="text" [(ngModel)]="compte.mail" disabled="true" />
+            </td>
           </tr>
           <tr>
             <td>Type de compte :</td>
@@ -50,104 +53,137 @@
               <input type="text" [(ngModel)]="compte.type" disabled="true" />
             </td>
           </tr>
-          <div *ngIf="compte.type == 'client'">
-            <tr>
-              <td>Numéro :</td>
-              <td>
-                <input type="text" [(ngModel)]="compte.adresse!.numero" />
-              </td>
-            </tr>
-            <tr>
-              <td>Voie :</td>
-              <td>
-                <input type="text" [(ngModel)]="compte.adresse!.voie" />
-              </td>
-            </tr>
-            <tr>
-              <td>Ville :</td>
-              <td>
-                <input type="text" [(ngModel)]="compte.adresse!.ville" />
-              </td>
-            </tr>
-            <tr>
-              <td>Code Postal :</td>
-              <td>
-                <input type="text" [(ngModel)]="compte.adresse!.cp" />
-              </td>
-            </tr>
+          <tr>
+            <td>Numéro :</td>
+            <td>
+              <input type="text" [(ngModel)]="compte.adresse!.numero" />
+            </td>
+          </tr>
+          <tr>
+            <td>Voie :</td>
+            <td>
+              <input type="text" [(ngModel)]="compte.adresse!.voie" />
+            </td>
+          </tr>
+          <tr>
+            <td>Ville :</td>
+            <td>
+              <input type="text" [(ngModel)]="compte.adresse!.ville" />
+            </td>
+          </tr>
+          <tr>
+            <td>Code Postal :</td>
+            <td>
+              <input type="text" [(ngModel)]="compte.adresse!.cp" />
+            </td>
+          </tr>
 
-            <tr>
-              <td>Type de paiement :</td>
-              <td>
-                <select class="typeDePaiement" name="typeDePaiement">
-                  <option value="1">Carte</option>
-                  <option value="2">Paypal</option>
-                </select>
-              </td>
-            </tr>
-          </div>
+          <tr>
+            <td>Type de paiement :</td>
+            <td>
+              <select class="typeDePaiement" name="typeDePaiement">
+                <option value="1">Carte</option>
+                <option value="2">Paypal</option>
+              </select>
+            </td>
+          </tr>
         </table>
         <div>
           <button class="btn btn-primary" (click)="edit()">Valider</button>
         </div>
-      </div>
 
-      <div>
-        <h2 class="titre" align="center">Modification du mot de passe</h2>
-      </div>
-      <div id="formGestionCompte">
-        <form
-          (ngSubmit)="editPassword()"
-          [formGroup]="form"
-          class="formGestionCompte"
-        >
-          <table>
-            <tr>
-              <td>Mot de passe :</td>
-              <td>
-                <input
-                  type="password"
-                  class="form-control"
-                  formControlName="password"
-                />
-              </td>
-            </tr>
-            <div
-              *ngIf="
-                form.get('password')?.dirty && form.get('password')?.invalid
-              "
-              class="alert alert-success"
-            >
-              Le mot de passe doit faire en 5 et 25 caractères comprennant au
-              moins une majuscule, une minuscule, un chiffre et un caractere
-              spécial (*_!@-)
-            </div>
-            <tr>
-              <td>Vérification du mot de passe :</td>
-              <td>
-                <input
-                  type="password"
-                  class="form-control"
-                  formControlName="confirm"
-                />
-              </td>
-            </tr>
-            <div
-              *ngIf="form.invalid && form.get('confirm')?.dirty"
-              class="alert alert-danger"
-            >
-              Les deux saisies de mot de passe sont différentes
-            </div>
-          </table>
-        </form>
-        <div>
-          <button
-            class="btn btn-primary"
-            (click)="editPassword()"
-            [disabled]="form.invalid"
+        <div class="formGestionCompte" *ngIf="compte.type != 'client'">
           >
-            Valider
-          </button>
+          <table id="infos">
+            <tr>
+              <td>Prénom :</td>
+              <td><input type="text" [(ngModel)]="compte.prenom" /></td>
+            </tr>
+            <tr>
+              <td>Nom :</td>
+              <td><input type="text" [(ngModel)]="compte.nom" /></td>
+            </tr>
+            <tr>
+              <td>Date de naissance :</td>
+              <td><input type="date" [(ngModel)]="compte.dateNaissance" /></td>
+            </tr>
+            <tr>
+              <td>Email :</td>
+              <td>
+                <input type="text" [(ngModel)]="compte.mail" disabled="true" />
+              </td>
+            </tr>
+            <tr>
+              <td>Type de compte :</td>
+              <td>
+                <input type="text" [(ngModel)]="compte.type" disabled="true" />
+              </td>
+            </tr>
+          </table>
+          <div>
+            <button class="btn btn-primary" (click)="edit()">Valider</button>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <h2 class="titre" align="center">Modification du mot de passe</h2>
+          </div>
+          <div>
+            <form
+              (ngSubmit)="editPassword()"
+              [formGroup]="form"
+              class="formGestionCompte"
+            >
+              <table>
+                <tr>
+                  <td>Mot de passe :</td>
+                  <td>
+                    <input
+                      type="password"
+                      class="form-control"
+                      formControlName="password"
+                    />
+                  </td>
+                </tr>
+                <div
+                  *ngIf="
+                    form.get('password')?.dirty && form.get('password')?.invalid
+                  "
+                  class="alert alert-success"
+                >
+                  Le mot de passe doit faire en 5 et 25 caractères comprennant
+                  au moins une majuscule, une minuscule, un chiffre et un
+                  caractere spécial (*_!@-)
+                </div>
+                <tr>
+                  <td>Vérification du mot de passe :</td>
+                  <td>
+                    <input
+                      type="password"
+                      class="form-control"
+                      formControlName="confirm"
+                    />
+                  </td>
+                </tr>
+                <div
+                  *ngIf="form.invalid && form.get('confirm')?.dirty"
+                  class="alert alert-danger"
+                >
+                  Les deux saisies de mot de passe sont différentes
+                </div>
+              </table>
+            </form>
+            <div>
+              <button
+                class="btn btn-primary"
+                (click)="editPassword()"
+                [disabled]="form.invalid"
+              >
+                Valider
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </main>
