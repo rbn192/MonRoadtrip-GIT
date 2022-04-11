@@ -2,6 +2,7 @@ body {
   padding-top: 6rem;
   color: #5a5a5a;
   background-color: #f4efe7;
+  min-height: 100vh;
 }
 
 #accueil {

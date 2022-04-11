@@ -45,7 +45,7 @@ public abstract class Compte implements UserDetails{
 	@GeneratedValue(strategy = GenerationType.TABLE)
     protected Integer id;
 
-	@JsonView(JsonViews.Common.class)
+	@JsonView(JsonViews.CompteWithMdp.class)
     protected String nom;
 	@JsonView(JsonViews.Common.class)
 	protected String prenom;
@@ -55,6 +55,7 @@ public abstract class Compte implements UserDetails{
     protected String mail;
     @NotEmpty
 	@Column(name = "password", nullable = false, length = 255)
+    @JsonView(JsonViews.CompteWithMdp.class)
     protected String password;
     @Column(name="date_naissance")
     @Past

@@ -1,107 +1,142 @@
-<div class="container">
-  <h1>Inscription d'un organisateur</h1>
-  <form (ngSubmit)="submit()" [formGroup]="form">
-    <div class="form-group">
-      <label>Prénom :</label>
-      <input class="form-control" formControlName="prenom" />
-      <div
-        *ngIf="form.get('prenom')?.dirty && form.get('prenom')?.invalid"
-        class="alert alert-warning"
-      >
-        Information obligatoire
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Nom :</label>
-      <input class="form-control" formControlName="nom" />
-      <div
-        *ngIf="form.get('nom')?.dirty && form.get('nom')?.invalid"
-        class="alert alert-warning"
-      >
-        Information obligatoire
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Date de naissance :</label>
-      <input class="form-control" formControlName="dateNaissance" type="date" />
-      <div
-        *ngIf="
-          form.get('dateNaissance')?.dirty && form.get('dateNaissance')?.invalid
-        "
-        class="alert alert-warning"
-      >
-        Information obligatoire
-      </div>
-    </div>
-    <div formGroupName="mailPasswordGroup">
-      <div class="form-group">
-        <label>E-mail :</label>
-        <input type="mail" class="form-control" formControlName="mail" />
-        <div
-          *ngIf="
-            form.get('mailPasswordGroup.mail')?.dirty &&
-            form.get('mailPasswordGroup.mail')?.invalid
-          "
-          class="alert alert-warning"
-        >
-          Cette adresse mail est incorrecte
-        </div>
-        <div
-          *ngIf="form.get('mailPasswordGroup.mail')?.hasError('mailExist')"
-          class="alert alert-danger"
-        >
-          Cet adresse mail est déjà utilisée par un autre utilisateur
-        </div>
-        <div
-          *ngIf="
-            form.get('mailPasswordGroup')?.hasError('mailAndPasswordEquals')
-          "
-          class="alert alert-danger"
-        >
-          Le mail et le mot de passe ne doivent pas être identiques
-        </div>
-      </div>
-      <div formGroupName="passwordGroup">
-        <div class="form-group">
-          <label>Mot de passe :</label>
-          <input type="text" class="form-control" formControlName="password" />
+<head>
+  <meta charset="UTF-8" />
+  <title>Inscription organisateur</title>
+</head>
+
+<body id="bodyInscription">
+  <div class="container" id="inscription">
+    <h1>S'inscrire en tant qu'organisateur</h1>
+    <br />
+    <form (ngSubmit)="submit()" [formGroup]="form" id="formInscription">
+      <div class="form-row">
+        <div class="form-group col-lg-6">
+          <label>Prénom :</label>
+          <input class="form-control" formControlName="prenom" />
           <div
-            *ngIf="
-              form.get('mailPasswordGroup.passwordGroup.password')?.dirty &&
-              form.get('mailPasswordGroup.passwordGroup.password')?.invalid
-            "
-            class="alert alert-success"
+            *ngIf="form.get('prenom')?.dirty && form.get('prenom')?.invalid"
+            class="alert alert-warning"
           >
-            Le mot de passe doit faire en 5 et 25 caractères comprennant au
-            moins une majuscule, une minuscule, un chiffre et un caractere
-            spécial (*_!@-)
+            Information obligatoire
           </div>
         </div>
-        <div class="form-group">
-          <label>Confirmation mot de passe :</label>
-          <input
-            type="password"
-            class="form-control"
-            formControlName="confirm"
-          />
-        </div>
-        <div
-          *ngIf="form.get('mailPasswordGroup.passwordGroup')?.invalid"
-          class="alert alert-danger"
-        >
-          Les deux saisies de mot de passe sont différentes
+        <div class="form-group col-lg-6">
+          <label>Nom :</label>
+          <input class="form-control" formControlName="nom" />
+          <div
+            *ngIf="form.get('nom')?.dirty && form.get('nom')?.invalid"
+            class="alert alert-warning"
+          >
+            Information obligatoire
+          </div>
         </div>
       </div>
-    </div>
-    <div>
-      <button
-        type="submit"
-        class="btn btn-outline-success"
-        [disabled]="form.invalid"
+      <div class="form-row">
+        <div class="form-group col-lg-12">
+          <label>Date de naissance :</label>
+          <input
+            class="form-control"
+            formControlName="dateNaissance"
+            type="date"
+          />
+          <div
+            *ngIf="
+              form.get('dateNaissance')?.dirty &&
+              form.get('dateNaissance')?.invalid
+            "
+            class="alert alert-warning"
+          >
+            Information obligatoire
+          </div>
+        </div>
+      </div>
+      <div class="form-row" formGroupName="mailPasswordGroup">
+        <div class="form-group col-lg-12">
+          <label>E-mail :</label>
+          <input type="mail" class="form-control" formControlName="mail" />
+          <div
+            *ngIf="
+              form.get('mailPasswordGroup.mail')?.dirty &&
+              form.get('mailPasswordGroup.mail')?.invalid
+            "
+            class="alert alert-warning"
+          >
+            Adresse mail incorrecte
+          </div>
+          <div
+            *ngIf="form.get('mailPasswordGroup.mail')?.hasError('mailExist')"
+            class="alert alert-danger"
+          >
+            Adresse mail déjà utilisée
+          </div>
+          <div
+            *ngIf="
+              form.get('mailPasswordGroup')?.hasError('mailAndPasswordEquals')
+            "
+            class="alert alert-danger"
+          >
+            Le mail et le mot de passe doivent être différents
+          </div>
+        </div>
+        <div class="form-row col-lg-12" formGroupName="passwordGroup">
+          <div class="form-group col-lg-6">
+            <label>Mot de passe :</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+            />
+          </div>
+          <div class="form-group col-lg-6">
+            <label>Confirmation mot de passe :</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="confirm"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="
+          form.get('mailPasswordGroup.passwordGroup.password')?.dirty &&
+          form.get('mailPasswordGroup.passwordGroup.password')?.invalid
+        "
+        class="alert alert-success"
       >
-        Inscription
-      </button>
-      <a routerLink="/inscription" class="btn btn-outline-warning">Retour</a>
-    </div>
-  </form>
-</div>
+        Le mot de passe doit faire entre 5 et 25 caractères et comprendre au
+        moins :
+        <br />
+        une majuscule, une minuscule, un chiffre et un caractere spécial (*_!@-)
+      </div>
+      <div
+        *ngIf="
+          form.get('mailPasswordGroup.passwordGroup.password')?.dirty &&
+          form.get('mailPasswordGroup.passwordGroup')?.invalid
+        "
+        class="alert alert-danger"
+      >
+        Mots de passe différents
+      </div>
+
+      <br />
+
+      <div class="form-row">
+        <div class="form-group col-lg-4">
+          <a routerLink="/inscription" class="btn btn-warning btnInscription"
+            >Retour</a
+          >
+        </div>
+        <div class="form-group col-lg-8">
+          <button
+            type="submit"
+            class="btn btn-primary btnInscription"
+            [disabled]="form.invalid"
+          >
+            Inscription
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <br />
+</body>
