@@ -94,7 +94,7 @@ export class HoteInscriptionComponent implements OnInit {
       dateNaissance: this.form.get('dateNaissance')?.value,
     };
     this.compteService.inscriptionCompte(compte).subscribe((ok) => {
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/connexion');
     });
     console.log(compte);
   }
