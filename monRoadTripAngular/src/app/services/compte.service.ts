@@ -32,4 +32,8 @@ export class CompteService {
       'http://localhost:8080/monroadtrip/api/compte/search/' + mail
     );
   }
+
+  public update(compte: Compte): Observable<Compte> {
+    return this.http.put<Compte>(CompteService.URL + '/' + compte.id, compte);
+  }
 }

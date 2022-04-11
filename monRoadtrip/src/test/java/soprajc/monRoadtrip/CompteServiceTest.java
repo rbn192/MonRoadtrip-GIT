@@ -39,13 +39,13 @@ public class CompteServiceTest {
 	@Test
 	@Transactional
 	@Commit
-	@Disabled
 	
 	void insertTest() {
 		Client c = new Client("Bob","Bob", "bob", passwordEncoder.encode("123"), LocalDate.of(2022, 3, 30), null, 50, TypeDePaiement.Carte, new Adresse("33","rue Wesh","75000","Paris"));
-		Hote h = new Hote("Bob","Bob", "bob@bob", passwordEncoder.encode("1234"), LocalDate.of(2022, 3, 30));
+		//Hote h = new Hote("Bob","Bob", "bob@bob", passwordEncoder.encode("1234"), LocalDate.of(2022, 3, 30));
+		
 		compteService.save(c);
-		compteService.save(h);
+		//compteService.save(h);
 		//System.out.println(c.getId());
 		//System.out.println(c.getAdresse());
 		//System.out.println(clientService.getAll());
@@ -66,6 +66,7 @@ public class CompteServiceTest {
 //	}
 	
 	@Test
+	@Disabled
 	void findByMail(){
 		String mail = "lucie@orga";
 		compteRepo.findByMail(mail);
