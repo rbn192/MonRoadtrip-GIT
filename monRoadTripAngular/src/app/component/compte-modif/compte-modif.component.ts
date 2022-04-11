@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class CompteModifComponent implements OnInit {
   compte: Compte = new Compte();
   prenom: string = '';
+  password: string = '';
 
   constructor(
     private compteService: CompteService,
@@ -22,28 +23,47 @@ export class CompteModifComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) => {
+    /*this.activatedRoute.params.subscribe((params) => {
       if (params['login']) {
         this.compteService
           .getCompteByMail(params['login'])
           .subscribe((result) => {
             this.compte = result;
+            console.log('result ' + result);
+            console.log('prenom ' + this.compte.prenom);
           });
       }
-    });
+    });*/
+
+    if (localStorage.getItem('login')) {
+      console.log('login ' + localStorage.getItem('login')!);
+      this.compteService
+        .getCompteByMail(localStorage.getItem('login')!)
+        .subscribe((result) => {
+          console.log('subscribe');
+          this.compte = result;
+          console.log('compte ' + this.compte);
+        });
+    }
   }
 
   edit() {
     if (this.compte.id) {
+      console.log('yes : ' + this.compte.password);
+      this.password = this.compte.password!;
+      console.log('pass ' + this.compte.password);
       this.compteService.update(this.compte).subscribe((result) => {
-        (this.compte = result),
-          console.log(this.compte.adresse!.voie),
+        console.log(this.password),
+          ((this.compte = result), (this.compte.password = this.password)),
           this.goList();
       });
     } else {
       console.log("création d'un nouveau compte");
     }
-    console.log(this.compte.prenom);
+  }
+
+  editPassword() {
+    console.log(this.compte.password);
   }
 
   goList() {

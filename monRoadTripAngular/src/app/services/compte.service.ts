@@ -16,7 +16,7 @@ export class CompteService {
   }
 
   public getCompteByMail(mail: string): Observable<Compte> {
-    return this.http.get<Compte>(CompteService.URL + '/search/' + mail);
+    return this.http.get<Compte>(CompteService.URL + '/find/' + mail);
   }
 
   public inscriptionCompte(compte: any): Observable<any> {
