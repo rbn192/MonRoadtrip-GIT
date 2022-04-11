@@ -19,6 +19,7 @@ export const routes: Routes = [
     path: 'inscription/organisateur',
     component: OrganisateurInscriptionComponent,
   },
-  { path: 'compte/edit/:login', component: CompteModifComponent },
+  { path: 'compte/edit', component: CompteModifComponent },
+  //{ path: 'compte/edit/:login', component: CompteModifComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

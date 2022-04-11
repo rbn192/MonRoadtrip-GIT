@@ -45,7 +45,8 @@ export class ConnexionComponent implements OnInit {
         console.log(value);
         this.err = false;
 
-        this.router.navigateByUrl('compte/edit/' + this.login);
+        //this.router.navigateByUrl('compte/edit/' + this.login);
+        this.router.navigateByUrl('compte/edit');
       },
       error: (error: any) => {
         this.err = true;
