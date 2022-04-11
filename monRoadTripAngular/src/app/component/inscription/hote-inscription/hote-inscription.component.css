@@ -1,0 +1,10 @@
+.form-row,
+.form-group {
+  padding-top: 2px;
+  padding-bottom: 3px;
+}
+
+.alert {
+  margin: 2px;
+  padding: 8px;
+}
