@@ -36,11 +36,5 @@ public class Organisateur extends Compte {
 		this.activites = activites;
 	}
 
-	@Override
-	public String toString() {
-		return "Organisateur [nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", password=" + password
-				+ ", id=" + id + ", dateNaissance=" + dateNaissance + ", activites=" + activites + "]";
-	}
-
 	
 }
