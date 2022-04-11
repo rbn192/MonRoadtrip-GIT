@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompteModifComponent implements OnInit {
   compte: Compte = new Compte();
+  prenom: string = '';
 
   constructor(
     private compteService: CompteService,
