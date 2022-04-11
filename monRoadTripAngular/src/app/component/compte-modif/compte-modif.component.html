@@ -26,7 +26,7 @@
       <div>
         <h2 class="titre" align="center">Informations du compte</h2>
       </div>
-      <div id="formGestionCompte">
+      <div class="formGestionCompte">
         <table id="infos">
           <tr>
             <td>Prénom :</td>
@@ -96,18 +96,56 @@
         <h2 class="titre" align="center">Modification du mot de passe</h2>
       </div>
       <div id="formGestionCompte">
-        <table id="infos">
-          <tr>
-            <td>Mot de passe :</td>
-            <td><input type="password" name="compte.password" /></td>
-          </tr>
-          <tr>
-            <td>Vérification du mot de passe :</td>
-            <td><input type="password" name="compte.password" /></td>
-          </tr>
-        </table>
+        <form
+          (ngSubmit)="editPassword()"
+          [formGroup]="form"
+          class="formGestionCompte"
+        >
+          <table>
+            <tr>
+              <td>Mot de passe :</td>
+              <td>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="password"
+                />
+              </td>
+            </tr>
+            <div
+              *ngIf="
+                form.get('password')?.dirty && form.get('password')?.invalid
+              "
+              class="alert alert-success"
+            >
+              Le mot de passe doit faire en 5 et 25 caractères comprennant au
+              moins une majuscule, une minuscule, un chiffre et un caractere
+              spécial (*_!@-)
+            </div>
+            <tr>
+              <td>Vérification du mot de passe :</td>
+              <td>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="confirm"
+                />
+              </td>
+            </tr>
+            <div
+              *ngIf="form.invalid && form.get('confirm')?.dirty"
+              class="alert alert-danger"
+            >
+              Les deux saisies de mot de passe sont différentes
+            </div>
+          </table>
+        </form>
         <div>
-          <button class="btn btn-primary" (click)="editPassword()">
+          <button
+            class="btn btn-primary"
+            (click)="editPassword()"
+            [disabled]="form.invalid"
+          >
             Valider
           </button>
         </div>
