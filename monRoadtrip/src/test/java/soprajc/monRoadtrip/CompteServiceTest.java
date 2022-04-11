@@ -6,6 +6,7 @@ import java.time.LocalDate;
 
 import javax.transaction.Transactional;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,6 +17,7 @@ import soprajc.monRoadtrip.model.Adresse;
 import soprajc.monRoadtrip.model.Client;
 import soprajc.monRoadtrip.model.Hote;
 import soprajc.monRoadtrip.model.TypeDePaiement;
+import soprajc.monRoadtrip.repositories.CompteRepository;
 import soprajc.monRoadtrip.services.CompteService;
 
 @SpringBootTest
@@ -23,6 +25,9 @@ public class CompteServiceTest {
 
 	@Autowired
 	CompteService compteService;
+	
+	@Autowired
+	CompteRepository compteRepo;
 	
 	@Autowired
 	PasswordEncoder passwordEncoder;
@@ -34,6 +39,7 @@ public class CompteServiceTest {
 	@Test
 	@Transactional
 	@Commit
+	@Disabled
 	
 	void insertTest() {
 		Client c = new Client("Bob","Bob", "bob", passwordEncoder.encode("123"), LocalDate.of(2022, 3, 30), null, 50, TypeDePaiement.Carte, new Adresse("33","rue Wesh","75000","Paris"));
@@ -58,4 +64,11 @@ public class CompteServiceTest {
 ////		activiteRepository.deleteById(2);
 ////		assertNotEquals(3, activiteRepository.count());
 //	}
+	
+	@Test
+	void findByMail(){
+		String mail = "lucie@orga";
+		compteRepo.findByMail(mail);
+		System.out.println(compteRepo.findByMail(mail));
+	}
 }

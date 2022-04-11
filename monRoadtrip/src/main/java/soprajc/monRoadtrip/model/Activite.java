@@ -38,14 +38,13 @@ public class Activite {
 	private Adresse adresse;
 	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
-	@Column(columnDefinition = "ENUM('Musée','Concert','Randonnée','Monument','Restaurant', 'Insolite)")
+	@Column(columnDefinition = "ENUM('Musée','Concert','Randonnée','Monument','Restaurant', 'Insolite')")
 	private Categorie categorie;
 	@JsonView(JsonViews.Common.class)
 	@Column(name = "nb_places")
 	private int nbPlaces;
 	private int note; //1-10
 
-	@JsonView(JsonViews.Common.class)
 	@ManyToOne
 	@JoinColumn(name="id_organisateur_fk")
 	private Organisateur organisateur;
