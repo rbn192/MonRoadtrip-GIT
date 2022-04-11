@@ -93,6 +93,7 @@ public class CompteRestController {
 		if (br.hasErrors()) {
 			throw new CompteException();
 		}
+		compte.setPassword(passwordEncoder.encode(compte.getPassword()));
 		return compteService.save(compte);
 	}
 
