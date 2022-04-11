@@ -9,6 +9,7 @@
     <br />
     <form (ngSubmit)="submit()" [formGroup]="form" id="formInscription">
       <div class="form-row">
+        <h5 class="form-group col-lg-12">Informations personnelles</h5>
         <div class="form-group col-lg-6">
           <label>Prénom :</label>
           <input class="form-control" formControlName="prenom" />
@@ -49,7 +50,9 @@
           </div>
         </div>
       </div>
+      <hr />
       <div class="form-row" formGroupName="mailPasswordGroup">
+        <h5 class="form-group col-lg-12">Identifiants</h5>
         <div class="form-group col-lg-12">
           <label>E-mail :</label>
           <input type="mail" class="form-control" formControlName="mail" />
