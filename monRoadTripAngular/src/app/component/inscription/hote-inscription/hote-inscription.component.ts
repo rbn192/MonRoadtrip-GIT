@@ -14,7 +14,7 @@ import {
 @Component({
   selector: 'app-hote-inscription',
   templateUrl: './hote-inscription.component.html',
-  styleUrls: ['./hote-inscription.component.css'],
+  styleUrls: ['./hote-inscription.component.css', '../../../app.component.css'],
 })
 export class HoteInscriptionComponent implements OnInit {
   form: FormGroup;

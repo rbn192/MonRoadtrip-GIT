@@ -1,13 +1,40 @@
-<div class="container">
-  <h1>Inscription</h1>
-  <div>
-    <button (click)="client()" class="btn btn-outline-primary">Client</button>
-    <button (click)="hote()" class="btn btn-outline-primary">Hôte</button>
-    <button (click)="organisateur()" class="btn btn-outline-primary">
-      Organisateur
-    </button>
+<head>
+  <meta charset="UTF-8" />
+  <title>Inscription</title>
+</head>
+
+<body id="bodyInscription">
+  <div class="container" id="inscriptionMenu">
+    <h1>Inscription</h1>
+    <br />
+    <div class="formInscription form-group">
+      <button
+        (click)="client()"
+        type="button"
+        class="btn btn-primary btnInscription"
+      >
+        Client
+      </button>
+      <button
+        (click)="hote()"
+        type="button"
+        class="btn btn-primary btnInscription"
+      >
+        Hôte
+      </button>
+      <button
+        (click)="organisateur()"
+        type="button"
+        class="btn btn-primary btnInscription"
+      >
+        Organisateur
+      </button>
+      <div>
+        <a routerLink="/home">
+          <button class="btn btn-warning btnInscription">Retour</button></a
+        >
+      </div>
+    </div>
   </div>
-  <div>
-    <a routerLink="/home" class="btn btn-outline-warning">Retour</a>
-  </div>
-</div>
+  <br />
+</body>

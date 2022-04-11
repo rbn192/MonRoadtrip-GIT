@@ -151,7 +151,7 @@ public class CompteRestController {
 		return compteService.save(compte);
 	}
 	
-	@GetMapping("/search/{email}")
+	/*
 	@JsonView(JsonViews.Common.class)
 	public Compte checkEmail(@PathVariable String email) {
 		System.out.println("email");
@@ -159,5 +159,6 @@ public class CompteRestController {
 		System.out.println("compte c "+c);
 		return c;
 	}
+	*/
 
 }
