@@ -19,6 +19,9 @@ public interface LogementRepository extends JpaRepository<Logement, Integer>{
 	@Query("delete from Logement l where l.hote=:hote")
 	void deleteByHote(@Param("hote") Hote hote);
 	
+	@Query("select l from Logement l where l.adresse.ville=:ville")
+	List<Logement> getAllByVille(@Param("ville") String ville);
+	
 	@Query("select l from Logement l where l.hote.mail=:mail")
 	List<Logement> getAllByHote(@Param("mail") String mail);
 
