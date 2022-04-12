@@ -42,4 +42,8 @@ public class ActiviteService {
 	public List<Activite> getActiviteByOrganisateur(String mail) {
 		return activiteRepo.getAllByOrganisateur(mail);
 	}
+	
+	public List<Activite> getActiviteByVille(String ville){
+		return activiteRepo.getAllByVille(ville);
+	}
 }
