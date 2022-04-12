@@ -109,7 +109,7 @@ export class ClientInscriptionComponent implements OnInit {
       },
     };
     this.compteService.inscriptionCompte(compte).subscribe((ok) => {
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/connexion');
     });
     console.log(compte);
   }

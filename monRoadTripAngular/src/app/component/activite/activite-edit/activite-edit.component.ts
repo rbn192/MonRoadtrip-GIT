@@ -22,6 +22,8 @@ export class ActiviteEditComponent implements OnInit {
     private router: Router
   ) {
     this.activite.adresse = new Adresse();
+    this.activite.organisateur = new Organisateur();
+    this.activite.organisateur.id = parseInt(localStorage.getItem('id')!);
   }
 
   ngOnInit(): void {
@@ -37,14 +39,11 @@ export class ActiviteEditComponent implements OnInit {
   save() {
     if (this.activite.id) {
       this.activiteService.update(this.activite).subscribe((result) => {
-        console.log(this.activite.adresse);
-        console.log(result.adresse);
         this.goList();
       });
     } else {
       this.activiteService.create(this.activite).subscribe((result) => {
         this.goList();
-        console.log(this.activite.adresse);
       });
     }
   }

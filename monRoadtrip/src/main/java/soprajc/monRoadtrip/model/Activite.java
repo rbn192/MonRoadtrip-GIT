@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -47,6 +48,7 @@ public class Activite {
 	private int note; //1-10
 
 	@ManyToOne
+	@JsonView(JsonViews.Common.class)
 	@JoinColumn(name="id_organisateur_fk")
 	private Organisateur organisateur;
 	
