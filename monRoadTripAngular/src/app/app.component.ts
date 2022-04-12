@@ -33,7 +33,6 @@ export class AppComponent {
   }
 
   get role() {
-    console.log(localStorage.getItem('role'));
     return localStorage.getItem('role');
   }
 

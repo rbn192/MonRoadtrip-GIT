@@ -39,4 +39,7 @@ public class ActiviteService {
 		activiteRepo.deleteById(id);
 	}
 	
+	public List<Activite> getActiviteByOrganisateur(String mail) {
+		return activiteRepo.getAllByOrganisateur(mail);
+	}
 }

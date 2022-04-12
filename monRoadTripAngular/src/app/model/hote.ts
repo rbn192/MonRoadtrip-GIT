@@ -4,7 +4,8 @@ export class Hote {
     private _nom?: string | undefined,
     private _prenom?: string | undefined,
     private _password?: string | undefined,
-    private _dateNaissance?: Date | undefined
+    private _dateNaissance?: Date | undefined,
+    private _mail?: string | undefined
   ) {}
 
   public get id(): number | undefined {
@@ -44,5 +45,13 @@ export class Hote {
 
   public set dateNaissance(value: Date | undefined) {
     this._dateNaissance = value;
+  }
+
+  public get mail(): string | undefined {
+    return this._mail;
+  }
+
+  public set mail(value: string | undefined) {
+    this._mail = value;
   }
 }

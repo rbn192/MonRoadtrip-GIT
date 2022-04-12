@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import soprajc.monRoadtrip.exceptions.LogementException;
+import soprajc.monRoadtrip.model.Activite;
 import soprajc.monRoadtrip.model.Logement;
 import soprajc.monRoadtrip.repositories.LogementRepository;
 
@@ -38,5 +39,10 @@ public class LogementService {
 	public void delete(Integer id) {
 		delete(getById(id));
 	}
+	
+	public List<Logement> getLogementByHote(String mail) {
+		return logementRepository.getAllByHote(mail);
+	}
+	
 
 }

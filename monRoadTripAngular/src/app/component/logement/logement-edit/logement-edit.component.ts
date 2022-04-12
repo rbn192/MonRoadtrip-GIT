@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Logement } from './../../../model/logement';
 import { Component, OnInit } from '@angular/core';
 import { Adresse } from 'src/app/model/adresse';
+import { Hote } from 'src/app/model/hote';
 
 @Component({
   selector: 'app-logement-edit',
@@ -19,6 +20,8 @@ export class LogementEditComponent implements OnInit {
     private router: Router
   ) {
     this.logement.adresse = new Adresse();
+    this.logement.hote = new Hote();
+    this.logement.hote.id = parseInt(localStorage.getItem('id')!);
   }
 
   ngOnInit(): void {
@@ -34,8 +37,6 @@ export class LogementEditComponent implements OnInit {
   save() {
     if (this.logement.id) {
       this.logementService.update(this.logement).subscribe((result) => {
-        console.log(this.logement.adresse);
-        console.log(result.adresse);
         this.goList();
       });
     } else {

@@ -2,6 +2,7 @@ package soprajc.monRoadtrip;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -11,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.annotation.Commit;
-import org.springframework.test.annotation.Rollback;
 
 import soprajc.monRoadtrip.model.Activite;
 import soprajc.monRoadtrip.model.Adresse;
@@ -33,10 +33,18 @@ class ActiviteRepoTest {
 	PasswordEncoder passwordEncoder;
 
 	
+	
+	@Test
+	void getAllByOrganisateur() {
+		System.out.println("test");
+		System.out.println(activiteService.getActiviteByOrganisateur("lucie@orga.com"));
+	}
+	
+	
 	@Test
 	@Transactional
 	@Commit
-//	@Disabled
+	@Disabled
 	void creationActiviteTest() {		
 		
 		Organisateur o2 = new Organisateur("Guitton","Lucie","lucie@orga.com",passwordEncoder.encode("123"), LocalDate.of(1997, 7, 5));
