@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.css', '../../app.component.css'],
 })
 export class HomeComponent implements OnInit {
+  depart: string = '';
+  arrivee: string = '';
+
   login: string = '';
   prenom: string = '';
 
@@ -34,7 +37,9 @@ export class HomeComponent implements OnInit {
   gestionCompte() {
     this.router.navigateByUrl('/compte/edit/' + this.login);
   }
-
+  recherche() {
+    this.router.navigate(['/itineraire/', this.depart, this.arrivee]);
+  }
   logout() {
     localStorage.clear();
     this.router.navigateByUrl('/home');

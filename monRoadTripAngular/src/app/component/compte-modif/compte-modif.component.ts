@@ -15,7 +15,7 @@ import {
 @Component({
   selector: 'app-compte-modif',
   templateUrl: './compte-modif.component.html',
-  styleUrls: ['./compte-modif.component.css'],
+  styleUrls: ['./compte-modif.component.css', '../../app.component.css'],
 })
 export class CompteModifComponent implements OnInit {
   compte: Compte = new Compte();

@@ -65,8 +65,29 @@
         >
           Déconnexion
         </button>
+
+        <a
+          *ngIf="isAutenticated() && role == 'hote'"
+          routerLink="/logement"
+          routerLinkActive="active"
+          class="btn btn-link"
+          style="color: white"
+        >
+          Logement</a
+        >
+
+        <a
+          *ngIf="isAutenticated() && role == 'organisateur'"
+          routerLink="/activite"
+          routerLinkActive="active"
+          class="btn btn-link"
+          style="color: white"
+        >
+          Activite</a
+        >
       </form>
     </div>
   </nav>
 </header>
+
 <router-outlet></router-outlet>
