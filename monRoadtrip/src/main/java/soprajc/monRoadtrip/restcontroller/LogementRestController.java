@@ -29,7 +29,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import soprajc.monRoadtrip.exceptions.LogementException;
-import soprajc.monRoadtrip.model.Activite;
 import soprajc.monRoadtrip.model.Adresse;
 import soprajc.monRoadtrip.model.Hote;
 import soprajc.monRoadtrip.model.JsonViews;
