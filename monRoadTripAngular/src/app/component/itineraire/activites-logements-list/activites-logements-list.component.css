@@ -1,0 +1,16 @@
+#recherche {
+  margin-left: 3.5%;
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+#recherche input {
+  width: 100%;
+}
+
+#contenu {
+  width: 60%;
+}
