@@ -58,25 +58,19 @@ export class CompteModifComponent implements OnInit {
     });*/
 
     if (localStorage.getItem('login')) {
-      console.log('login ' + localStorage.getItem('login')!);
       this.compteService
         .getCompteByMail(localStorage.getItem('login')!)
         .subscribe((result) => {
-          console.log('subscribe');
           this.compte = result;
-          console.log('compte ' + this.compte);
         });
     }
   }
 
   edit() {
     if (this.compte.id) {
-      console.log('yes : ' + this.compte.password);
       this.password = this.compte.password!;
-      console.log('pass ' + this.compte.password);
       this.compteService.update(this.compte).subscribe((result) => {
-        console.log(this.password),
-          ((this.compte = result), (this.compte.password = this.password)),
+        ((this.compte = result), (this.compte.password = this.password)),
           this.goList();
       });
     } else {
@@ -86,11 +80,8 @@ export class CompteModifComponent implements OnInit {
 
   editPassword() {
     this.compte.password = this.form.get('password')!.value;
-    console.log('compte pass ' + this.compte.password);
     this.compteService.update(this.compte).subscribe((result) => {
-      console.log('password ' + this.compte.password),
-        (this.compte = result),
-        this.goList();
+      (this.compte = result), this.goList();
     });
   }
 
