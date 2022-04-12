@@ -1,0 +1,22 @@
+.adresse {
+  background-color: #ebe4d9;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.divTableau {
+  text-align: center;
+  width: 80%;
+}
+
+#editer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btnEditer {
+  width: 90px;
+}
