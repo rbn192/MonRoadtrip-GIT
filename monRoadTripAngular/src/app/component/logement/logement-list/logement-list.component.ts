@@ -1,3 +1,4 @@
+import { Hote } from './../../../model/hote';
 import { LogementService } from './../../../services/logement.service';
 import { Logement } from './../../../model/logement';
 import { Component, OnInit } from '@angular/core';
@@ -9,22 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogementListComponent implements OnInit {
   logements: Logement[] = [];
+  hote: Hote = new Hote();
 
   constructor(private logementService: LogementService) {}
 
   ngOnInit(): void {
-    this.list();
+    this.list(localStorage.getItem('login')!);
   }
 
-  list() {
-    this.logementService.getAll().subscribe((result) => {
+  list(mail: string) {
+    this.logementService.getAllByHote(mail).subscribe((result) => {
       this.logements = result;
     });
   }
 
   delete(id: number) {
     this.logementService.delete(id).subscribe((ok) => {
-      this.list();
+      this.list(localStorage.getItem('login')!);
     });
   }
 }

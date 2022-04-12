@@ -13,8 +13,8 @@ export class ActiviteService {
 
   constructor(private http: HttpClient) {}
 
-  public getAll(): Observable<any[]> {
-    return this.http.get<any[]>(ActiviteService.URL);
+  public getAllByOrganisateur(mail: string): Observable<any[]> {
+    return this.http.get<any[]>(`${ActiviteService.URL}/organisateur/${mail}`);
   }
 
   public get(id: number): Observable<any> {
@@ -49,9 +49,14 @@ export class ActiviteService {
         numero: activite.adresse?.numero,
         ville: activite.adresse?.ville,
       },
-
       nbPlaces: activite.nbPlaces,
-      organisateur: activite.organisateur,
+      organisateur: {
+        type: 'organisateur',
+        id: activite.organisateur?.id,
+        prenom: activite.organisateur?.prenom,
+        mail: activite.organisateur?.mail,
+        dateNaissance: activite.organisateur?.dateNaissance,
+      },
       intitule: activite.intitule,
     };
     return obj;
