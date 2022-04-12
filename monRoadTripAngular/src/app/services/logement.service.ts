@@ -15,6 +15,12 @@ export class LogementService {
     return this.http.get<any[]>(`${LogementService.URL}/hote/${mail}`);
   }
 
+  public getAllByVille(ville: string): Observable<Logement[]> {
+    return this.http.get<Logement[]>(
+      `${LogementService.URL}/logement/${ville}`
+    );
+  }
+
   public get(id: number): Observable<any> {
     return this.http.get<any>(`${LogementService.URL}/${id}`);
   }
