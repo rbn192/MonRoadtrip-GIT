@@ -33,6 +33,7 @@ public class Reservation {
 	
 	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "ENUM('En_cours','A_venir','Terminé')")
 	private Statut statut;
 	
 	@ManyToOne
@@ -42,12 +43,13 @@ public class Reservation {
 	
 	@OneToMany(mappedBy = "reservation")
 	@JsonView(JsonViews.Common.class)
+
 	private List<Etape> etapes;
 	
 	@ManyToOne
 	@JoinColumn(name="id_roadtrip_fk")
 	@JsonView(JsonViews.Common.class)
-	private Roadtrip roadTrip;
+	private Roadtrip roadtrip;
 	
 	@ManyToOne
 	@JoinColumn(name="id_client_fk")
@@ -63,7 +65,7 @@ public class Reservation {
 		this.dateReservation = dateReservation;
 		this.statut = statut;
 		this.participant = participant;
-		this.roadTrip = roadTrip;
+		this.roadtrip = roadTrip;
 		this.client = client;
 	}
 	
@@ -72,7 +74,7 @@ public class Reservation {
 		this.dateReservation = dateReservation;
 		this.statut = statut;
 		this.participant = participant;
-		this.roadTrip = roadTrip;
+		this.roadtrip = roadTrip;
 		this.client = client;
 		this.id=id;
 		this.etapes=etapes;
@@ -83,7 +85,7 @@ public class Reservation {
 		this.dateReservation = dateReservation;
 		this.statut = statut;
 		this.participant = participant;
-		this.roadTrip = roadTrip;
+		this.roadtrip = roadTrip;
 		this.client = client;
 		this.etapes=etapes;
 	}
@@ -110,7 +112,7 @@ public class Reservation {
 	}
 
 	public Roadtrip getRoadTrip() {
-		return roadTrip;
+		return roadtrip;
 	}
 
 	public Client getClient() {
@@ -130,7 +132,7 @@ public class Reservation {
 	}
 
 	public void setRoadTrip(Roadtrip roadTrip) {
-		this.roadTrip = roadTrip;
+		this.roadtrip = roadTrip;
 	}
 
 	public void setClient(Client client) {

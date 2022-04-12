@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import soprajc.monRoadtrip.exceptions.ClientException;
 import soprajc.monRoadtrip.exceptions.EtapeException;
 import soprajc.monRoadtrip.model.Activite;
 import soprajc.monRoadtrip.model.Etape;
@@ -28,8 +29,16 @@ public class EtapeService {
 		return etapeRepo.findAll();
 	}
 	
+	public List<Etape> getAllByClient(String mail) {
+		return etapeRepo.getAllByClient(mail);
+	}
+	
 	public Etape getById(Integer id) {
 		return etapeRepo.findById(id).orElseThrow(EtapeException::new);
+	}
+	
+	public List<Etape> getByIdResa(Integer id) {
+		return etapeRepo.getByIdResa(id);
 	}
 
 	public Etape save(Etape etape) {

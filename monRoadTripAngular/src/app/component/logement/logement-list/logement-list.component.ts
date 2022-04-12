@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-logement-list',
   templateUrl: './logement-list.component.html',
-  styleUrls: ['./logement-list.component.css'],
+  styleUrls: ['./logement-list.component.css', '../../../app.component.css'],
 })
 export class LogementListComponent implements OnInit {
   logements: Logement[] = [];
