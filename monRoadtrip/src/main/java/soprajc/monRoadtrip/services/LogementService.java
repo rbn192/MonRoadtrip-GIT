@@ -38,5 +38,10 @@ public class LogementService {
 	public void delete(Integer id) {
 		delete(getById(id));
 	}
+	
+	public List<Logement> getLogementByHote(String mail) {
+		return logementRepository.getAllByHote(mail);
+	}
+	
 
 }

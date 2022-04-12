@@ -35,6 +35,9 @@ export class ConnexionComponent implements OnInit {
   check() {
     this.authService.authentication(this.login, this.password).subscribe({
       next: (value: Compte) => {
+        localStorage.setItem('id', value.id!.toString());
+        localStorage.setItem('dateNaissance', value.dateNaissance!.toString());
+
         localStorage.setItem('login', this.login);
         localStorage.setItem(
           'token',
@@ -42,7 +45,9 @@ export class ConnexionComponent implements OnInit {
         );
         localStorage.setItem('role', value.type!);
         localStorage.setItem('prenom', value.prenom!);
-        console.log(value);
+        console.log('value' + value.id);
+        console.log('localStorage' + localStorage.getItem('id'));
+
         this.err = false;
 
         //this.router.navigateByUrl('compte/edit/' + this.login);

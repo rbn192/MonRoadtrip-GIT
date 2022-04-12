@@ -1,5 +1,7 @@
 package soprajc.monRoadtrip.repositories;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,7 +19,8 @@ public interface LogementRepository extends JpaRepository<Logement, Integer>{
 	@Query("delete from Logement l where l.hote=:hote")
 	void deleteByHote(@Param("hote") Hote hote);
 	
-	@Query("select l from Logement l where l.hote=:hote")
-	void getAllByHote(@Param("hote") Hote hote);
+	@Query("select l from Logement l where l.hote.mail=:mail")
+	List<Logement> getAllByHote(@Param("mail") String mail);
 
+	
 }
