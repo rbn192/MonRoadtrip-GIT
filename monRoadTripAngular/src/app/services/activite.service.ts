@@ -17,6 +17,10 @@ export class ActiviteService {
     return this.http.get<any[]>(`${ActiviteService.URL}/organisateur/${mail}`);
   }
 
+  public getAllByVille(ville: string): Observable<Activite[]> {
+    return this.http.get<Activite[]>(`${ActiviteService.URL}/ville/${ville}`);
+  }
+
   public get(id: number): Observable<any> {
     return this.http.get<any>(`${ActiviteService.URL}/${id}`);
   }
