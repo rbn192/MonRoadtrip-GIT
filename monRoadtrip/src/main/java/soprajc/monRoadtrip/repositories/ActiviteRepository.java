@@ -1,5 +1,7 @@
 package soprajc.monRoadtrip.repositories;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,7 +19,11 @@ public interface ActiviteRepository extends JpaRepository<Activite, Integer> {
 	@Query("delete from Activite a where a.organisateur=:organisateur")
 	void deleteByOrganisateur(@Param("organisateur") Organisateur organisateur);
 	
-	@Query("select a from Activite a where a.organisateur=:organisateur")
-	void getAllByOrganisateur(@Param("organisateur") Organisateur organisateur);
+	@Query("select a from Activite a where a.adresse.ville=:ville")
+	List<Activite> getAllByVille(@Param("ville") String ville);
+	
+	
+	@Query("select a from Activite a where a.organisateur.mail=:mail")
+	List<Activite> getAllByOrganisateur(@Param("mail") String mail);
 
 }

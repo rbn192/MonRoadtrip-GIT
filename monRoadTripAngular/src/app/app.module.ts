@@ -18,6 +18,7 @@ import { HoteInscriptionComponent } from './component/inscription/hote-inscripti
 import { OrganisateurInscriptionComponent } from './component/inscription/organisateur-inscription/organisateur-inscription.component';
 import { ClientInscriptionComponent } from './component/inscription/client-inscription/client-inscription.component';
 import { ItineraireComponent } from './component/itineraire/itineraire.component';
+import { ActivitesLogementsListComponent } from './component/itineraire/activites-logements-list/activites-logements-list.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ItineraireComponent } from './component/itineraire/itineraire.component
     OrganisateurInscriptionComponent,
     ClientInscriptionComponent,
     ItineraireComponent,
+    ActivitesLogementsListComponent,
   ],
   imports: [
     HttpClientModule,

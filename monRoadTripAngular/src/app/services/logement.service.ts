@@ -11,8 +11,14 @@ export class LogementService {
 
   constructor(private http: HttpClient) {}
 
-  public getAll(): Observable<any[]> {
-    return this.http.get<any[]>(LogementService.URL);
+  public getAllByHote(mail: string): Observable<any[]> {
+    return this.http.get<any[]>(`${LogementService.URL}/hote/${mail}`);
+  }
+
+  public getAllByVille(ville: string): Observable<Logement[]> {
+    return this.http.get<Logement[]>(
+      `${LogementService.URL}/logement/${ville}`
+    );
   }
 
   public get(id: number): Observable<any> {
@@ -47,7 +53,13 @@ export class LogementService {
         ville: logement.adresse?.ville,
       },
       nbPlaces: logement.nbPlaces,
-      hote: logement.hote,
+      hote: {
+        type: 'hote',
+        id: logement.hote?.id,
+        prenom: logement.hote?.prenom,
+        mail: logement.hote?.mail,
+        dateNaissance: logement.hote?.dateNaissance,
+      },
     };
     return obj;
   }

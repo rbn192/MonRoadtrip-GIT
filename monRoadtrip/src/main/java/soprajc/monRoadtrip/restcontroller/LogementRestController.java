@@ -116,4 +116,20 @@ public class LogementRestController {
 		logementService.delete(id);
 	}
 	
+	
+	@JsonView({JsonViews.Common.class})
+	@GetMapping("/hote/{mail}")
+	public List<Logement> getAllByHote(@PathVariable String mail) {
+		return logementService.getLogementByHote(mail);
+	}
+	
+	@JsonView({JsonViews.Common.class})
+	@GetMapping("/logement/{ville}")
+	public List<Logement> getAllByVille(@PathVariable String ville){
+		return logementService.getLogementByVille(ville);
+	}
+	
+	
+	
+	
 }

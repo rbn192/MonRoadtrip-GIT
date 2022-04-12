@@ -118,4 +118,18 @@ public class ActiviteRestController {
 	public void delete(@PathVariable Integer id) {
 		activiteService.deleteById(id);
 	}
+	
+	@JsonView({JsonViews.Common.class})
+	@GetMapping("/organisateur/{mail}")
+	public List<Activite> getAllByOrganisateur(@PathVariable String mail) {
+		return activiteService.getActiviteByOrganisateur(mail);
+	}
+	
+	@JsonView({JsonViews.Common.class})
+	@GetMapping("/ville/{ville}")
+	public List<Activite> getAllByVille(@PathVariable String ville){
+		return activiteService.getActiviteByVille(ville);
+	}
+	
+	
 }
