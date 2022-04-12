@@ -1,5 +1,8 @@
 package soprajc.monRoadtrip.repositories;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,5 +20,9 @@ public interface EtapeRepository extends JpaRepository<Etape, Integer> {
 	@Query("delete from Etape e where e.reservation=:reservation")
 	void deleteByReservation(@Param("reservation") Reservation reservation);
 	
-
+	@Query("select e from Etape e where e.reservation.client.mail=:mail")
+	List<Etape> getAllByClient(@Param("mail") String mail);
+	
+	@Query("select e from Etape e where e.reservation.id=:id")
+	List<Etape> getByIdResa(@Param("id") Integer id);
 }

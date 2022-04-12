@@ -1,0 +1,47 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>Etape</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Réservations > Etapes</h1>
+    <hr />
+
+    <table class="table">
+      <tr>
+        <td>ID</td>
+        <td>Date</td>
+        <td>Durée</td>
+        <td>Ville</td>
+        <td>Activités</td>
+        <td>Logement</td>
+        <td>Actions</td>
+      </tr>
+      <tr *ngFor="let e of etapes">
+        <td>{{ e.id }}</td>
+        <td>{{ e.date }}</td>
+        <td>{{ e.duree }}</td>
+        <td>{{ e.ville }}</td>
+        <td>faire un bouton redirigeant vers la liste des activités</td>
+        <td>{{ e.logement }}</td>
+        <td>
+          <a
+            [routerLink]="['/etape', 'edit', e.id]"
+            routerLinkActive="active"
+            type="button"
+            class="btn btn-primary"
+            >Editer</a
+          >
+          <button class="btn btn-danger">Supprimer</button>
+        </td>
+      </tr>
+    </table>
+    <a routerLink="/reservation" class="btn btn-warning"
+      >Retour aux réservations</a
+    >
+    <a routerLink="/etape/add" class="btn btn-success"
+      >Ajouter une nouvelle étape</a
+    >
+  </div>
+</body>

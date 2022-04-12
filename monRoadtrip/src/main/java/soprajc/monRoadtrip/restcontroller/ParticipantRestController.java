@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -30,6 +31,7 @@ import soprajc.monRoadtrip.services.ParticipantService;
 
 @RestController
 @RequestMapping("/api/participant")
+@CrossOrigin(origins = "*")
 public class ParticipantRestController {
 	
 	@Autowired
@@ -45,8 +47,7 @@ public class ParticipantRestController {
 	@GetMapping("/{id}")
 	public Participant getById(@PathVariable Integer id) {
 		return participantService.getById(id);
-	}
-	
+	}	
 
 	private Participant createOrUpdate(Participant participant, BindingResult br) {
 		if (br.hasErrors()) {
@@ -59,6 +60,7 @@ public class ParticipantRestController {
 	@PostMapping("")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Participant create(@Valid @RequestBody Participant participant, BindingResult br) {
+		System.out.println(participant.getNom()+"HERE");
 		return createOrUpdate(participant, br);
 	}
 	

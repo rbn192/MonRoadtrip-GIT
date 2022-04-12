@@ -43,7 +43,7 @@ public class Roadtrip {
 	@JsonView(JsonViews.Common.class)
 	private Double prix;
 	
-	@OneToMany(mappedBy = "roadTrip")
+	@OneToMany(mappedBy = "roadtrip")
 	private List<Reservation> reservations;
 	
 	@JsonView(JsonViews.Common.class)
