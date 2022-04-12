@@ -125,5 +125,11 @@ public class ActiviteRestController {
 		return activiteService.getActiviteByOrganisateur(mail);
 	}
 	
+	@JsonView({JsonViews.Common.class})
+	@GetMapping("/ville/{ville}")
+	public List<Activite> getAllByVille(@PathVariable String ville){
+		return activiteService.getActiviteByVille(ville);
+	}
+	
 	
 }

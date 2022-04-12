@@ -123,6 +123,12 @@ public class LogementRestController {
 		return logementService.getLogementByHote(mail);
 	}
 	
+	@JsonView({JsonViews.Common.class})
+	@GetMapping("/logement/{ville}")
+	public List<Logement> getAllByVille(@PathVariable String ville){
+		return logementService.getLogementByVille(ville);
+	}
+	
 	
 	
 	
