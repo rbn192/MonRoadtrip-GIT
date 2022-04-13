@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ActiviteService } from './../../../services/activite.service';
 import { LogementService } from './../../../services/logement.service';
 import { Logement } from './../../../model/logement';
@@ -19,6 +20,7 @@ export class ActivitesLogementsListComponent implements OnInit {
   activites: Activite[] = [];
   logements: Logement[] = [];
 
+  etapesReservees: number[] = [];
   activitesReservees: number[] = [];
   logementsReserves: number = 0;
 
@@ -27,7 +29,8 @@ export class ActivitesLogementsListComponent implements OnInit {
   constructor(
     private activiteService: ActiviteService,
     private logementService: LogementService,
-    private etapeService: EtapeService
+    private etapeService: EtapeService,
+    private router: Router
   ) {
     this.form = new FormGroup({
       logementsArray: new FormArray([]),
@@ -61,7 +64,25 @@ export class ActivitesLogementsListComponent implements OnInit {
     });
   }
 
-  resaLogements() {
+  resa() {
+    let etapes: any[] = [];
+
+    let reservation = {
+      client: {
+        id: localStorage.getItem('id'),
+      },
+      etapes: null,
+    };
+  }
+
+  etape() {
+    let activites: any[] = [];
+    this.activitesReservees.forEach((activite) => {
+      let a = {
+        id: activite,
+      };
+      activites.push(a);
+    });
     let etape = {
       duree: '2',
       date: '2022-07-29',
@@ -69,14 +90,11 @@ export class ActivitesLogementsListComponent implements OnInit {
       logement: {
         id: this.logementsReserves,
       },
-      activites: null,
+      activites: activites,
     };
+    this.etapesReservees.push();
     console.log(etape);
-    this.etapeService.create(etape).subscribe((ok) => {
-      this.activitesReservees.forEach((activite) => {
-        this.etapeService.addActivite(ok, activite).subscribe((result) => {});
-      });
-    });
+    this.etapeService.create(etape).subscribe((ok) => {});
   }
 
   submit() {
@@ -96,7 +114,10 @@ export class ActivitesLogementsListComponent implements OnInit {
 
     this.activitesReservees = selectedActivitesIds;
     console.log(this.activitesReservees);
+    this.etape();
+  }
 
-    this.resaLogements();
+  redirect() {
+    this.router.navigateByUrl('/reservation');
   }
 }
