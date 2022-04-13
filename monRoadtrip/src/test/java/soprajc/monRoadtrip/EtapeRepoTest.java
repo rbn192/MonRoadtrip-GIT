@@ -28,8 +28,8 @@ class EtapeRepoTest {
 	
 	@Test
 	@Transactional
-	@Commit
-//	@Rollback
+	//@Commit
+	@Rollback
 	void creationEtapeTest() {
 		Adresse adresse = new Adresse("3", "rue", "11000", "City");
 		List<Activite> activites = new ArrayList();
@@ -41,7 +41,7 @@ class EtapeRepoTest {
 	@Disabled
 	@Test
 	@Transactional
-	@Commit
+	//@Commit
 	void deleteEtapeTest() {
 		etapeService.deleteById(1);
 	}
@@ -51,7 +51,16 @@ class EtapeRepoTest {
 	@Transactional
 	@Commit
 	void addActiviteTest() {
-		etapeService.addActivite(etapeService.getById(2), 1);
-		System.out.println(etapeService.getById(2));
+		etapeService.addActivite(etapeService.getById(1), 1);
+		System.out.println(etapeService.getById(1));
+	}
+	
+	//@Disabled
+	@Test
+	@Transactional
+	@Commit
+	void addLogementTest() {
+		etapeService.addLogement(etapeService.getById(1), 1);
+		System.out.println(etapeService.getById(1));
 	}
 }

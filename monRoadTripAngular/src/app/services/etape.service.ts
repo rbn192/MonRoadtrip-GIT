@@ -1,7 +1,7 @@
+import { Etape } from './../model/etape';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Etape } from '../model/etape';
 
 @Injectable({
   providedIn: 'root',
@@ -23,13 +23,22 @@ export class EtapeService {
     return this.http.get<any>(`${EtapeService.URL}/${id}`);
   }
 
+  public create(etape: any): Observable<any> {
+    return this.http.post(EtapeService.URL, this.etapeToJson(etape));
+  }
+  public addActivite(etape: Etape, i: number) {
+    return this.http.post(
+      `${EtapeService.URL}/${etape.id}/add/activite/${i}`,
+      this.etapeToJson(etape)
+    );
+  }
   private etapeToJson(etape: Etape): any {
     let obj = {
       id: etape.id,
       date: etape.date,
       duree: etape.duree,
       ville: etape.ville,
-      activite: etape.activite,
+      activites: etape.activite,
       logement: etape.logement,
     };
     return obj;
