@@ -22,16 +22,21 @@ import { EtapeService } from 'src/app/services/etape.service';
   ],
 })
 export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
-export class ActivitesLogementsListComponent implements OnInit {
   form: FormGroup;
   activites: Activite[] = [];
   logements: Logement[] = [];
+  ville: string = '';
+  myfrugalmap: any;
+  lat1: number = 50.6311634;
+  lng1: number = 3.0599573;
+  lat2: number = 47.22485;
+  lng2: number = -1.60137;
+  query: string = '';
 
   activitesReservees: number[] = [];
   logementsReserves: number = 0;
 
   isChecked: boolean = false;
-  ville: string = '';
   constructor(
     private http: HttpClient,
     private activiteService: ActiviteService,
@@ -44,16 +49,6 @@ export class ActivitesLogementsListComponent implements OnInit {
       activitesArray: new FormArray([]),
     });
   }
-
-  activites: Activite[] = [];
-  logements: Logement[] = [];
-  ville: string = '';
-  myfrugalmap: any;
-  lat1: number = 50.6311634;
-  lng1: number = 3.0599573;
-  lat2: number = 47.22485;
-  lng2: number = -1.60137;
-  query: string = '';
 
   ngAfterViewInit(): void {}
 
@@ -75,7 +70,7 @@ export class ActivitesLogementsListComponent implements OnInit {
         language: 'fr',
         profile: 'car', //car, bike
       }),
-      geocoder: Geocoder,
+      geocoder: (L.Control as any).geocoder(),
       lineOptions: {
         styles: [
           {
@@ -134,13 +129,28 @@ export class ActivitesLogementsListComponent implements OnInit {
   }
 
   /*addMarker() {
-    L.Control.Geocoder(this.query, function (results) {
+    L.Control.Geocoder.geocode(this.query, function (results) {
       L.marker([results[0].center.lat, results[0].center.lng])
         .bindPopup('Je suis un Frugal Marqueur')
         .addTo(this.myfrugalmap)
         .openPopup();
     });
   }*/
+
+  /*geocoder.geocode({search:"Paris"}, a:any => {
+  // depending on geocoder results may be either in a or b
+  console.log(a);
+  // choose the best result here. probably the first one in array
+  // create waypoint object
+  console.log(a[0].center.lat);
+  var wpt = L.Routing.waypoint(
+    L.latLng(a[0].center.lat, a[0].center.lng),
+    name
+  );
+  console.log(wpt);
+  waypoints.push(wpt);
+  })/*
+
 
   /*addMarker(lat: string, lng: string, text: string) {
     let point = [lat, lng];
