@@ -1,32 +1,9 @@
-<br />
-<br />
-<br />
-<br />
-<br />
-<p>itineraire works!</p>
-
 <!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
-    <!-- Fichiers CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-      crossorigin=""
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
-    />
   </head>
   <body>
     <h1 id="depart">{{ depart }}</h1>
@@ -49,40 +26,6 @@
         </ul>
       </div>
       <app-activites-logements-list></app-activites-logements-list>
-
-      <div class="container">
-        <div class="list">
-          <div
-            class="item js-marker"
-            data-lat="47.21148"
-            data-lng="1.64966"
-            data-price="15"
-          >
-            <img src="assets/images/fond.jpg" />
-            <p>Test</p>
-          </div>
-          <div
-            class="item js-marker"
-            data-lat="47.22485"
-            data-lng="-1.60137"
-            data-price="10"
-          >
-            <img src="assets/images/chenonceau.jpg" />
-            <p>Description 2</p>
-          </div>
-          <div
-            class="item js-marker"
-            data-lat="47.21984"
-            data-lng="-1.62103"
-            data-price="10"
-          >
-            <img src="assets/images/pic1b.jpg" />
-            <p>Description 3</p>
-          </div>
-        </div>
-
-        <div id="map"></div>
-      </div>
     </main>
   </body>
 </html>

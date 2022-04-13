@@ -1,4 +1,5 @@
 let $map = document.querySelector("#map");
+let geocoder = L.Control.Geocoder.nominatim();
 
 class LeafletMap {
   constructor() {
@@ -17,7 +18,7 @@ class LeafletMap {
       }).addTo(this.map);
       //On active la gestion d'itinéraires
       L.Routing.control({
-        geocoder: L.Control.Geocoder.nominatim(),
+        geocoder: geocoder,
         lineOptions: {
           styles: [
             {
@@ -27,11 +28,13 @@ class LeafletMap {
             },
           ],
         },
+        waypoints: [L.latLng(48.856614, 2.3522219), L.latLng(43.604, 1.44305)],
         router: new L.Routing.osrmv1({
           language: "fr",
           profile: "car", //car, bike
         }),
       }).addTo(this.map);
+
       resolve();
     });
   }
@@ -114,3 +117,21 @@ if ($map !== null) {
   initMap();
 }
 console.log(document.querySelector("#depart").innerHTML);
+
+//let waypoints = [];
+
+geocoder.geocode("Paris", function (a) {
+  // depending on geocoder results may be either in a or b
+  console.log(a);
+  // choose the best result here. probably the first one in array
+  // create waypoint object
+  console.log(a[0].center.lat);
+  var wpt = L.Routing.waypoint(
+    L.latLng(a[0].center.lat, a[0].center.lng),
+    name
+  );
+  console.log(wpt);
+  waypoints.push(wpt);
+});
+
+// setting waypoints

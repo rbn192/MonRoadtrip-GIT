@@ -1,0 +1,105 @@
+<body>
+  <div id="contenu">
+    <div id="recherche">
+      <label>Ville recherchée: </label>
+      <input type="text" [(ngModel)]="ville" class="form-control" />
+      <button (click)="list()" class="btn btn-outline-info">Rechercher</button>
+    </div>
+    <div id="tableaux">
+      <div>
+        <h2>Liste des logements à {{ ville }}</h2>
+        <table class="table">
+          <tr>
+            <td>id</td>
+            <td>date</td>
+            <td>prix</td>
+            <td>cp</td>
+            <td>numero</td>
+            <td>voie</td>
+            <td>ville</td>
+            <td>nb de places</td>
+          </tr>
+
+          <tr *ngFor="let l of logements">
+            <td>{{ l.id }}</td>
+            <td>{{ l.date | date: "dd/MM/yyyy" }}</td>
+            <td>{{ l.prix }}</td>
+            <td>{{ l.adresse?.cp }}</td>
+            <td>{{ l.adresse?.numero }}</td>
+            <td>{{ l.adresse?.voie }}</td>
+            <td>{{ l.adresse?.ville }}</td>
+            <td>{{ l.nbPlaces }}</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <h2>Liste des activites à {{ ville }}</h2>
+        <table class="table">
+          <tr>
+            <td>id</td>
+            <td>date</td>
+            <td>heure</td>
+            <td>prix</td>
+            <td>categorie</td>
+            <td>cp</td>
+            <td>numero</td>
+            <td>voie</td>
+            <td>ville</td>
+            <td>nb de places</td>
+            <td>intitule</td>
+          </tr>
+
+          <tr *ngFor="let a of activites">
+            <td>{{ a.id }}</td>
+            <td>{{ a.date | date: "dd/MM/yyyy" }}</td>
+            <td>{{ a.heure }}</td>
+            <td>{{ a.prix }}</td>
+            <td>{{ a.categorie }}</td>
+            <td>{{ a.adresse?.cp }}</td>
+            <td>{{ a.adresse?.numero }}</td>
+            <td>{{ a.adresse?.voie }}</td>
+            <td>{{ a.adresse?.ville }}</td>
+            <td>{{ a.nbPlaces }}</td>
+            <td>{{ a.intitule }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="containerMap">
+    <div class="list">
+      <div
+        *ngFor="let a of activites"
+        _ngcontent-mmh-c51=""
+        class="item js-marker"
+        data-lat="47.22485"
+        data-lng="-1.60137"
+        data-price="10"
+      >
+        <img src="assets/images/chenonceau.jpg" />
+        <p>{{ a.intitule }}</p>
+      </div>
+      <div
+        class="item js-marker"
+        data-lat="47.22485"
+        data-lng="-1.60137"
+        data-price="10"
+      >
+        <img src="assets/images/chenonceau.jpg" />
+        <p>Description 2</p>
+      </div>
+      <div
+        class="item js-marker"
+        data-lat="47.21984"
+        data-lng="-1.62103"
+        data-price="10"
+      >
+        <img src="assets/images/pic1b.jpg" />
+        <p>Description 3</p>
+      </div>
+    </div>
+
+    <div id="frugalmap"></div>
+  </div>
+</body>

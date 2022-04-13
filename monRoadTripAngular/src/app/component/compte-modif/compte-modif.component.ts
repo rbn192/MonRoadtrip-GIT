@@ -71,7 +71,8 @@ export class CompteModifComponent implements OnInit {
       this.password = this.compte.password!;
       this.compteService.update(this.compte).subscribe((result) => {
         ((this.compte = result), (this.compte.password = this.password)),
-          this.goList();
+          console.log(this.compte.password);
+        this.goList();
       });
     } else {
       console.log("création d'un nouveau compte");

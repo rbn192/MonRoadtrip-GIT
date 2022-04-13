@@ -1,3 +1,14 @@
+#frugalmap {
+  height: 800px;
+  width: 100%;
+}
+
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+  background-color: red;
+  display: none;
+}
+
 #recherche {
   margin-left: 3.5%;
   display: flex;
@@ -125,4 +136,11 @@
 
 .is-active::after {
   border-top-color: #5069ff;
+}
+
+.leaflet-routing-container
+  .leaflet-bar
+  .leaflet-routing-collaspe
+  .leaflet-control {
+  display: none;
 }
