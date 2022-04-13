@@ -80,8 +80,8 @@ export class ActivitesLogementsListComponent implements OnInit {
       },
       activites: activites,
     };
-    console.log(etape);
-    this.etapeService.create(etape).subscribe((ok) => {});
+    console.log(activites);
+    //this.etapeService.create(etape).subscribe((ok) => {});
   }
 
   submit() {
@@ -105,6 +105,6 @@ export class ActivitesLogementsListComponent implements OnInit {
   }
 
   redirect() {
-    this.router.navigateByUrl('/reservation');
+    this.router.navigateByUrl('/itineraire/etapes');
   }
 }
