@@ -45,7 +45,7 @@ public abstract class Compte implements UserDetails{
 	@GeneratedValue(strategy = GenerationType.TABLE)
     protected Integer id;
 
-	@JsonView(JsonViews.CompteWithMdp.class)
+	@JsonView(JsonViews.Common.class)
     protected String nom;
 	@JsonView(JsonViews.Common.class)
 	protected String prenom;

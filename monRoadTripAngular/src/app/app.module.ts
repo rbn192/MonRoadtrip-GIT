@@ -20,6 +20,11 @@ import { ClientInscriptionComponent } from './component/inscription/client-inscr
 import { ItineraireComponent } from './component/itineraire/itineraire.component';
 import { ActivitesLogementsListComponent } from './component/itineraire/activites-logements-list/activites-logements-list.component';
 
+import { EtapeListComponent } from './component/etape/etape-list/etape-list.component';
+import { EtapeEditComponent } from './component/etape/etape-edit/etape-edit.component';
+import { ReservationEditComponent } from './component/reservation/reservation-edit/reservation-edit.component';
+import { ReservationListComponent } from './component/reservation/reservation-list/reservation-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +41,10 @@ import { ActivitesLogementsListComponent } from './component/itineraire/activite
     OrganisateurInscriptionComponent,
     ClientInscriptionComponent,
     ItineraireComponent,
+    ReservationEditComponent,
+    ReservationListComponent,
+    EtapeListComponent,
+    EtapeEditComponent,
     ActivitesLogementsListComponent,
   ],
   imports: [

@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,10 +23,12 @@ import com.fasterxml.jackson.annotation.JsonView;
 import soprajc.monRoadtrip.exceptions.EtapeException;
 import soprajc.monRoadtrip.model.Etape;
 import soprajc.monRoadtrip.model.JsonViews;
+import soprajc.monRoadtrip.model.Reservation;
 import soprajc.monRoadtrip.services.EtapeService;
 
 @RestController
 @RequestMapping("/api/etape")
+@CrossOrigin(origins = "*")
 public class EtapeRestController {
 
 	@Autowired
@@ -38,9 +41,21 @@ public class EtapeRestController {
 	}
 	
 	@JsonView({JsonViews.Common.class})
+	@GetMapping("/client/{mail}")
+	public List<Etape> getAllByClient(@PathVariable String mail) {
+		return etapeService.getAllByClient(mail);
+	}
+	
+	@JsonView({JsonViews.Common.class})
 	@GetMapping("/{id}")
 	public Etape getById(@PathVariable Integer id) {
 		return etapeService.getById(id);
+	}
+	
+	@JsonView({JsonViews.Common.class})
+	@GetMapping("/reservation/{id}")
+	public List<Etape>  getByIdResa(@PathVariable Integer id) {
+		return etapeService.getByIdResa(id);
 	}
 	
 	@JsonView({JsonViews.Common.class})

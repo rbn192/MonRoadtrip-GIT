@@ -73,7 +73,7 @@
           class="btn btn-link"
           style="color: white"
         >
-          Logement</a
+          Logements</a
         >
 
         <a
@@ -83,7 +83,16 @@
           class="btn btn-link"
           style="color: white"
         >
-          Activite</a
+          Activités</a
+        >
+        <a
+          *ngIf="isAutenticated() && role == 'client'"
+          routerLink="/reservation"
+          routerLinkActive="active"
+          class="btn btn-link"
+          style="color: white"
+        >
+          Réservations</a
         >
       </form>
     </div>
