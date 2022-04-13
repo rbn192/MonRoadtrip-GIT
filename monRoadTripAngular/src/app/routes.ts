@@ -1,3 +1,4 @@
+import { EtapesListComponent } from './component/itineraire/etapes-list/etapes-list.component';
 import { ReservationEditComponent } from './component/reservation/reservation-edit/reservation-edit.component';
 import { ItineraireComponent } from './component/itineraire/itineraire.component';
 import { OrganisateurInscriptionComponent } from './component/inscription/organisateur-inscription/organisateur-inscription.component';
@@ -15,7 +16,6 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
 import { Routes } from '@angular/router';
 import { ReservationListComponent } from './component/reservation/reservation-list/reservation-list.component';
 import { EtapeListComponent } from './component/etape/etape-list/etape-list.component';
-import { EtapeEditComponent } from './component/etape/etape-edit/etape-edit.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -42,6 +42,7 @@ export const routes: Routes = [
   { path: 'etape', component: EtapeListComponent },
   { path: 'etape/reservation/:id', component: EtapeListComponent },
   { path: 'itineraire/:depart/:arrivee', component: ItineraireComponent },
+  { path: 'itineraire/etapes', component: EtapesListComponent },
   //{ path: 'compte/edit/:login', component: CompteModifComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
