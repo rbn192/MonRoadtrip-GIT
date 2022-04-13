@@ -34,6 +34,10 @@ export class ReservationService {
     );
   }
 
+  public delete(id: number): Observable<void> {
+    return this.http.delete<any>(`${ReservationService.URL}/${id}`);
+  }
+
   private reservationToJson(reservation: Reservation): any {
     let obj = {
       id: reservation.id,

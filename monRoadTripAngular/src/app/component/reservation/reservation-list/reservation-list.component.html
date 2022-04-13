@@ -42,7 +42,9 @@
             class="btn btn-primary"
             >Editer</a
           >
-          <button class="btn btn-danger">Supprimer</button>
+          <button (click)="delete(r.id!)" class="btn btn-danger">
+            Supprimer
+          </button>
         </td>
       </tr>
     </table>

@@ -4,7 +4,7 @@
 </head>
 
 <body id="accueil">
-  <main role="main">
+  <main>
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
       <ol class="carousel-indicators">
         <li
@@ -27,7 +27,7 @@
                 détaillée pour planifier votre voyage
               </p>
               <p>
-                <a class="btn btn-lg btn-primary" href="itineraire.html"
+                <a class="btn btn-lg btn-primary" routerLink="/home"
                   >Itinéraire</a
                 >
               </p>
@@ -44,7 +44,11 @@
                 Idées de circuits et de week-ends, actualités et bons plans du
                 voyage
               </p>
-              <p><a class="btn btn-lg btn-primary" href="#">Savoir plus</a></p>
+              <p>
+                <a class="btn btn-lg btn-primary" href="#divInspirations"
+                  >Savoir plus</a
+                >
+              </p>
             </div>
           </div>
         </div>
@@ -58,7 +62,11 @@
                 Rejoinez la communauté MonRoadTrip et nos voyageurs répondent à
                 vos questions dans le forum de voyage
               </p>
-              <p><a class="btn btn-lg btn-primary" href="#">Savoir plus</a></p>
+              <p>
+                <a class="btn btn-lg btn-primary" href="#divForum"
+                  >Savoir plus</a
+                >
+              </p>
             </div>
           </div>
         </div>
@@ -83,41 +91,107 @@
       </button>
     </div>
 
-    <br />
-    <div id="destination">
-      <div id="contenu">
-        <div>
-          <input
-            type="text"
-            placeholder="Lieu de départ"
-            class="form-control"
-            [(ngModel)]="depart"
-          />
-        </div>
-
-        <div>
-          <input
-            type="text"
-            placeholder="Lieu d'arrivée"
-            class="form-control"
-            [(ngModel)]="arrivee"
-          />
-        </div>
-
-        <div>
-          <button class="btn btn-outline-success" (click)="recherche()">
-            Rechercher
-          </button>
+    <div id="divDestination">
+      <h4>Construisez votre itinéraire</h4>
+      <h6>
+        Commencer par entrer une ville de départ ainsi qu'une ville d'arrivée,
+        vous pourrez ensuite choisir les villes-étapes de votre roadtrip !
+      </h6>
+      <br />
+      <div id="destination">
+        <div id="contenu">
+          <div class="startEnd">
+            <img class="imgStartEnd" src="assets/images/start.png" />
+            <input
+              type="text"
+              placeholder="Ville de départ"
+              class="form-control"
+              [(ngModel)]="depart"
+            />
+          </div>
+          <div>
+            <img class="imgDots" src="assets/images/dots.png" />
+          </div>
+          <div class="startEnd">
+            <input
+              type="text"
+              placeholder="Ville d'arrivée"
+              class="form-control"
+              [(ngModel)]="arrivee"
+            />
+            <img class="imgStartEnd" src="assets/images/finish.png" />
+          </div>
+          <div>
+            <button class="btn btn-success" (click)="recherche()">
+              Construire l'itinéraire
+            </button>
+          </div>
         </div>
       </div>
+      <br /><br />
     </div>
-    <div>
-      <footer class="container">
-        <p class="float-right"><a href="">Retour en haut</a></p>
-        <p>
-          &copy; 2022 - Mon road trip&middot; <a href="#">Confidentialité</a>
-        </p>
-      </footer>
+    <div class="container">
+      <hr />
+      <div id="divDescription">
+        <h4>L'objectif est de simplifier l'organisation d'un roadtrip !</h4>
+        <br />
+        <h5>
+          Vous avez toujours rêvé de partir en roadtrip, mais l'organisation
+          vous effraie ? <br />
+          Laissez-vous guider par notre programme :
+        </h5>
+        <div class="form-row" id="infos">
+          <div class="form-group col-lg-2 divImg">
+            <div>
+              <img class="imgDescription" src="assets/images/itineraire.png" />
+            </div>
+            <div>
+              <img class="imgDescription" src="assets/images/camera.png" />
+            </div>
+            <div>
+              <img class="imgDescription" src="assets/images/camping.png" />
+            </div>
+            <div>
+              <img class="imgDescription" src="assets/images/sac.png" />
+            </div>
+          </div>
+          <div class="form-group col-lg-10 description">
+            <br />
+            <h6>Itinéraire</h6>
+            <p>
+              Entrez un point de départ, un point d'arrivée, puis choississez
+              les étapes par lesquelles vous souhaiter passer.
+            </p>
+            <h6>Activités</h6>
+            <p>
+              Les centaines d'organisateurs vous concoctent des activités
+              mémorables, trouvez celles qui vous conviennent le mieux et
+              réservez directement sur le site.
+            </p>
+            <h6>Logements</h6>
+            <p>
+              Les dizaines d'hôtes vous accueillent chez eux pour des moments de
+              partage, réservez-les directement sur le site.
+            </p>
+            <h6>Réservations</h6>
+            <p>Toutes vos réservations sont regroupées au même endroit !</p>
+            <h6>
+              Visualisez enfin votre itinéraire et ses étapes avec l'ensemble
+              des activités et des logements réservés.
+            </h6>
+          </div>
+          <br />
+        </div>
+      </div>
+      <hr />
     </div>
   </main>
+  <footer class="container">
+    <p class="float-right"><a href="">Retour en haut</a></p>
+    <p>
+      &copy; 2022 &middot; Mon roadtrip &middot;
+      <a href="#">Confidentialité</a>
+    </p>
+    <br />
+  </footer>
 </body>
