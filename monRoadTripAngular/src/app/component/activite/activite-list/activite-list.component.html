@@ -4,59 +4,70 @@
 </head>
 
 <body>
-  <div class="divTableau">
-    <h1>Activités</h1>
-    <hr />
-    <table class="table">
-      <tr>
-        <td colspan="7"></td>
-        <td colspan="4" align="center" class="adresse">Adresse</td>
-        <td colspan="1"></td>
-      </tr>
-      <tr>
-        <td>ID</td>
-        <td>Intitulé</td>
-        <td>Catégorie</td>
-        <td>Date</td>
-        <td>Heure</td>
-        <td>Prix (€)</td>
-        <td>Nombre de places</td>
-        <td class="adresse">Numéro</td>
-        <td class="adresse">Voie</td>
-        <td class="adresse">Code Postal</td>
-        <td class="adresse">Ville</td>
-        <td>Actions</td>
-      </tr>
-      <tr *ngFor="let a of activites">
-        <td>{{ a.id }}</td>
-        <td>{{ a.intitule }}</td>
-        <td>{{ a.categorie }}</td>
-        <td>{{ a.date | date: "dd/MM/yyyy" }}</td>
-        <td>{{ a.heure }}</td>
-        <td>{{ a.prix }}</td>
-        <td>{{ a.nbPlaces }}</td>
-        <td class="adresse">{{ a.adresse?.numero }}</td>
-        <td class="adresse">{{ a.adresse?.voie }}</td>
-        <td class="adresse">{{ a.adresse?.cp }}</td>
-        <td class="adresse">{{ a.adresse?.ville }}</td>
-        <td id="editer">
-          <a
-            [routerLink]="['/activite', 'edit', a.id]"
-            routerLinkActive="active"
-            class="btn btn-outline-primary btnEditer"
-            >Editer</a
-          >
-          <button
-            (click)="delete(a.id!)"
-            class="btn btn-outline-danger btnEditer"
-          >
-            Supprimer
-          </button>
-        </td>
-      </tr>
-    </table>
-    <a routerLink="/activite/add" class="btn btn-success"
-      >Ajouter une nouvelle activite</a
-    >
-  </div>
+  <main>
+    <div class="divTableau">
+      <h1>Activités</h1>
+      <hr />
+      <table class="table">
+        <tr>
+          <td colspan="7"></td>
+          <td colspan="4" align="center" class="adresse">Adresse</td>
+          <td colspan="1"></td>
+        </tr>
+        <tr>
+          <td>ID</td>
+          <td>Intitulé</td>
+          <td>Catégorie</td>
+          <td>Date</td>
+          <td>Heure</td>
+          <td>Prix (€)</td>
+          <td>Nombre de places</td>
+          <td class="adresse">Numéro</td>
+          <td class="adresse">Voie</td>
+          <td class="adresse">Code Postal</td>
+          <td class="adresse">Ville</td>
+          <td>Actions</td>
+        </tr>
+        <tr *ngFor="let a of activites">
+          <td>{{ a.id }}</td>
+          <td>{{ a.intitule }}</td>
+          <td>{{ a.categorie }}</td>
+          <td>{{ a.date | date: "dd/MM/yyyy" }}</td>
+          <td>{{ a.heure }}</td>
+          <td>{{ a.prix }}</td>
+          <td>{{ a.nbPlaces }}</td>
+          <td class="adresse">{{ a.adresse?.numero }}</td>
+          <td class="adresse">{{ a.adresse?.voie }}</td>
+          <td class="adresse">{{ a.adresse?.cp }}</td>
+          <td class="adresse">{{ a.adresse?.ville }}</td>
+          <td id="editer">
+            <a
+              [routerLink]="['/activite', 'edit', a.id]"
+              routerLinkActive="active"
+              class="btn btn-outline-primary btnEditer"
+              >Editer</a
+            >
+            <button
+              (click)="delete(a.id!)"
+              class="btn btn-outline-danger btnEditer"
+            >
+              Supprimer
+            </button>
+          </td>
+        </tr>
+      </table>
+      <a routerLink="/activite/add" class="btn btn-success"
+        >Ajouter une nouvelle activite</a
+      >
+    </div>
+  </main>
+  <footer class="container">
+    <p class="float-right"><a href="">Retour en haut</a></p>
+    <p>
+      &copy; 2022 &middot;
+      <img class="logoFooter" src="assets/images/logoGrey.png" /> &middot;
+      <a href="#">Confidentialité</a>
+    </p>
+    <br />
+  </footer>
 </body>
