@@ -1,9 +1,15 @@
+import { HttpClient } from '@angular/common/http';
+import { ScriptService } from './../../../services/test/script.service';
 import { Router } from '@angular/router';
 import { ActiviteService } from './../../../services/activite.service';
 import { LogementService } from './../../../services/logement.service';
 import { Logement } from './../../../model/logement';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, AfterViewInit } from '@angular/core';
 import { Activite } from 'src/app/model/activite';
+import * as L from 'leaflet';
+import 'leaflet-routing-machine';
+import Geocoder from 'leaflet-control-geocoder';
+import { MapType } from '@angular/compiler';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { EtapeService } from 'src/app/services/etape.service';
 
@@ -15,6 +21,7 @@ import { EtapeService } from 'src/app/services/etape.service';
     '../../../app.component.css',
   ],
 })
+export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
 export class ActivitesLogementsListComponent implements OnInit {
   form: FormGroup;
   activites: Activite[] = [];
@@ -26,6 +33,7 @@ export class ActivitesLogementsListComponent implements OnInit {
   isChecked: boolean = false;
   ville: string = '';
   constructor(
+    private http: HttpClient,
     private activiteService: ActiviteService,
     private logementService: LogementService,
     private etapeService: EtapeService,
@@ -37,7 +45,60 @@ export class ActivitesLogementsListComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  activites: Activite[] = [];
+  logements: Logement[] = [];
+  ville: string = '';
+  myfrugalmap: any;
+  lat1: number = 50.6311634;
+  lng1: number = 3.0599573;
+  lat2: number = 47.22485;
+  lng2: number = -1.60137;
+  query: string = '';
+
+  ngAfterViewInit(): void {}
+
+  ngOnInit(): void {
+    this.carte();
+  }
+
+  carte() {
+    // Déclaration de la carte avec les coordonnées du centre et le niveau de zoom.
+    this.myfrugalmap = L.map('frugalmap').setView([50.6311634, 3.0599573], 12);
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: 'Frugal Map',
+    }).addTo(this.myfrugalmap);
+
+    L.Routing.control({
+      router: L.Routing.osrmv1({
+        serviceUrl: `http://router.project-osrm.org/route/v1/`,
+        language: 'fr',
+        profile: 'car', //car, bike
+      }),
+      geocoder: Geocoder,
+      lineOptions: {
+        styles: [
+          {
+            color: '#839c49',
+            opacity: 1,
+            weight: 7,
+          },
+        ],
+        extendToWaypoints: true,
+        missingRouteTolerance: 10,
+      },
+      waypoints: [L.latLng(48.856614, 2.3522219), L.latLng(43.604, 1.44305)],
+    }).addTo(this.myfrugalmap);
+
+    const myIcon = L.icon({
+      iconUrl:
+        'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png',
+    });
+    L.marker([50.6311634, 3.0599573], { icon: myIcon })
+      .bindPopup('Je suis un Frugal Marqueur')
+      .addTo(this.myfrugalmap)
+      .openPopup();
+  }
 
   get logementsArray(): FormArray {
     return this.form.get('logementsArray') as FormArray;
@@ -49,6 +110,9 @@ export class ActivitesLogementsListComponent implements OnInit {
   list() {
     this.activiteService.getAllByVille(this.ville).subscribe((result) => {
       this.activites = result;
+      this.activites.forEach((activite) => {
+        console.log(activite);
+      });
       let formArray = this.form.get('activitesArray') as FormArray;
       this.activites.forEach((activite) => {
         formArray.push(new FormControl(false));
@@ -56,12 +120,43 @@ export class ActivitesLogementsListComponent implements OnInit {
     });
     this.logementService.getAllByVille(this.ville).subscribe((result) => {
       this.logements = result;
+      this.logements.forEach((logement) => {
+        console.log(logement);
+      });
+      //get adresse du logement
+      //transformer en coord gps
+      //ajouter un marqueur sur la carte
       let formArray = this.form.get('logementsArray') as FormArray;
       this.logements.forEach((logement) => {
         formArray.push(new FormControl(false));
       });
     });
   }
+
+  /*addMarker() {
+    L.Control.Geocoder(this.query, function (results) {
+      L.marker([results[0].center.lat, results[0].center.lng])
+        .bindPopup('Je suis un Frugal Marqueur')
+        .addTo(this.myfrugalmap)
+        .openPopup();
+    });
+  }*/
+
+  /*addMarker(lat: string, lng: string, text: string) {
+    let point = [lat, lng];
+    this.myfrugalmap.bounds.push(point);
+    return new LeafletMarker(point, text, this.myfrugalmap);
+  }*/
+  /*addressToCoordinates() {
+    this.geocodeService
+      .geocodeAddress(this.address)
+      .subscribe((location: Location) => {
+        this.location = location;
+        console.log(this.location);
+        this.loading = false;
+        this.ref.detectChanges();
+      });
+  }*/
 
   etape() {
     let activites: any[] = [];
