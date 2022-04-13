@@ -1,3 +1,4 @@
+import { MapComponent } from './component/map/map.component';
 import { ReservationEditComponent } from './component/reservation/reservation-edit/reservation-edit.component';
 import { ItineraireComponent } from './component/itineraire/itineraire.component';
 import { OrganisateurInscriptionComponent } from './component/inscription/organisateur-inscription/organisateur-inscription.component';
@@ -42,6 +43,7 @@ export const routes: Routes = [
   { path: 'etape', component: EtapeListComponent },
   { path: 'etape/reservation/:id', component: EtapeListComponent },
   { path: 'itineraire/:depart/:arrivee', component: ItineraireComponent },
+  { path: 'map', component: MapComponent },
   //{ path: 'compte/edit/:login', component: CompteModifComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
