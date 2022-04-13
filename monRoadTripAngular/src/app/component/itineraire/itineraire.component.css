@@ -15,3 +15,45 @@
   margin-bottom: 5%;
   background-color: aliceblue;
 }
+
+#destination {
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 5px 5px 5px 5px;
+  box-shadow: 5px 5px 5px gray, -5px -5px 5px gray, -5px 5px 5px gray,
+    5px -5px 5px gray;
+}
+
+body {
+  text-align: center;
+}
+
+#contenu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#contenu div {
+  padding: 5px 5px 5px 5px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-control {
+  text-align: center;
+  font-weight: bold;
+}
+
+.imgDots {
+  width: 25px;
+  height: 25px;
+}
+
+.imgStartEnd {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
