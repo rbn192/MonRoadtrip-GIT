@@ -37,6 +37,9 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
   logementsReserves: number = 0;
 
   isChecked: boolean = false;
+
+  myRadio: string = '';
+
   constructor(
     private http: HttpClient,
     private activiteService: ActiviteService,
@@ -58,11 +61,21 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
 
   carte() {
     // Déclaration de la carte avec les coordonnées du centre et le niveau de zoom.
+    const myIcon = L.icon({
+      iconUrl:
+        'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png',
+    });
     this.myfrugalmap = L.map('frugalmap').setView([50.6311634, 3.0599573], 12);
 
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: 'Frugal Map',
     }).addTo(this.myfrugalmap);
+
+    /* L.Icon.Default.mergeOptions({
+      iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+      iconUrl: require('leaflet/dist/images/marker-icon.png'),
+      shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+    });*/
 
     L.Routing.control({
       router: L.Routing.osrmv1({
@@ -85,10 +98,6 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
       waypoints: [L.latLng(48.856614, 2.3522219), L.latLng(43.604, 1.44305)],
     }).addTo(this.myfrugalmap);
 
-    const myIcon = L.icon({
-      iconUrl:
-        'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png',
-    });
     L.marker([50.6311634, 3.0599573], { icon: myIcon })
       .bindPopup('Je suis un Frugal Marqueur')
       .addTo(this.myfrugalmap)
