@@ -26,4 +26,10 @@ export class ReservationListComponent implements OnInit {
       this.reservations = result;
     });
   }
+
+  delete(id: number) {
+    this.reservationService.delete(id).subscribe((ok) => {
+      this.list(localStorage.getItem('login')!);
+    });
+  }
 }
