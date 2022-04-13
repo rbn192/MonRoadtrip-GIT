@@ -47,7 +47,7 @@ export class ReservationEditComponent implements OnInit {
   save() {
     this.saveParticipant();
     this.reservation.participant = this.participant;
-    console.log(this.participant.nom);
+    console.log('id ' + this.reservation.participant.id);
     if (this.reservation.id) {
       this.reservationService.update(this.reservation).subscribe((result) => {
         this.goList();
