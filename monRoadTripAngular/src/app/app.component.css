@@ -5,10 +5,24 @@ body {
   min-height: 100vh;
 }
 
+.imgLogo {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+
+.logoFooter {
+  width: 30px;
+  height: 30px;
+  margin: 6px;
+}
+
 #accueil {
   padding-top: 3rem;
 }
-
+#myCarousel {
+  margin-bottom: 30px;
+}
 .carousel {
   margin-bottom: 4rem;
 }
@@ -28,6 +42,11 @@ body {
   left: 0;
   min-width: 100%;
   height: 150%;
+}
+
+.btnHeader {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #ajouter {

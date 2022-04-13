@@ -33,7 +33,7 @@ public class Reservation {
 	
 	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
-	@Column(columnDefinition = "ENUM('En_cours','A_venir','Terminé')")
+	@Column(columnDefinition = "ENUM('En_cours','A_venir','Termine')")
 	private Statut statut;
 	
 	@ManyToOne

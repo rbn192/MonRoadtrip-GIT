@@ -24,6 +24,7 @@ import { EtapeListComponent } from './component/etape/etape-list/etape-list.comp
 import { EtapeEditComponent } from './component/etape/etape-edit/etape-edit.component';
 import { ReservationEditComponent } from './component/reservation/reservation-edit/reservation-edit.component';
 import { ReservationListComponent } from './component/reservation/reservation-list/reservation-list.component';
+import { EtapesListComponent } from './component/itineraire/etapes-list/etapes-list.component';
 import { MapComponent } from './component/map/map.component';
 
 @NgModule({
@@ -48,6 +49,7 @@ import { MapComponent } from './component/map/map.component';
     EtapeEditComponent,
     ActivitesLogementsListComponent,
     MapComponent,
+    EtapesListComponent,
   ],
   imports: [
     HttpClientModule,
