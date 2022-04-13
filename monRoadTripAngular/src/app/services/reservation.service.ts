@@ -20,11 +20,8 @@ export class ReservationService {
     return this.http.get<any>(`${ReservationService.URL}/${id}`);
   }
 
-  public create(reservation: Reservation): Observable<any> {
-    return this.http.post(
-      ReservationService.URL,
-      this.reservationToJson(reservation)
-    );
+  public create(reservation: any): Observable<any> {
+    return this.http.post(ReservationService.URL, reservation);
   }
 
   public update(reservation: Reservation): Observable<any> {
