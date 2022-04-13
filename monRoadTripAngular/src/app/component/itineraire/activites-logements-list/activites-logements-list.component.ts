@@ -20,7 +20,6 @@ export class ActivitesLogementsListComponent implements OnInit {
   activites: Activite[] = [];
   logements: Logement[] = [];
 
-  etapesReservees: number[] = [];
   activitesReservees: number[] = [];
   logementsReserves: number = 0;
 
@@ -64,17 +63,6 @@ export class ActivitesLogementsListComponent implements OnInit {
     });
   }
 
-  resa() {
-    let etapes: any[] = [];
-
-    let reservation = {
-      client: {
-        id: localStorage.getItem('id'),
-      },
-      etapes: null,
-    };
-  }
-
   etape() {
     let activites: any[] = [];
     this.activitesReservees.forEach((activite) => {
@@ -92,7 +80,6 @@ export class ActivitesLogementsListComponent implements OnInit {
       },
       activites: activites,
     };
-    this.etapesReservees.push();
     console.log(etape);
     this.etapeService.create(etape).subscribe((ok) => {});
   }
