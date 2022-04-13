@@ -126,3 +126,8 @@
 .is-active::after {
   border-top-color: #5069ff;
 }
+
+#frugalmap {
+  height: 800px;
+  width: 100%;
+}
