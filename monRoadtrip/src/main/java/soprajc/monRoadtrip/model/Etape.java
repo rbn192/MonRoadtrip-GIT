@@ -19,7 +19,10 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class Etape {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(JsonViews.Common.class)
+	private Integer id;
 	@JsonView(JsonViews.Common.class)
 	@Min(value=1)
 	private int duree;
@@ -47,10 +50,7 @@ public class Etape {
 	@JoinColumn(name="id_reservation_fk")
 	private Reservation reservation;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(JsonViews.Common.class)
-	private Integer id;
+
 	
 	@Version
 	private int version;
