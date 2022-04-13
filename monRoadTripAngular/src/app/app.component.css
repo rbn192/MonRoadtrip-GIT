@@ -5,6 +5,18 @@ body {
   min-height: 100vh;
 }
 
+.imgLogo {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+
+.logoFooter {
+  width: 30px;
+  height: 30px;
+  margin: 6px;
+}
+
 #accueil {
   padding-top: 3rem;
 }
