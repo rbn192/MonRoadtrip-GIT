@@ -39,7 +39,7 @@ public class ReservationService {
 			reservation.setVersion(reservationEnBase.getVersion());
 		}
 		Reservation reservation2 =  reservationRepository.save(reservation);
-		List<Etape> etapes = etapeService.getAllByClient(reservation.getClient().getMail());
+		List<Etape> etapes = etapeService.getAll();
 		reservation.setEtapes(etapes);
 		for(Etape etape : etapes) {
 			Etape etapeBase =etapeService.getById(etape.getId());

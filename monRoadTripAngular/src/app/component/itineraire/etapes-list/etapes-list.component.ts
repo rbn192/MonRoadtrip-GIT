@@ -62,9 +62,9 @@ export class EtapesListComponent implements OnInit {
     let reservation = {
       statut: 'A_venir',
       etapes: etapes,
-      client: { id: localStorage.getItem('id'), type: 'client' },
+      client: { id: '4', type: 'client' },
       roadtrip: { id: '1' },
-      participant: { id: '20' },
+      participant: { id: '1' },
     };
     this.reservationService.create(reservation).subscribe((ok) => {});
     console.log(etapes);
