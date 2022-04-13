@@ -1,0 +1,13 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.divEdit {
+  text-align: center;
+  width: 80%;
+}
+
+.btnEdit {
+  width: 110px;
+}

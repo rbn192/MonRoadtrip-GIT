@@ -1,0 +1,92 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>Réservation</title>
+</head>
+
+<body id="bodyReservation">
+  <div class="container">
+    <h1>Editer une réservation</h1>
+  </div>
+  <div class="form-group">
+    <div>
+      <label>ID client :</label>
+      <input
+        [(ngModel)]="reservation.client!.id"
+        readonly
+        class="form-control"
+      />
+    </div>
+    <div>
+      <label>Client :</label>
+      <input
+        [(ngModel)]="reservation.client!.prenom"
+        readonly
+        class="form-control"
+      />
+    </div>
+    <div>
+      <label>ID réservation :</label>
+      <input
+        [(ngModel)]="reservation.id"
+        readonly
+        class="form-control"
+        placeholder="génération automatique"
+      />
+    </div>
+    <div>
+      <label>Date :</label>
+      <input
+        type="date"
+        [(ngModel)]="reservation.dateReservation"
+        class="form-control"
+      />
+    </div>
+    <div>
+      <label>Statut :</label>
+      <select [(ngModel)]="reservation.statut" class="form-control">
+        <option *ngFor="let s of statuts | keyvalue" [value]="s.key">
+          {{ s.value }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <label>Roadtrip :</label>
+      <input
+        type="text"
+        [(ngModel)]="reservation.roadtrip!.destination"
+        class="form-control"
+      />
+    </div>
+    <hr />
+    <div>
+      <h6>Participant :</h6>
+      <div>
+        <label>Prénom :</label>
+        <input
+          type="text"
+          [(ngModel)]="participant!.prenom"
+          class="form-control"
+        />
+        <label>Nom :</label>
+        <input
+          type="text"
+          [(ngModel)]="participant!.nom"
+          class="form-control"
+        />
+        <label>Age :</label>
+        <input
+          type="number"
+          [(ngModel)]="participant!.age"
+          class="form-control"
+        />
+      </div>
+      <!--<button (click)="saveParticipant()" class="btn btn-success">
+        Enregistrer participant
+      </button>-->
+    </div>
+  </div>
+  <div>
+    <button (click)="save()" class="btn btn-success">Enregistrer</button>
+    <a routerLink="/reservation" class="btn btn-warning">Annuler</a>
+  </div>
+</body>

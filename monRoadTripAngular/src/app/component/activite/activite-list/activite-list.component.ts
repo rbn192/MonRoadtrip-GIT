@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-activite-list',
   templateUrl: './activite-list.component.html',
-  styleUrls: ['./activite-list.component.css'],
+  styleUrls: ['./activite-list.component.css', '../../../app.component.css'],
 })
 export class AcliviteListComponent implements OnInit {
   activites: Activite[] = [];

@@ -8,7 +8,7 @@ import { Hote } from 'src/app/model/hote';
 @Component({
   selector: 'app-logement-edit',
   templateUrl: './logement-edit.component.html',
-  styleUrls: ['./logement-edit.component.css'],
+  styleUrls: ['./logement-edit.component.css', '../../../app.component.css'],
 })
 export class LogementEditComponent implements OnInit {
   logement: Logement = new Logement();

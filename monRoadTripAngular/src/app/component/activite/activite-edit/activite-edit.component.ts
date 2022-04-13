@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-activite-edit',
   templateUrl: './activite-edit.component.html',
-  styleUrls: ['./activite-edit.component.css'],
+  styleUrls: ['./activite-edit.component.css', '../../../app.component.css'],
 })
 export class ActiviteEditComponent implements OnInit {
   activite: Activite = new Activite();
