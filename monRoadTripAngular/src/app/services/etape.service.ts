@@ -24,14 +24,9 @@ export class EtapeService {
   }
 
   public create(etape: any): Observable<any> {
-    return this.http.post(EtapeService.URL, this.etapeToJson(etape));
+    return this.http.post(EtapeService.URL, etape);
   }
-  public addActivite(etape: Etape, i: number) {
-    return this.http.post(
-      `${EtapeService.URL}/${etape.id}/add/activite/${i}`,
-      this.etapeToJson(etape)
-    );
-  }
+
   private etapeToJson(etape: Etape): any {
     let obj = {
       id: etape.id,
