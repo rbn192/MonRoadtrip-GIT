@@ -5,6 +5,10 @@ body {
   min-height: 100vh;
 }
 
+html {
+  background-color: #f4efe7;
+}
+
 .imgLogo {
   width: 35px;
   height: 35px;
