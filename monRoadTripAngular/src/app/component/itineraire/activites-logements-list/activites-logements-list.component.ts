@@ -52,6 +52,7 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
   arriveeCoord: any;
   departCoord: any;
   etapeCoord: any;
+  routing: any;
 
   activitesReservees: number[] = [];
   logementsReserves: number = 0;
@@ -113,7 +114,7 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
       shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
     });*/
 
-    L.Routing.control({
+    this.routing = L.Routing.control({
       router: L.Routing.osrmv1({
         serviceUrl: `http://router.project-osrm.org/route/v1/`,
         language: 'fr',
@@ -157,6 +158,10 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
     console.log('ville ' + this.ville);
 
     console.log(this.etapeCoord);
+
+    this.routing.spliceWaypoints(0, 2);
+
+    this.myfrugalmap.remove;
     // Déclaration de la carte avec les coordonnées du centre et le niveau de zoom.
     const myIcon = L.icon({
       iconUrl:
@@ -194,7 +199,7 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
       waypoints: [
         L.latLng(this.departCoord[0], this.departCoord[1]),
         L.latLng(this.etapeCoord[0], this.etapeCoord[1]),
-        L.latLng(this.arriveeCoord[0], this.arriveeCoord[1]),
+        //L.latLng(this.arriveeCoord[0], this.arriveeCoord[1]),
       ],
     }).addTo(this.myfrugalmap);
 
