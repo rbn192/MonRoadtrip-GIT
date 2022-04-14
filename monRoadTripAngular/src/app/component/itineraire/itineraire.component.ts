@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-itineraire',
   templateUrl: './itineraire.component.html',
-  styleUrls: ['./itineraire.component.css'],
+  styleUrls: ['./itineraire.component.css', '../../app.component.css'],
 })
 export class ItineraireComponent implements OnInit {
   depart: string = '';

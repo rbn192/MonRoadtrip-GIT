@@ -6,12 +6,37 @@
     <title>Document</title>
   </head>
   <body>
-    <h1 id="depart">{{ depart }}</h1>
-    <h1 id="arrivee">{{ arrivee }}</h1>
     <main>
+      <div id="destination">
+        <h3>Votre itinéraire</h3>
+        <div id="contenu">
+          <div class="startEnd">
+            <img class="imgStartEnd" src="assets/images/start.png" />
+            <input
+              type="text"
+              placeholder="Ville de départ"
+              class="form-control"
+              [(ngModel)]="depart"
+            />
+          </div>
+          <div>
+            <img class="imgDots" src="assets/images/dots.png" />
+          </div>
+          <div class="startEnd">
+            <input
+              type="text"
+              placeholder="Ville d'arrivée"
+              class="form-control"
+              [(ngModel)]="arrivee"
+            />
+            <img class="imgStartEnd" src="assets/images/finish.png" />
+          </div>
+        </div>
+      </div>
+      <br /><br />
+      <hr />
+      <!--
       <div id="container">
-        <h1>Votre itinéraire</h1>
-
         <ul>
           <li>
             <span class="depart etape">

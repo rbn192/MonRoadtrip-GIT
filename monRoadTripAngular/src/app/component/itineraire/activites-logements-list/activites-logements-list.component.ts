@@ -78,10 +78,10 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
       console.log('cript charge');
     };
     this.departCoord = latLngDepart(this.depart);
-    console.log('depart ' + this.departCoord);
+    console.log(this.depart + this.departCoord);
 
     this.arriveeCoord = latLngArrivee(this.arrivee);
-    console.log('arrivee ' + this.arriveeCoord);
+    console.log(this.arrivee + this.arriveeCoord);
 
     this.carte();
   }
@@ -217,7 +217,7 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
     });
     let etape = {
       duree: '2',
-      date: '2022-07-29',
+      date: '2022-07-30',
       ville: this.ville,
       logement: {
         id: this.logementsReserves,
@@ -225,7 +225,7 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
       activites: activites,
     };
     console.log(activites);
-    //this.etapeService.create(etape).subscribe((ok) => {});
+    this.etapeService.create(etape).subscribe((ok) => {});
   }
 
   submit() {

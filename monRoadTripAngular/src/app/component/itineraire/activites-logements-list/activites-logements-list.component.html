@@ -44,36 +44,15 @@
       <div *ngIf="myRadio == 'logements'">
         <h2>Liste des logements à {{ ville }}</h2>
 
-        <table class="table">
-          <tr>
-            <td></td>
-            <td>id</td>
-            <td>date</td>
-            <td>prix</td>
-            <td>cp</td>
-            <td>numero</td>
-            <td>voie</td>
-            <td>ville</td>
-            <td>nb de places</td>
-          </tr>
-
-          <tr
-            *ngFor="let l of logementsArray.controls; let i = index"
-            formArrayName="logementsArray"
-          >
-            <td>
-              <input [formControlName]="i" type="checkbox" />
-            </td>
-            <td>{{ logements[i].id }}</td>
-            <td>{{ logements[i].date | date: "dd/MM/yyyy" }}</td>
-            <td>{{ logements[i].prix }}</td>
-            <td>{{ logements[i].adresse?.cp }}</td>
-            <td>{{ logements[i].adresse?.numero }}</td>
-            <td>{{ logements[i].adresse?.voie }}</td>
-            <td>{{ logements[i].adresse?.ville }}</td>
-            <td>{{ logements[i].nbPlaces }}</td>
-          </tr>
-        </table>
+        <div id="contenu">
+          <div id="recherche">
+            <label>Ville-étape à ajouter : </label>
+            <input type="text" [(ngModel)]="ville" class="form-control" />
+            <button (click)="list()" class="btn btn-outline-info">
+              Rechercher
+            </button>
+          </div>
+        </div>
       </div>
       <div *ngIf="myRadio == 'activites'">
         <h2>Liste des activites à {{ ville }}</h2>
