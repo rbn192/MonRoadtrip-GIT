@@ -10,12 +10,11 @@
       <hr />
       <table class="table">
         <tr>
-          <td colspan="7"></td>
+          <td colspan="6"></td>
           <td colspan="4" align="center" class="adresse">Adresse</td>
           <td colspan="1"></td>
         </tr>
         <tr>
-          <td>ID</td>
           <td>Intitulé</td>
           <td>Catégorie</td>
           <td>Date</td>
@@ -29,7 +28,6 @@
           <td>Actions</td>
         </tr>
         <tr *ngFor="let a of activites">
-          <td>{{ a.id }}</td>
           <td>{{ a.intitule }}</td>
           <td>{{ a.categorie }}</td>
           <td>{{ a.date | date: "dd/MM/yyyy" }}</td>

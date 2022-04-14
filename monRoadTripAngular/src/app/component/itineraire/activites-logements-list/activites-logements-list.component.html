@@ -61,12 +61,11 @@
                 <h2>Liste des logements à {{ ville }}</h2>
                 <table class="table">
                   <tr>
-                    <td colspan="5"></td>
+                    <td colspan="4"></td>
                     <td colspan="4" align="center" class="adresse">Adresse</td>
                   </tr>
                   <tr>
                     <td>Sélection</td>
-                    <td>ID</td>
                     <td>Date</td>
                     <td>Prix (€)</td>
                     <td>Nombre de couchages</td>
@@ -82,7 +81,6 @@
                     <td>
                       <input [formControlName]="i" type="checkbox" />
                     </td>
-                    <td>{{ logements[i].id }}</td>
                     <td>{{ logements[i].date | date: "dd/MM/yyyy" }}</td>
                     <td>{{ logements[i].prix }}</td>
                     <td>{{ logements[i].nbPlaces }}</td>
@@ -97,12 +95,11 @@
                 <h2>Liste des activités à {{ ville }}</h2>
                 <table class="table">
                   <tr>
-                    <td colspan="8"></td>
+                    <td colspan="7"></td>
                     <td colspan="4" align="center" class="adresse">Adresse</td>
                   </tr>
                   <tr>
                     <td>Sélection</td>
-                    <td>ID</td>
                     <td>Intitulé</td>
                     <td>Catégorie</td>
                     <td>Date</td>
@@ -121,7 +118,6 @@
                     <td>
                       <input [formControlName]="i" type="checkbox" />
                     </td>
-                    <td>{{ activites[i].id }}</td>
                     <td>{{ activites[i].intitule }}</td>
                     <td>{{ activites[i].categorie }}</td>
                     <td>{{ activites[i].date | date: "dd/MM/yyyy" }}</td>
