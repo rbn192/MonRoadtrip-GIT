@@ -17,7 +17,7 @@
         <td>{{ r.statut }}</td>
         <td>{{ r.client?.prenom }} {{ r.client?.nom }}</td>
         <td>{{ r.participant?.prenom }}</td>
-        <td>{{ r.etape?.activite?.prix }}</td>
+        <td>{{ prix }}</td>
         <td>
           <button (click)="delete(r.id!)" class="btn btn-outline-danger">
             Supprimer
