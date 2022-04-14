@@ -1,3 +1,4 @@
+import { Participant } from 'src/app/model/participant';
 import { ReservationService } from './../../../services/reservation.service';
 import { map } from 'rxjs';
 import { FormArray, FormGroup, FormControl } from '@angular/forms';
@@ -14,6 +15,7 @@ import { Etape } from 'src/app/model/etape';
 export class EtapesListComponent implements OnInit {
   form: FormGroup;
   etapes: Etape[] = [];
+  participants: number[] = [];
 
   etapesReservees: number[] = [];
 
@@ -31,6 +33,11 @@ export class EtapesListComponent implements OnInit {
 
   get etapesArray(): FormArray {
     return this.form.get('etapesArray') as FormArray;
+  }
+
+  ajoutParticipants(value: number[]) {
+    this.participants = value;
+    console.log('Ca marche? ' + this.participants);
   }
 
   list() {
@@ -60,15 +67,31 @@ export class EtapesListComponent implements OnInit {
       etapes.push(e);
     });
     console.log('etapes : ' + etapes);
-    let reservation = {
-      statut: 'A_venir',
-      etapes: etapes,
-      client: { id: localStorage.getItem('id'), type: 'client' },
-      roadtrip: { id: '1' },
-      participant: { id: '20' },
-    };
-    this.reservationService.create(reservation).subscribe((ok) => {});
-    console.log(etapes);
-    console.log(reservation);
+
+    let participants: any[] = [];
+    this.participants.forEach((participant) => {
+      let p = { id: participant };
+      participants.push(p);
+    });
+    console.log('participants : ' + participants);
+
+    participants.forEach((p) => {
+      let reservation = {
+        dateReservation: '2022-04-15',
+        statut: 'A_venir',
+        etapes: etapes,
+        client: { id: localStorage.getItem('id'), type: 'client' },
+        roadtrip: { id: '1' },
+        participant: p,
+      };
+      this.reservationService.create(reservation).subscribe((ok) => {
+        console.log('reservation créée ' + ok.id);
+        console.log('participants' + ok.participant);
+      });
+    });
+
+    //console.log(reservation.participant);
+    //console.log(etapes);
+    //console.log(reservation);
   }
 }
