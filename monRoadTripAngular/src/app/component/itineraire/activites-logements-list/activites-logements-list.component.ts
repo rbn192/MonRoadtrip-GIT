@@ -53,6 +53,8 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
   departCoord: any;
   etapeCoord: any;
   routing: any;
+  etapes: L.LatLng[] = [];
+  routingEtape: any;
 
   activitesReservees: number[] = [];
   logementsReserves: number = 0;
@@ -83,7 +85,6 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     console.log(this.depart);
     console.log(this.arrivee);
-    console.log('debug');
     const scriptElement = this.scriptService.load(this.renderer);
     scriptElement.onload = () => {
       console.log('script charge');
@@ -93,6 +94,9 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
 
     this.arriveeCoord = latLngArrivee(this.arrivee);
     console.log(this.arrivee + this.arriveeCoord);
+
+    this.etapes.push(L.latLng(this.departCoord[0], this.departCoord[1]));
+    this.etapes.push(L.latLng(this.arriveeCoord[0], this.arriveeCoord[1]));
 
     this.carte();
   }
@@ -108,12 +112,6 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: 'Frugal Map',
     }).addTo(this.myfrugalmap);
-
-    /* L.Icon.Default.mergeOptions({
-      iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-      iconUrl: require('leaflet/dist/images/marker-icon.png'),
-      shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-    });*/
 
     this.routing = L.Routing.control({
       router: L.Routing.osrmv1({
@@ -140,10 +138,6 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
       ],
     }).addTo(this.myfrugalmap);
 
-    L.marker([50.6311634, 3.0599573], { icon: myIcon })
-      .addTo(this.myfrugalmap)
-      .openPopup();
-
     this.changeDetect.detectChanges();
   }
 
@@ -155,12 +149,17 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
   }
 
   carteEtape() {
-    console.log('carte etape');
+    console.log('carte etape', this.etapes);
     console.log('ville ' + this.ville);
 
     console.log(this.etapeCoord);
 
-    this.routing.spliceWaypoints(0, 2);
+    //this.routing.setWaypoints();
+    this.routing.remove();
+
+    //this.routingEtape.setWaypoints();
+    this.routingEtape = null;
+    console.log('routing etape ' + this.routingEtape);
 
     this.myfrugalmap.remove;
     // Déclaration de la carte avec les coordonnées du centre et le niveau de zoom.
@@ -173,13 +172,18 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
       attribution: 'Frugal Map',
     }).addTo(this.myfrugalmap);
 
-    /* L.Icon.Default.mergeOptions({
-      iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-      iconUrl: require('leaflet/dist/images/marker-icon.png'),
-      shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-    });*/
+    var greenIcon = new L.Icon({
+      iconUrl:
+        'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+      shadowUrl:
+        'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41],
+    });
 
-    L.Routing.control({
+    this.routingEtape = L.Routing.control({
       router: L.Routing.osrmv1({
         serviceUrl: `http://router.project-osrm.org/route/v1/`,
         language: 'fr',
@@ -189,7 +193,7 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
       lineOptions: {
         styles: [
           {
-            color: '#39A79A',
+            color: 'black',
             opacity: 1,
             weight: 4,
           },
@@ -197,24 +201,20 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
         extendToWaypoints: true,
         missingRouteTolerance: 10,
       },
-      waypoints: [
-        L.latLng(this.departCoord[0], this.departCoord[1]),
-        L.latLng(this.etapeCoord[0], this.etapeCoord[1]),
-        //L.latLng(this.arriveeCoord[0], this.arriveeCoord[1]),
-      ],
-    }).addTo(this.myfrugalmap);
 
-    L.marker([50.6311634, 3.0599573], { icon: myIcon })
-      .addTo(this.myfrugalmap)
-      .openPopup();
+      waypoints: this.etapes,
+    }).addTo(this.myfrugalmap);
 
     this.changeDetect.detectChanges();
   }
 
   list() {
-    console.log('help ' + this.etapeCoord);
     this.etapeCoord = latLngEtape(this.ville);
-    console.log('help 2 ' + this.etapeCoord);
+    this.etapes.splice(
+      this.etapes.length - 1,
+      0,
+      L.latLng(this.etapeCoord[0], this.etapeCoord[1])
+    );
 
     this.carteEtape();
     this.activiteService.getAllByVille(this.ville).subscribe((result) => {
