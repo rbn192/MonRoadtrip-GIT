@@ -1,6 +1,6 @@
 import { ParticipantService } from './../../services/participant.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-participant',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./participant.component.css', '../../app.component.css'],
 })
 export class ParticipantComponent implements OnInit {
+  @Output() newItemEvent = new EventEmitter<number[]>();
+
   form: FormGroup;
   participants: number[] = [];
   constructor(private participantService: ParticipantService) {
@@ -29,6 +31,7 @@ export class ParticipantComponent implements OnInit {
     this.participantService.create(participant).subscribe((p) => {
       this.participants.push(p.id);
       console.log('les participants : ' + this.participants);
+      this.newItemEvent.emit(this.participants);
       //localStorage.setItem('p_id', this.participants);
     });
   }
