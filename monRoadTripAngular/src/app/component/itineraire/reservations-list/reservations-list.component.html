@@ -5,12 +5,11 @@
 
     <table class="table">
       <tr>
-        <td>id</td>
-        <td>statut</td>
-        <td>client</td>
-        <td>participant</td>
-        <td>Annuler</td>
-        <td>Confirmer</td>
+        <td>ID</td>
+        <td>Statut</td>
+        <td>Client</td>
+        <td>Participant</td>
+        <td>Actions</td>
       </tr>
       <tr *ngFor="let r of reservations">
         <td>{{ r.id }}</td>
@@ -21,9 +20,7 @@
           <button (click)="delete(r.id!)" class="btn btn-danger">
             Supprimer
           </button>
-        </td>
-        <td>
-          <button type="submit" (click)="redirection()" class="btn btn-success">
+          <button (click)="redirection()" class="btn btn-success">
             Paiement
           </button>
         </td>
