@@ -23,8 +23,13 @@
         </td>
       </tr>
     </table>
-    <button (click)="redirection()" class="btn btn-success">
-      Procéder au paiement des réservations
-    </button>
+    <div id="buttons">
+      <button class="btn btn-warning" routerLink="/itineraire/Paris/Toulouse">
+        Ajouter une nouvelle étape
+      </button>
+      <button (click)="redirection()" class="btn btn-success">
+        Procéder au paiement des réservations
+      </button>
+    </div>
   </div>
 </body>
