@@ -178,7 +178,7 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
     });
     let etape = {
       duree: '2',
-      date: '2022-07-29',
+      date: '2022-07-30',
       ville: this.ville,
       logement: {
         id: this.logementsReserves,
@@ -186,7 +186,7 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
       activites: activites,
     };
     console.log(activites);
-    //this.etapeService.create(etape).subscribe((ok) => {});
+    this.etapeService.create(etape).subscribe((ok) => {});
   }
 
   submit() {

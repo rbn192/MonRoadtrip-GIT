@@ -131,3 +131,8 @@
   height: 800px;
   width: 100%;
 }
+
+.addVille {
+  display: flex;
+  flex-direction: row;
+}
