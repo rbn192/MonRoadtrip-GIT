@@ -171,7 +171,6 @@ function latLngArrivee(ville) {
 
   localStorage.removeItem("endlatA");
   localStorage.removeItem("endlngA");
-  localStorage.clear();
   console.log("localStorage après :" + localStorage.getItem("endlatA"));
 
   return [end_lat, end_lng];
