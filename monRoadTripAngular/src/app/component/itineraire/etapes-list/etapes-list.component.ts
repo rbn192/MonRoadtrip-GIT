@@ -75,17 +75,21 @@ export class EtapesListComponent implements OnInit {
     });
     console.log('participants : ' + participants);
 
-    let reservation = {
-      statut: 'A_venir',
-      etapes: etapes,
-      client: { id: localStorage.getItem('id'), type: 'client' },
-      roadtrip: { id: '1' },
-      participant: participants[0],
-    };
-    this.reservationService.create(reservation).subscribe((ok) => {
-      console.log('reservation créée ' + ok.id);
-      console.log('participants' + ok.participant);
+    participants.forEach((p) => {
+      let reservation = {
+        dateReservation: '2022-04-15',
+        statut: 'A_venir',
+        etapes: etapes,
+        client: { id: localStorage.getItem('id'), type: 'client' },
+        roadtrip: { id: '1' },
+        participant: p,
+      };
+      this.reservationService.create(reservation).subscribe((ok) => {
+        console.log('reservation créée ' + ok.id);
+        console.log('participants' + ok.participant);
+      });
     });
+
     //console.log(reservation.participant);
     //console.log(etapes);
     //console.log(reservation);
