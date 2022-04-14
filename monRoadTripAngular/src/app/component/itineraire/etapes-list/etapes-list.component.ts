@@ -59,6 +59,7 @@ export class EtapesListComponent implements OnInit {
       let e = { id: etape };
       etapes.push(e);
     });
+    console.log('etapes : ' + etapes);
     let reservation = {
       statut: 'A_venir',
       etapes: etapes,
