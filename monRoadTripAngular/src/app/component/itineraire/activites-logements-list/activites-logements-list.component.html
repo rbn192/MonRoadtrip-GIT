@@ -1,100 +1,136 @@
-<body>
-  <main>
-    <h6>Ville-étape à ajouter :</h6>
-    <div class="container addVille">
-      <label></label>
-      <input type="text" [(ngModel)]="ville" class="form-control" />
-      <button (click)="list()" class="btn btn-outline-info">Rechercher</button>
-    </div>
-
-    <div id="contenu">
-      <div id="recherche">
-        <label>Ville-étape à ajouter : </label>
-        <input type="text" [(ngModel)]="ville" class="form-control" />
-        <button (click)="list()" class="btn btn-outline-info">
-          Rechercher
-        </button>
-      </div>
-      <div id="tableaux">
-        <form [formGroup]="form" (ngSubmit)="submit()">
+<main>
+  <div class="form-row">
+    <div class="form-group col-lg-3">
+      <div class="container" align="center">
+        <br />
+        <h5>Ville-étape à ajouter :</h5>
+        <br />
+        <div class="container addVille">
           <div>
-            <h2>Lise des logements à {{ ville }}</h2>
-
-            <table class="table">
-              <tr>
-                <td></td>
-                <td>id</td>
-                <td>date</td>
-                <td>prix</td>
-                <td>cp</td>
-                <td>numero</td>
-                <td>voie</td>
-                <td>ville</td>
-                <td>nb de places</td>
-              </tr>
-
-              <tr
-                *ngFor="let l of logementsArray.controls; let i = index"
-                formArrayName="logementsArray"
-              >
-                <td>
-                  <input [formControlName]="i" type="checkbox" />
-                </td>
-                <td>{{ logements[i].id }}</td>
-                <td>{{ logements[i].date | date: "dd/MM/yyyy" }}</td>
-                <td>{{ logements[i].prix }}</td>
-                <td>{{ logements[i].adresse?.cp }}</td>
-                <td>{{ logements[i].adresse?.numero }}</td>
-                <td>{{ logements[i].adresse?.voie }}</td>
-                <td>{{ logements[i].adresse?.ville }}</td>
-                <td>{{ logements[i].nbPlaces }}</td>
-              </tr>
-            </table>
+            <img class="imgDescription" src="assets/images/panneau.png" />
           </div>
-          <div>
-            <h2>Lise des activites à {{ ville }}</h2>
-            <table class="table">
-              <tr>
-                <td></td>
-                <td>id</td>
-                <td>date</td>
-                <td>heure</td>
-                <td>prix</td>
-                <td>categorie</td>
-                <td>cp</td>
-                <td>numero</td>
-                <td>voie</td>
-                <td>ville</td>
-                <td>nb de places</td>
-                <td>intitule</td>
-              </tr>
-
-              <tr
-                *ngFor="let a of activitesArray.controls; let i = index"
-                formArrayName="activitesArray"
-              >
-                <td>
-                  <input [formControlName]="i" type="checkbox" />
-                </td>
-                <td>{{ activites[i].id }}</td>
-                <td>{{ activites[i].date | date: "dd/MM/yyyy" }}</td>
-                <td>{{ activites[i].heure }}</td>
-                <td>{{ activites[i].prix }}</td>
-                <td>{{ activites[i].categorie }}</td>
-                <td>{{ activites[i].adresse?.cp }}</td>
-                <td>{{ activites[i].adresse?.numero }}</td>
-                <td>{{ activites[i].adresse?.voie }}</td>
-                <td>{{ activites[i].adresse?.ville }}</td>
-                <td>{{ activites[i].nbPlaces }}</td>
-                <td>{{ activites[i].intitule }}</td>
-              </tr>
-            </table>
-            <button type="submit">Reserver</button>
-          </div>
-        </form>
-        <button (click)="redirect()">Suivant</button>
+          <input type="text" [(ngModel)]="ville" class="form-control" />
+          <button (click)="list()" class="btn btn-primary">Rechercher</button>
+        </div>
       </div>
-      <div id="frugalmap"></div>
     </div>
-  </main>
-</body>
+    <div class="form-group col-lg-9">
+      <div class="container" id="contenu">
+        <div id="tableaux">
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <div>
+              <h2>Liste des logements à {{ ville }}</h2>
+              <table class="table">
+                <tr>
+                  <td colspan="5"></td>
+                  <td colspan="4" align="center" class="adresse">Adresse</td>
+                </tr>
+                <tr>
+                  <td>Sélection</td>
+                  <td>ID</td>
+                  <td>Date</td>
+                  <td>Prix (€)</td>
+                  <td>Nombre de couchages</td>
+                  <td class="adresse">Numéro</td>
+                  <td class="adresse">Voie</td>
+                  <td class="adresse">Code Postal</td>
+                  <td class="adresse">Ville</td>
+                </tr>
+                <tr
+                  *ngFor="let l of logementsArray.controls; let i = index"
+                  formArrayName="logementsArray"
+                >
+                  <td>
+                    <input [formControlName]="i" type="checkbox" />
+                  </td>
+                  <td>{{ logements[i].id }}</td>
+                  <td>{{ logements[i].date | date: "dd/MM/yyyy" }}</td>
+                  <td>{{ logements[i].prix }}</td>
+                  <td>{{ logements[i].nbPlaces }}</td>
+                  <td class="adresse">{{ logements[i].adresse?.numero }}</td>
+                  <td class="adresse">{{ logements[i].adresse?.voie }}</td>
+                  <td class="adresse">{{ logements[i].adresse?.cp }}</td>
+                  <td class="adresse">{{ logements[i].adresse?.ville }}</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <h2>Liste des activités à {{ ville }}</h2>
+              <table class="table">
+                <tr>
+                  <td colspan="8"></td>
+                  <td colspan="4" align="center" class="adresse">Adresse</td>
+                </tr>
+                <tr>
+                  <td>Sélection</td>
+                  <td>ID</td>
+                  <td>Intitulé</td>
+                  <td>Catégorie</td>
+                  <td>Date</td>
+                  <td>Heure</td>
+                  <td>Prix (€)</td>
+                  <td>Nombre de places</td>
+                  <td class="adresse">Numéro</td>
+                  <td class="adresse">Voie</td>
+                  <td class="adresse">Code Postal</td>
+                  <td class="adresse">Ville</td>
+                </tr>
+                <tr
+                  *ngFor="let a of activitesArray.controls; let i = index"
+                  formArrayName="activitesArray"
+                >
+                  <td>
+                    <input [formControlName]="i" type="checkbox" />
+                  </td>
+                  <td>{{ activites[i].id }}</td>
+                  <td>{{ activites[i].intitule }}</td>
+                  <td>{{ activites[i].categorie }}</td>
+                  <td>{{ activites[i].date | date: "dd/MM/yyyy" }}</td>
+                  <td>{{ activites[i].heure }}</td>
+                  <td>{{ activites[i].prix }}</td>
+                  <td>{{ activites[i].nbPlaces }}</td>
+                  <td class="adresse">{{ activites[i].adresse?.numero }}</td>
+                  <td class="adresse">{{ activites[i].adresse?.voie }}</td>
+                  <td class="adresse">{{ activites[i].adresse?.cp }}</td>
+                  <td class="adresse">{{ activites[i].adresse?.ville }}</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <br />
+              <span *ngIf="!isAutenticated()"
+                ><i
+                  >Vous devez être connecté pour pouvoir accéder à la
+                  réservation.</i
+                ></span
+              >
+              <span *ngIf="isAutenticated()"
+                ><i
+                  >Merci de sélectionner avant de passer à la réservation.</i
+                ></span
+              ><br />
+              <button
+                *ngIf="isAutenticated()"
+                type="submit"
+                class="btn btn-success"
+              >
+                Sélectionner
+              </button>
+              <button
+                *ngIf="isAutenticated()"
+                (click)="redirect()"
+                class="btn btn-primary"
+              >
+                Passer à la réservation
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <hr />
+  <br />
+  <div class="container" id="frugalmap"></div>
+</main>
