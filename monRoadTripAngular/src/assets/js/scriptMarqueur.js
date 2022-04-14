@@ -140,7 +140,44 @@ function latLngDepart(ville) {
   return [end_lat, end_lng];
 }
 
+var test;
+var test2;
 function latLngArrivee(ville) {
+  const lat = 0;
+  var end_lat = 0;
+  var end_lng = 0;
+
+  geocoder.geocode(ville, function (a) {
+    //localStorage.removeItem("endlatA");
+
+    //localStorage.removeItem("endlngA");
+    // depending on geocoder results may be either in a or b
+    console.log(a);
+    // choose the best result here. probably the first one in array
+    // create waypoint object
+    console.log(a[0].center.lat);
+    localStorage.setItem("endlatA", a[0].center.lat);
+    test = a[0].center.lat;
+    test2 = a[0].center.lng;
+    localStorage.setItem("endlngA", a[0].center.lng);
+    console.log("après 2 " + localStorage.getItem("endlatA"));
+    return test;
+  });
+
+  console.log("test " + test);
+  end_lat = localStorage.getItem("endlatA");
+  end_lng = localStorage.getItem("endlngA");
+  console.log("localStorage avant :" + localStorage.getItem("endlatA"));
+
+  localStorage.removeItem("endlatA");
+  localStorage.removeItem("endlngA");
+  localStorage.clear();
+  console.log("localStorage après :" + localStorage.getItem("endlatA"));
+
+  return [end_lat, end_lng];
+}
+
+function latLngEtape(ville) {
   const lat = 0;
   var end_lat = 0;
   var end_lng = 0;
@@ -150,16 +187,16 @@ function latLngArrivee(ville) {
     // choose the best result here. probably the first one in array
     // create waypoint object
     console.log(a[0].center.lat);
-    localStorage.setItem("endlatA", a[0].center.lat);
-    localStorage.setItem("endlngA", a[0].center.lng);
-    console.log("après 2 " + localStorage.getItem("endlatA"));
+    localStorage.setItem("endlatEtape", a[0].center.lat);
+    localStorage.setItem("endlngEtape", a[0].center.lng);
+    console.log("après 2 " + localStorage.getItem("endlatEtape"));
   });
-  end_lat = localStorage.getItem("endlatA");
-  end_lng = localStorage.getItem("endlngA");
+  end_lat = localStorage.getItem("endlatEtape");
+  end_lng = localStorage.getItem("endlngEtape");
 
   return [end_lat, end_lng];
 }
 
-export { latLngDepart, latLngArrivee };
+export { latLngDepart, latLngArrivee, latLngEtape };
 
 // setting waypoints
