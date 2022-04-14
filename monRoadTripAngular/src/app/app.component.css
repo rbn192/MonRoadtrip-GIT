@@ -4,11 +4,21 @@ body {
   background-color: #f4efe7;
   min-height: 100vh;
 }
-
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 html {
   background-color: #f4efe7;
 }
+#grid {
+  background-color: #f4efe7;
 
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
 .imgLogo {
   width: 35px;
   height: 35px;
