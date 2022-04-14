@@ -77,4 +77,8 @@ export class EtapesListComponent implements OnInit {
     console.log(etapes);
     console.log(reservation);
   }
+
+  redirect() {
+    this.router.navigateByUrl('/itineraire/reservations');
+  }
 }

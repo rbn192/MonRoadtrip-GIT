@@ -28,6 +28,8 @@ import { EtapesListComponent } from './component/itineraire/etapes-list/etapes-l
 import { ReservationsListComponent } from './component/itineraire/reservations-list/reservations-list.component';
 import { MapComponent } from './component/map/map.component';
 import { ParticipantComponent } from './component/participant/participant.component';
+import { ReservationsListComponent } from './component/itineraire/reservations-list/reservations-list.component';
+import { PaiementComponent } from './component/itineraire/paiement/paiement.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,6 @@ import { ParticipantComponent } from './component/participant/participant.compon
     MapComponent,
     EtapesListComponent,
     ReservationsListComponent,
-    ParticipantComponent,
   ],
   imports: [
     HttpClientModule,

@@ -1,0 +1,85 @@
+<body>
+  <form class="container">
+    <fieldset>
+      <legend>Choisir le type de paiement</legend>
+      <div>
+        <label
+          ><input
+            [(ngModel)]="carteChecked"
+            name="isCarteChecked"
+            type="checkbox"
+          />Carte bancaire</label
+        >
+      </div>
+      <div>
+        <label
+          ><input
+            [(ngModel)]="paypalChecked"
+            name="isPayypalCheckedd"
+            type="checkbox"
+          />Paypal
+        </label>
+      </div>
+      <div>
+        <label
+          ><input
+            [(ngModel)]="boxChecked"
+            name="isEspeceCheckedd"
+            type="checkbox"
+          />Espece</label
+        >
+      </div>
+    </fieldset>
+    <div>
+      <fieldset *ngIf="carteChecked">
+        <div>
+          <label
+            >Numero de la carte :
+            <input type="text" />
+          </label>
+        </div>
+        <div>
+          <label
+            >Nom sur la carte :
+            <input type="text" />
+          </label>
+        </div>
+        <div>
+          <label
+            >Date d'expiration :
+            <input type="date" />
+          </label>
+        </div>
+        <div>
+          <label
+            >Code de sécurité :
+            <input type="text" />
+          </label>
+        </div>
+        <button type="submit" class="btn btn-success">
+          Valider le paiement
+        </button>
+      </fieldset>
+    </div>
+
+    <fieldset *ngIf="paypalChecked">
+      Connexion à PayPal
+      <div>
+        <label
+          >Email :
+          <input type="text" />
+        </label>
+      </div>
+      <div>
+        <label
+          >Mot de passe:
+          <input type="text" />
+        </label>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-success">Connexion</button>
+      </div>
+    </fieldset>
+    <fieldset *ngIf="boxChecked">Mode de paiement indisponible</fieldset>
+  </form>
+</body>

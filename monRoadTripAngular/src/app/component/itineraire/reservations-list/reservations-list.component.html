@@ -1,49 +1,30 @@
-<head>
-  <meta charset="UTF-8" />
-  <title>Réservation</title>
-</head>
-
 <body>
   <div class="container">
-    <h1>Réservations</h1>
+    <h1>Liste des réservations</h1>
     <hr />
 
     <table class="table">
       <tr>
         <td>id</td>
-        <td>date</td>
         <td>statut</td>
-        <td>étapes</td>
         <td>client</td>
         <td>participant</td>
-        <td>roadtrip</td>
-        <td>actions</td>
+        <td>Annuler</td>
+        <td>Confirmer</td>
       </tr>
       <tr *ngFor="let r of reservations">
         <td>{{ r.id }}</td>
-        <td>{{ r.dateReservation }}</td>
         <td>{{ r.statut }}</td>
-        <td>
-          <a
-            [routerLink]="['/etape', 'reservation', r.id]"
-            routerLinkActive="active"
-            class="btn btn-primary"
-            >voir les étapes</a
-          >
-        </td>
         <td>{{ r.client?.prenom }} {{ r.client?.nom }}</td>
-        <td>{{ r.participant?.prenom }} {{ r.participant?.nom }}</td>
-        <td>{{ r.roadtrip?.lieuDepart }} -> {{ r.roadtrip?.destination }}</td>
+        <td>{{ r.participant?.prenom }}</td>
         <td>
-          <a
-            [routerLink]="['/reservation', 'edit', r.id]"
-            routerLinkActive="active"
-            type="button"
-            class="btn btn-primary"
-            >Editer</a
-          >
           <button (click)="delete(r.id!)" class="btn btn-danger">
             Supprimer
+          </button>
+        </td>
+        <td>
+          <button type="submit" (click)="redirection()" class="btn btn-success">
+            Paiement
           </button>
         </td>
       </tr>
