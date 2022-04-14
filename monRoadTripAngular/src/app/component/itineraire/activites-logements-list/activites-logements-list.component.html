@@ -12,13 +12,35 @@
           <input type="text" [(ngModel)]="ville" class="form-control" />
           <button (click)="list()" class="btn btn-primary">Rechercher</button>
         </div>
+        <div>
+          <input
+            type="radio"
+            id="activites"
+            name="drone"
+            value="activites"
+            checked
+            [(ngModel)]="myRadio"
+          />
+          <label for="activites">Activités</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="logements"
+            name="drone"
+            value="logements"
+            [(ngModel)]="myRadio"
+          />
+          <label for="logements">Logements</label>
+        </div>
       </div>
     </div>
+
     <div class="form-group col-lg-9">
       <div class="container" id="contenu">
         <div id="tableaux">
           <form [formGroup]="form" (ngSubmit)="submit()">
-            <div>
+            <div *ngIf="myRadio == 'logements'">
               <h2>Liste des logements à {{ ville }}</h2>
               <table class="table">
                 <tr>
@@ -54,7 +76,7 @@
                 </tr>
               </table>
             </div>
-            <div>
+            <div *ngIf="myRadio == 'activites'">
               <h2>Liste des activités à {{ ville }}</h2>
               <table class="table">
                 <tr>
@@ -132,5 +154,52 @@
   <br />
   <hr />
   <br />
-  <div class="container" id="frugalmap"></div>
+  <div class="containerMap">
+    <div class="list" *ngIf="myRadio == 'activites'">
+      <div *ngFor="let a of activites">
+        <div class="card shadow-sm">
+          <img
+            src="assets/images/chenonceau.jpg"
+            class="bd-placeholder-img card-img-top"
+            width="100%"
+            height="150"
+          /><title></title>{{ a.intitule }}
+
+          <div class="card-body">
+            <p class="card-text"></p>
+            <p>{{ a.categorie }}</p>
+            <p>{{ a.prix }} €</p>
+            <p>{{ a.date }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="myRadio == 'logements'">
+      <div *ngFor="let l of logements">
+        <div class="col">
+          <div class="card shadow-sm">
+            <img
+              src="assets/images/chenonceau.jpg"
+              class="bd-placeholder-img card-img-top"
+              width="100%"
+              height="150"
+              role="img"
+              aria-label="Placeholder: Thumbnail"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+            /><title></title>{{ l.adresse!.ville }}
+
+            <div class="card-body">
+              <p class="card-text"></p>
+              <p>{{ l.nbPlaces }} personnes</p>
+              <p>{{ l.prix }} €</p>
+              <p>{{ l.date }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="frugalmap"></div>
+  </div>
 </main>

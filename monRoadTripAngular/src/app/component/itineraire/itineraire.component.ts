@@ -18,10 +18,10 @@ export class ItineraireComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const scriptElement = this.scriptService.load(this.renderer);
+    /*const scriptElement = this.scriptService.load(this.renderer);
     scriptElement.onload = () => {
       console.log('cript charge');
-    };
+    };*/
     this.activatedRoute.params.subscribe((params) => {
       this.depart = params['depart'];
       this.arrivee = params['arrivee'];

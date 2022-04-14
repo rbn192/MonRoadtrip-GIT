@@ -26,6 +26,7 @@ export class AppComponent {
           this._prenom = result.prenom!;
         });
     }
+
   }
 
   get prenom() {
