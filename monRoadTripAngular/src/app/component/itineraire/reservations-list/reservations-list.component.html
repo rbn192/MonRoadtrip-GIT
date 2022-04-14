@@ -9,6 +9,7 @@
         <td>Statut</td>
         <td>Client</td>
         <td>Participant</td>
+        <td>Prix (€)</td>
         <td>Actions</td>
       </tr>
       <tr *ngFor="let r of reservations">
@@ -16,15 +17,16 @@
         <td>{{ r.statut }}</td>
         <td>{{ r.client?.prenom }} {{ r.client?.nom }}</td>
         <td>{{ r.participant?.prenom }}</td>
+        <td>{{ r.etape?.activite?.prix }}</td>
         <td>
-          <button (click)="delete(r.id!)" class="btn btn-danger">
+          <button (click)="delete(r.id!)" class="btn btn-outline-danger">
             Supprimer
-          </button>
-          <button (click)="redirection()" class="btn btn-success">
-            Paiement
           </button>
         </td>
       </tr>
     </table>
+    <button (click)="redirection()" class="btn btn-success">
+      Procéder au paiement des réservations
+    </button>
   </div>
 </body>
