@@ -175,7 +175,7 @@
         <div class="liste" *ngFor="let a of activites">
           <div class="card shadow-sm">
             <img
-              src="assets/images/chenonceau.jpg"
+              src="assets/images/{{ a.id }}.jpg"
               class="bd-placeholder-img card-img-top"
             /><title></title>{{ a.intitule }}
 
@@ -193,7 +193,7 @@
         <div class="liste" *ngFor="let l of logements">
           <div class="card shadow-sm">
             <img
-              src="assets/images/chenonceau.jpg"
+              src="assets/images/{{ l.prix }}.jpg"
               class="bd-placeholder-img card-img-top"
               role="img"
               aria-label="Placeholder: Thumbnail"

@@ -193,7 +193,7 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
       lineOptions: {
         styles: [
           {
-            color: 'black',
+            color: '#39A79A',
             opacity: 1,
             weight: 4,
           },
