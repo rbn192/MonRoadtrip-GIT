@@ -1,19 +1,31 @@
+#contenu {
+  display: flex;
+  flex-direction: column;
+}
+
+.saisies {
+  display: flex;
+  align-items: center;
+}
+
+.saisieville {
+  width: auto;
+}
+
 #recherche {
   margin-left: 3.5%;
   display: flex;
-  width: 50%;
   justify-content: space-between;
   align-items: center;
   text-align: center;
 }
 
 #recherche input {
-  width: 100%;
+  width: auto;
 }
 
 #container {
   border: 1px solid black;
-  width: 30%;
   left: 0;
   margin-left: 2%;
   background-color: aquamarine;
@@ -31,7 +43,7 @@
 
 #frugalmap {
   height: 80vh;
-  width: 100%;
+  width: auto;
   justify-content: center;
   display: flex;
 }
@@ -52,8 +64,8 @@
 }
 
 .containerMap {
-  display: grid;
-  grid-template-columns: 7fr 4fr;
+  background-color: aqua;
+  display: flex;
   height: 100vh;
   width: 100%;
 }
@@ -133,11 +145,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 400px;
+  width: auto;
 }
-.addVille input {
-  width: 200px;
-}
+
 .imgDescription {
   width: 40px;
   height: 40px;
