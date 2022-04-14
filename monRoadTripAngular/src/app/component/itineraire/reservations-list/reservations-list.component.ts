@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ReservationService } from 'src/app/services/reservation.service';
 import { Participant } from 'src/app/model/participant';
 import { Roadtrip } from 'src/app/model/roadtrip';
@@ -7,15 +8,19 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-reservations-list',
   templateUrl: './reservations-list.component.html',
-  styleUrls: ['./reservations-list.component.css'],
+  styleUrls: [
+    './reservations-list.component.css',
+    '../../../app.component.css',
+  ],
 })
 export class ReservationsListComponent implements OnInit {
   reservations: Reservation[] = [];
   reservation: Reservation = new Reservation();
-  roadtrip: Roadtrip = new Roadtrip();
-  participant: Participant = new Participant();
 
-  constructor(private reservationService: ReservationService) {}
+  constructor(
+    private reservationService: ReservationService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.list(localStorage.getItem('login')!);
@@ -31,5 +36,9 @@ export class ReservationsListComponent implements OnInit {
     this.reservationService.delete(id).subscribe((ok) => {
       this.list(localStorage.getItem('login')!);
     });
+  }
+
+  redirection() {
+    this.router.navigateByUrl('/itineraire/paiement');
   }
 }

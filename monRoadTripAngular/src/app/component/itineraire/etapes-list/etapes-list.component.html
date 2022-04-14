@@ -28,17 +28,9 @@
             </tr>
           </table>
         </div>
-
-        <button type="submit">Reserver</button>
-
-        <a routerLink="/itineraire/reservations" type="button"></a>
-
-        <a
-          routerLink="/itineraire/reservations"
-          type="button"
-          class="btn btn-success"
-          >Reserver les étapes selectionnées
-        </a>
+        <button type="submit" (click)="redirect()" class="btn btn-success">
+          Valider ma reservation
+        </button>
       </form>
     </div>
   </div>

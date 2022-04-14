@@ -1,3 +1,4 @@
+import { PaiementComponent } from './component/itineraire/paiement/paiement.component';
 import { MapComponent } from './component/map/map.component';
 import { ReservationsListComponent } from './component/itineraire/reservations-list/reservations-list.component';
 import { EtapesListComponent } from './component/itineraire/etapes-list/etapes-list.component';
@@ -48,5 +49,6 @@ export const routes: Routes = [
   { path: 'itineraire/etapes', component: EtapesListComponent },
   { path: 'itineraire/reservations', component: ReservationsListComponent },
   //{ path: 'compte/edit/:login', component: CompteModifComponent },
+  { path: 'itineraire/paiement', component: PaiementComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

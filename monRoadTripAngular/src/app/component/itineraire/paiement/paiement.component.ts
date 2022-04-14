@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./paiement.component.css', '../../../app.component.css'],
 })
 export class PaiementComponent implements OnInit {
-  public carteChecked: boolean = false;
+  carteChecked: string = '';
+  paypalChecked: string = '';
+  boxChecked: string = '';
 
   constructor() {}
 
