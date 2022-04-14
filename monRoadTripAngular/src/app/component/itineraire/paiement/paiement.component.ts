@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paiement',
@@ -10,7 +11,12 @@ export class PaiementComponent implements OnInit {
   paypalChecked: string = '';
   boxChecked: string = '';
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  validerPaiement() {
+    this.router.navigateByUrl('/home');
+    alert('Paiement accepté, préparez-vous pour votre roadtrip !');
+  }
 }

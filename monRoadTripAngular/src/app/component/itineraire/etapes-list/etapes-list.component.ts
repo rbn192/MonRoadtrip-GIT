@@ -80,7 +80,7 @@ export class EtapesListComponent implements OnInit {
         statut: 'A_venir',
         etapes: etapes,
         client: { id: localStorage.getItem('id'), type: 'client' },
-        roadtrip: { id: '1' },
+        roadtrip: { id: '3' },
         participant: p,
       };
       this.reservationService.create(reservation).subscribe((ok) => {
@@ -88,10 +88,6 @@ export class EtapesListComponent implements OnInit {
         console.log('participants' + ok.participant);
       });
     });
-  }
-
-  redirect() {
-    this.router.navigateByUrl('/itineraire/reservations');
   }
 
   redirect() {
