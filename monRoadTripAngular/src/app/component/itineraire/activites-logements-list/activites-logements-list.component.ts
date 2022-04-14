@@ -4,7 +4,13 @@ import { Router } from '@angular/router';
 import { ActiviteService } from './../../../services/activite.service';
 import { LogementService } from './../../../services/logement.service';
 import { Logement } from './../../../model/logement';
-import { Component, OnInit, Renderer2, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Renderer2,
+  AfterViewInit,
+  Input,
+} from '@angular/core';
 import { Activite } from 'src/app/model/activite';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
@@ -12,6 +18,7 @@ import Geocoder from 'leaflet-control-geocoder';
 import { MapType } from '@angular/compiler';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { EtapeService } from 'src/app/services/etape.service';
+import { latLngArrivee, latLngDepart } from 'src/assets/js/scriptMarqueur.js';
 
 @Component({
   selector: 'app-activites-logements-list',
@@ -22,6 +29,10 @@ import { EtapeService } from 'src/app/services/etape.service';
   ],
 })
 export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
+  @Input('depart')
+  depart: string = '';
+  @Input('arrivee')
+  arrivee: string = '';
   form: FormGroup;
   activites: Activite[] = [];
   logements: Logement[] = [];
@@ -32,6 +43,8 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
   lat2: number = 47.22485;
   lng2: number = -1.60137;
   query: string = '';
+  arriveeCoord: any;
+  departCoord: any;
 
   activitesReservees: number[] = [];
   logementsReserves: number = 0;
@@ -45,7 +58,9 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
     private activiteService: ActiviteService,
     private logementService: LogementService,
     private etapeService: EtapeService,
-    private router: Router
+    private router: Router,
+    private scriptService: ScriptService,
+    private renderer: Renderer2
   ) {
     this.form = new FormGroup({
       logementsArray: new FormArray([]),
@@ -56,6 +71,18 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {}
 
   ngOnInit(): void {
+    console.log(this.depart);
+    console.log(this.arrivee);
+    const scriptElement = this.scriptService.load(this.renderer);
+    scriptElement.onload = () => {
+      console.log('cript charge');
+    };
+    this.departCoord = latLngDepart(this.depart);
+    console.log('depart ' + this.departCoord);
+
+    this.arriveeCoord = latLngArrivee(this.arrivee);
+    console.log('arrivee ' + this.arriveeCoord);
+
     this.carte();
   }
 
@@ -95,7 +122,10 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
         extendToWaypoints: true,
         missingRouteTolerance: 10,
       },
-      waypoints: [L.latLng(48.856614, 2.3522219), L.latLng(43.604, 1.44305)],
+      waypoints: [
+        L.latLng(this.departCoord[0], this.departCoord[1]),
+        L.latLng(this.arriveeCoord[0], this.arriveeCoord[1]),
+      ],
     }).addTo(this.myfrugalmap);
 
     L.marker([50.6311634, 3.0599573], { icon: myIcon })

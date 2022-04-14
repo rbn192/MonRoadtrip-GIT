@@ -9,7 +9,7 @@ export class ScriptService {
 
   public load(renderer: Renderer2): HTMLScriptElement {
     const script = renderer.createElement('script');
-    script.type = 'text/javascript';
+    script.type = 'module';
     script.src = '/assets/js/scriptMarqueur.js';
     renderer.appendChild(this.document.body, script);
     return script;
