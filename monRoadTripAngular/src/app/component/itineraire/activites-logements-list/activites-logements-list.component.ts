@@ -10,6 +10,7 @@ import {
   Renderer2,
   AfterViewInit,
   Input,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { Activite } from 'src/app/model/activite';
 import * as L from 'leaflet';
@@ -18,7 +19,11 @@ import Geocoder from 'leaflet-control-geocoder';
 import { MapType } from '@angular/compiler';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { EtapeService } from 'src/app/services/etape.service';
-import { latLngArrivee, latLngDepart } from 'src/assets/js/scriptMarqueur.js';
+import {
+  latLngArrivee,
+  latLngDepart,
+  latLngEtape,
+} from 'src/assets/js/scriptMarqueur.js';
 import { ConnexionService } from 'src/app/services/connexion.service';
 
 @Component({
@@ -46,6 +51,7 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
   query: string = '';
   arriveeCoord: any;
   departCoord: any;
+  etapeCoord: any;
 
   activitesReservees: number[] = [];
   logementsReserves: number = 0;
@@ -62,7 +68,8 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
     private etapeService: EtapeService,
     private router: Router,
     private scriptService: ScriptService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private changeDetect: ChangeDetectorRef
   ) {
     this.form = new FormGroup({
       logementsArray: new FormArray([]),
@@ -77,7 +84,7 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
     console.log(this.arrivee);
     const scriptElement = this.scriptService.load(this.renderer);
     scriptElement.onload = () => {
-      console.log('cript charge');
+      console.log('script charge');
     };
     this.departCoord = latLngDepart(this.depart);
     console.log(this.depart + this.departCoord);
@@ -116,9 +123,9 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
       lineOptions: {
         styles: [
           {
-            color: '#839c49',
+            color: '#39A79A',
             opacity: 1,
-            weight: 7,
+            weight: 4,
           },
         ],
         extendToWaypoints: true,
@@ -126,14 +133,16 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
       },
       waypoints: [
         L.latLng(this.departCoord[0], this.departCoord[1]),
+
         L.latLng(this.arriveeCoord[0], this.arriveeCoord[1]),
       ],
     }).addTo(this.myfrugalmap);
 
     L.marker([50.6311634, 3.0599573], { icon: myIcon })
-      .bindPopup('Je suis un Frugal Marqueur')
       .addTo(this.myfrugalmap)
       .openPopup();
+
+    this.changeDetect.detectChanges();
   }
 
   get logementsArray(): FormArray {
@@ -143,7 +152,65 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
     return this.form.get('activitesArray') as FormArray;
   }
 
+  carteEtape() {
+    console.log('carte etape');
+    console.log('ville ' + this.ville);
+
+    console.log(this.etapeCoord);
+    // Déclaration de la carte avec les coordonnées du centre et le niveau de zoom.
+    const myIcon = L.icon({
+      iconUrl:
+        'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/images/marker-icon.png',
+    });
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: 'Frugal Map',
+    }).addTo(this.myfrugalmap);
+
+    /* L.Icon.Default.mergeOptions({
+      iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+      iconUrl: require('leaflet/dist/images/marker-icon.png'),
+      shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+    });*/
+
+    L.Routing.control({
+      router: L.Routing.osrmv1({
+        serviceUrl: `http://router.project-osrm.org/route/v1/`,
+        language: 'fr',
+        profile: 'car', //car, bike
+      }),
+      geocoder: (L.Control as any).geocoder(),
+      lineOptions: {
+        styles: [
+          {
+            color: '#39A79A',
+            opacity: 1,
+            weight: 4,
+          },
+        ],
+        extendToWaypoints: true,
+        missingRouteTolerance: 10,
+      },
+      waypoints: [
+        L.latLng(this.departCoord[0], this.departCoord[1]),
+        L.latLng(this.etapeCoord[0], this.etapeCoord[1]),
+        L.latLng(this.arriveeCoord[0], this.arriveeCoord[1]),
+      ],
+    }).addTo(this.myfrugalmap);
+
+    L.marker([50.6311634, 3.0599573], { icon: myIcon })
+      .addTo(this.myfrugalmap)
+      .openPopup();
+
+    this.changeDetect.detectChanges();
+  }
+
   list() {
+    console.log('help ' + this.etapeCoord);
+    this.etapeCoord = latLngEtape(this.ville);
+    console.log('help 2 ' + this.etapeCoord);
+
+    this.carteEtape();
     this.activiteService.getAllByVille(this.ville).subscribe((result) => {
       this.activites = result;
       this.activites.forEach((activite) => {
