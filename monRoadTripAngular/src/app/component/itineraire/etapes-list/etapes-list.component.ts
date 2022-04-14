@@ -93,4 +93,8 @@ export class EtapesListComponent implements OnInit {
   redirect() {
     this.router.navigateByUrl('/itineraire/reservations');
   }
+
+  redirect() {
+    this.router.navigateByUrl('/itineraire/reservations');
+  }
 }

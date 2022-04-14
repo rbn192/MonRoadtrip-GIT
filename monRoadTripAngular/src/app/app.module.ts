@@ -55,6 +55,7 @@ import { PaiementComponent } from './component/itineraire/paiement/paiement.comp
     EtapesListComponent,
     ReservationsListComponent,
     ParticipantComponent,
+    ReservationsListComponent,
     PaiementComponent,
   ],
   imports: [

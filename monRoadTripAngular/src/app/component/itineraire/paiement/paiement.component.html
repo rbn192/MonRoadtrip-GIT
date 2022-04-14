@@ -32,30 +32,28 @@
     </fieldset>
     <div>
       <fieldset *ngIf="carteChecked">
-        <div>
-          <label
-            >Numero de la carte :
-            <input type="text" />
-          </label>
-        </div>
-        <div>
-          <label
-            >Nom sur la carte :
-            <input type="text" />
-          </label>
-        </div>
-        <div>
-          <label
-            >Date d'expiration :
-            <input type="date" />
-          </label>
-        </div>
-        <div>
-          <label
-            >Code de sécurité :
-            <input type="text" />
-          </label>
-        </div>
+        <table>
+          <tr>
+            <td>Numero de la carte</td>
+            <td><input type="text" /></td>
+          </tr>
+
+          <tr>
+            <td>Nom sur la carte</td>
+            <td><input type="text" /></td>
+          </tr>
+
+          <tr>
+            <td>Date d'expiration</td>
+            <td><input type="date" /></td>
+          </tr>
+
+          <tr>
+            <td>Code de sécurité :</td>
+            <td><input type="text" /></td>
+          </tr>
+        </table>
+        <br />
         <button type="submit" class="btn btn-success">
           Valider le paiement
         </button>
@@ -63,23 +61,22 @@
     </div>
 
     <fieldset *ngIf="paypalChecked">
-      Connexion à PayPal
-      <div>
-        <label
-          >Email :
-          <input type="text" />
-        </label>
-      </div>
-      <div>
-        <label
-          >Mot de passe:
-          <input type="text" />
-        </label>
-      </div>
-      <div>
-        <button type="submit" class="btn btn-success">Connexion</button>
-      </div>
+      Connexion à payPal
+      <table>
+        <tr>
+          <td>Email</td>
+          <td><input type="text" /></td>
+        </tr>
+
+        <tr>
+          <td>Mot de passe</td>
+          <td><input type="text" /></td>
+        </tr>
+      </table>
+      <br />
+      <button type="submit" class="btn btn-success">Connexion</button>
     </fieldset>
+
     <fieldset *ngIf="boxChecked">Mode de paiement indisponible</fieldset>
   </form>
 </body>
