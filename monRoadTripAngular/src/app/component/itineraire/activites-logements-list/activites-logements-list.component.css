@@ -42,21 +42,10 @@
 }
 
 #frugalmap {
-  height: 80vh;
+  height: 100%;
   width: auto;
   justify-content: center;
   display: flex;
-}
-
-.item p {
-  margin: 0 0 1rem 0;
-}
-
-.item img {
-  width: 100%;
-  height: 20vh;
-  margin-left: -20px;
-  display: block;
 }
 
 .map {
@@ -64,17 +53,9 @@
 }
 
 .containerMap {
-  background-color: aqua;
   display: flex;
-  height: 100vh;
-  width: 100%;
-}
 
-.list {
-  display: grid;
-  grid-template-columns: repeat(3, 2fr);
-  grid-column-gap: 30px;
-  padding: 0 30px;
+  width: 100%;
 }
 
 .map {

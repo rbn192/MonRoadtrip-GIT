@@ -41,4 +41,9 @@ export class ReservationsListComponent implements OnInit {
   redirection() {
     this.router.navigateByUrl('/itineraire/paiement');
   }
+
+  getRandomInt(): number {
+    return (this.prix = Math.floor(Math.random() * (300 - 50 + 1)) + 50);
+  }
+  prix: number = this.getRandomInt();
 }
