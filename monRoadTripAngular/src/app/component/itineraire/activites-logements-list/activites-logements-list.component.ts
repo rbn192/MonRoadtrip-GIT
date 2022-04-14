@@ -19,6 +19,7 @@ import { MapType } from '@angular/compiler';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { EtapeService } from 'src/app/services/etape.service';
 import { latLngArrivee, latLngDepart } from 'src/assets/js/scriptMarqueur.js';
+import { ConnexionService } from 'src/app/services/connexion.service';
 
 @Component({
   selector: 'app-activites-logements-list',
@@ -55,6 +56,7 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
 
   constructor(
     private http: HttpClient,
+    private authService: ConnexionService,
     private activiteService: ActiviteService,
     private logementService: LogementService,
     private etapeService: EtapeService,
@@ -250,5 +252,9 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
 
   redirect() {
     this.router.navigateByUrl('/itineraire/etapes');
+  }
+
+  isAutenticated() {
+    return this.authService.isAuthenticated();
   }
 }

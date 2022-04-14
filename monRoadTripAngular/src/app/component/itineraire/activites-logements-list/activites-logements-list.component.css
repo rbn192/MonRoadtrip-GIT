@@ -11,10 +11,6 @@
   width: 100%;
 }
 
-#contenu {
-  width: 60%;
-}
-
 #container {
   border: 1px solid black;
   width: 30%;
@@ -136,4 +132,17 @@
 .addVille {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  width: 400px;
+}
+.addVille input {
+  width: 200px;
+}
+.imgDescription {
+  width: 40px;
+  height: 40px;
+}
+
+.adresse {
+  background-color: #ebe4d9;
 }
