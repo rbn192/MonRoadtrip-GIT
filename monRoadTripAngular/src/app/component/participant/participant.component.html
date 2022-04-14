@@ -1,0 +1,17 @@
+<h5>Participants:</h5>
+<form (ngSubmit)="submit()" [formGroup]="form" id="ajoutParticipant">
+  <div>
+    <label>Nom:</label>
+    <input class="form-control" formControlName="nom" />
+  </div>
+  <div>
+    <label>Prenom:</label>
+    <input class="form-control" formControlName="prenom" />
+  </div>
+  <div>
+    <label>Age:</label>
+    <input class="form-control" formControlName="age" />
+  </div>
+
+  <button type="submit">Valider</button>
+</form>

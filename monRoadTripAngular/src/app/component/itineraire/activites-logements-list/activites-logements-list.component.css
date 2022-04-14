@@ -29,8 +29,11 @@
   background-color: aliceblue;
 }
 
-#carte {
+#frugalmap {
   height: 80vh;
+  width: 100%;
+  justify-content: center;
+  display: flex;
 }
 
 .item p {
@@ -51,7 +54,6 @@
 .containerMap {
   display: grid;
   grid-template-columns: 7fr 4fr;
-  background-color: cyan;
   height: 100vh;
   width: 100%;
 }
@@ -59,7 +61,6 @@
 .list {
   display: grid;
   grid-template-columns: repeat(3, 2fr);
-  background-color: pink;
   grid-column-gap: 30px;
   padding: 0 30px;
 }
