@@ -1,0 +1,36 @@
+<body>
+  <div id="contenu">
+    <div id="tableaux">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div>
+          <h2>Liste des étapes</h2>
+
+          <table class="table">
+            <tr>
+              <td></td>
+              <td>id</td>
+              <td>date</td>
+              <td>duree</td>
+              <td>ville</td>
+            </tr>
+
+            <tr
+              *ngFor="let e of etapesArray.controls; let i = index"
+              formArrayName="etapesArray"
+            >
+              <td>
+                <input [formControlName]="i" type="checkbox" />
+              </td>
+              <td>{{ etapes[i].id }}</td>
+              <td>{{ etapes[i].date | date: "dd/MM/yyyy" }}</td>
+              <td>{{ etapes[i].duree }}</td>
+              <td>{{ etapes[i].ville }}</td>
+            </tr>
+          </table>
+        </div>
+
+        <button type="submit">Reserver</button>
+      </form>
+    </div>
+  </div>
+</body>
