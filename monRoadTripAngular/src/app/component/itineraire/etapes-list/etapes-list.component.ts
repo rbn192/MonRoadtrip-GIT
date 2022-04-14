@@ -65,10 +65,12 @@ export class EtapesListComponent implements OnInit {
       etapes: etapes,
       client: { id: localStorage.getItem('id'), type: 'client' },
       roadtrip: { id: '1' },
-      participant: { id: '20' },
+      participant: { id: '1' },
     };
-    this.reservationService.create(reservation).subscribe((ok) => {});
-    console.log(etapes);
-    console.log(reservation);
+    this.reservationService.create(reservation).subscribe((ok) => {
+      console.log('reservation créée ' + ok.id);
+    });
+    //console.log(etapes);
+    //console.log(reservation);
   }
 }
