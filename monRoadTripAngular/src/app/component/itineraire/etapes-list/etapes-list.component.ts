@@ -58,6 +58,7 @@ export class EtapesListComponent implements OnInit {
       .filter((v: any) => v !== null);
     this.etapesReservees = selectedEtapesIds;
     this.reservation();
+    this.redirect();
   }
 
   reservation() {
