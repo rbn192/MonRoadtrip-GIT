@@ -79,7 +79,7 @@
         >
         <a
           *ngIf="isAutenticated() && role == 'client'"
-          routerLink="/reservation"
+          routerLink="/itineraire/reservations"
           routerLinkActive="active"
           class="btn btn-outline-light btnHeader"
         >
@@ -99,4 +99,15 @@
   </nav>
 </header>
 
-<router-outlet></router-outlet>
+<div id="grid">
+  <router-outlet></router-outlet>
+  <footer class="container">
+    <p class="float-right"><a href="">Retour à l'accueil</a></p>
+    <p>
+      &copy; 2022 &middot;
+      <img class="logoFooter" src="assets/images/logoGrey.png" /> &middot;
+      <a href="#">Confidentialité</a>
+    </p>
+    <br />
+  </footer>
+</div>
