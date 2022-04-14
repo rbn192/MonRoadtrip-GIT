@@ -83,6 +83,7 @@ export class ActivitesLogementsListComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     console.log(this.depart);
     console.log(this.arrivee);
+    console.log('debug');
     const scriptElement = this.scriptService.load(this.renderer);
     scriptElement.onload = () => {
       console.log('script charge');
