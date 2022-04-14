@@ -34,118 +34,119 @@
           <label for="logements">Logements</label>
         </div>
       </div>
-      <div class="form-group col-lg-9">
-        <div class="container" id="contenu">
-          <div id="tableaux">
-            <form [formGroup]="form" (ngSubmit)="submit()">
-              <div *ngIf="myRadio == 'logements'">
-                <h2>Liste des logements à {{ ville }}</h2>
-                <table class="table">
-                  <tr>
-                    <td colspan="5"></td>
-                    <td colspan="4" align="center" class="adresse">Adresse</td>
-                  </tr>
-                  <tr>
-                    <td>Sélection</td>
-                    <td>ID</td>
-                    <td>Date</td>
-                    <td>Prix (€)</td>
-                    <td>Nombre de couchages</td>
-                    <td class="adresse">Numéro</td>
-                    <td class="adresse">Voie</td>
-                    <td class="adresse">Code Postal</td>
-                    <td class="adresse">Ville</td>
-                  </tr>
-                  <tr
-                    *ngFor="let l of logementsArray.controls; let i = index"
-                    formArrayName="logementsArray"
-                  >
-                    <td>
-                      <input [formControlName]="i" type="checkbox" />
-                    </td>
-                    <td>{{ logements[i].id }}</td>
-                    <td>{{ logements[i].date | date: "dd/MM/yyyy" }}</td>
-                    <td>{{ logements[i].prix }}</td>
-                    <td>{{ logements[i].nbPlaces }}</td>
-                    <td class="adresse">{{ logements[i].adresse?.numero }}</td>
-                    <td class="adresse">{{ logements[i].adresse?.voie }}</td>
-                    <td class="adresse">{{ logements[i].adresse?.cp }}</td>
-                    <td class="adresse">{{ logements[i].adresse?.ville }}</td>
-                  </tr>
-                </table>
-              </div>
-              <div *ngIf="myRadio == 'activites'">
-                <h2>Liste des activités à {{ ville }}</h2>
-                <table class="table">
-                  <tr>
-                    <td colspan="8"></td>
-                    <td colspan="4" align="center" class="adresse">Adresse</td>
-                  </tr>
-                  <tr>
-                    <td>Sélection</td>
-                    <td>ID</td>
-                    <td>Intitulé</td>
-                    <td>Catégorie</td>
-                    <td>Date</td>
-                    <td>Heure</td>
-                    <td>Prix (€)</td>
-                    <td>Nombre de places</td>
-                    <td class="adresse">Numéro</td>
-                    <td class="adresse">Voie</td>
-                    <td class="adresse">Code Postal</td>
-                    <td class="adresse">Ville</td>
-                  </tr>
-                  <tr
-                    *ngFor="let a of activitesArray.controls; let i = index"
-                    formArrayName="activitesArray"
-                  >
-                    <td>
-                      <input [formControlName]="i" type="checkbox" />
-                    </td>
-                    <td>{{ activites[i].id }}</td>
-                    <td>{{ activites[i].intitule }}</td>
-                    <td>{{ activites[i].categorie }}</td>
-                    <td>{{ activites[i].date | date: "dd/MM/yyyy" }}</td>
-                    <td>{{ activites[i].heure }}</td>
-                    <td>{{ activites[i].prix }}</td>
-                    <td>{{ activites[i].nbPlaces }}</td>
-                    <td class="adresse">{{ activites[i].adresse?.numero }}</td>
-                    <td class="adresse">{{ activites[i].adresse?.voie }}</td>
-                    <td class="adresse">{{ activites[i].adresse?.cp }}</td>
-                    <td class="adresse">{{ activites[i].adresse?.ville }}</td>
-                  </tr>
-                </table>
-              </div>
-              <div>
-                <br />
-                <span *ngIf="!isAutenticated()"
-                  ><i
-                    >Vous devez être connecté pour pouvoir accéder à la
-                    réservation.</i
-                  ></span
+    </div>
+
+    <div class="form-group col-lg-9">
+      <div class="container" id="contenu">
+        <div id="tableaux">
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <div *ngIf="myRadio == 'logements'">
+              <h2>Liste des logements à {{ ville }}</h2>
+              <table class="table">
+                <tr>
+                  <td colspan="5"></td>
+                  <td colspan="4" align="center" class="adresse">Adresse</td>
+                </tr>
+                <tr>
+                  <td>Sélection</td>
+                  <td>ID</td>
+                  <td>Date</td>
+                  <td>Prix (€)</td>
+                  <td>Nombre de couchages</td>
+                  <td class="adresse">Numéro</td>
+                  <td class="adresse">Voie</td>
+                  <td class="adresse">Code Postal</td>
+                  <td class="adresse">Ville</td>
+                </tr>
+                <tr
+                  *ngFor="let l of logementsArray.controls; let i = index"
+                  formArrayName="logementsArray"
                 >
-                <span *ngIf="isAutenticated()"
-                  ><i
-                    >Merci de sélectionner avant de passer à la réservation.</i
-                  ></span
-                ><br />
-                <button
-                  *ngIf="isAutenticated()"
-                  type="submit"
-                  class="btn btn-success"
+                  <td>
+                    <input [formControlName]="i" type="checkbox" />
+                  </td>
+                  <td>{{ logements[i].id }}</td>
+                  <td>{{ logements[i].date | date: "dd/MM/yyyy" }}</td>
+                  <td>{{ logements[i].prix }}</td>
+                  <td>{{ logements[i].nbPlaces }}</td>
+                  <td class="adresse">{{ logements[i].adresse?.numero }}</td>
+                  <td class="adresse">{{ logements[i].adresse?.voie }}</td>
+                  <td class="adresse">{{ logements[i].adresse?.cp }}</td>
+                  <td class="adresse">{{ logements[i].adresse?.ville }}</td>
+                </tr>
+              </table>
+            </div>
+            <div *ngIf="myRadio == 'activites'">
+              <h2>Liste des activités à {{ ville }}</h2>
+              <table class="table">
+                <tr>
+                  <td colspan="8"></td>
+                  <td colspan="4" align="center" class="adresse">Adresse</td>
+                </tr>
+                <tr>
+                  <td>Sélection</td>
+                  <td>ID</td>
+                  <td>Intitulé</td>
+                  <td>Catégorie</td>
+                  <td>Date</td>
+                  <td>Heure</td>
+                  <td>Prix (€)</td>
+                  <td>Nombre de places</td>
+                  <td class="adresse">Numéro</td>
+                  <td class="adresse">Voie</td>
+                  <td class="adresse">Code Postal</td>
+                  <td class="adresse">Ville</td>
+                </tr>
+                <tr
+                  *ngFor="let a of activitesArray.controls; let i = index"
+                  formArrayName="activitesArray"
                 >
-                  Sélectionner
-                </button>
-                <button
-                  *ngIf="isAutenticated()"
-                  (click)="redirect()"
-                  class="btn btn-primary"
-                >
-                  Passer à la réservation
-                </button>
-              </div>
-            </form>
-          </div>
+                  <td>
+                    <input [formControlName]="i" type="checkbox" />
+                  </td>
+                  <td>{{ activites[i].id }}</td>
+                  <td>{{ activites[i].intitule }}</td>
+                  <td>{{ activites[i].categorie }}</td>
+                  <td>{{ activites[i].date | date: "dd/MM/yyyy" }}</td>
+                  <td>{{ activites[i].heure }}</td>
+                  <td>{{ activites[i].prix }}</td>
+                  <td>{{ activites[i].nbPlaces }}</td>
+                  <td class="adresse">{{ activites[i].adresse?.numero }}</td>
+                  <td class="adresse">{{ activites[i].adresse?.voie }}</td>
+                  <td class="adresse">{{ activites[i].adresse?.cp }}</td>
+                  <td class="adresse">{{ activites[i].adresse?.ville }}</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <br />
+              <span *ngIf="!isAutenticated()"
+                ><i
+                  >Vous devez être connecté pour pouvoir accéder à la
+                  réservation.</i
+                ></span
+              >
+              <span *ngIf="isAutenticated()"
+                ><i
+                  >Merci de sélectionner avant de passer à la réservation.</i
+                ></span
+              ><br />
+              <button
+                *ngIf="isAutenticated()"
+                type="submit"
+                class="btn btn-success"
+              >
+                Sélectionner
+              </button>
+              <button
+                *ngIf="isAutenticated()"
+                (click)="redirect()"
+                class="btn btn-primary"
+              >
+                Passer à la réservation
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
