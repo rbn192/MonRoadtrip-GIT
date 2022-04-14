@@ -1,6 +1,8 @@
 import { PaiementComponent } from './component/itineraire/paiement/paiement.component';
 import { MapComponent } from './component/map/map.component';
 import { ReservationsListComponent } from './component/itineraire/reservations-list/reservations-list.component';
+import { MapComponent } from './component/map/map.component';
+import { ReservationsListComponent } from './component/itineraire/reservations-list/reservations-list.component';
 import { EtapesListComponent } from './component/itineraire/etapes-list/etapes-list.component';
 import { ReservationEditComponent } from './component/reservation/reservation-edit/reservation-edit.component';
 import { ItineraireComponent } from './component/itineraire/itineraire.component';
