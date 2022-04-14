@@ -58,6 +58,7 @@ export class EtapesListComponent implements OnInit {
       .filter((v: any) => v !== null);
     this.etapesReservees = selectedEtapesIds;
     this.reservation();
+    this.redirect();
   }
 
   reservation() {
@@ -66,32 +67,19 @@ export class EtapesListComponent implements OnInit {
       let e = { id: etape };
       etapes.push(e);
     });
-    console.log('etapes : ' + etapes);
+    let reservation = {
+      statut: 'A_venir',
+      etapes: etapes,
+      client: { id: '4', type: 'client' },
+      roadtrip: { id: '1' },
+      participant: { id: '1' },
+    };
+    this.reservationService.create(reservation).subscribe((ok) => {});
+    console.log(etapes);
+    console.log(reservation);
+  }
 
-    let participants: any[] = [];
-    this.participants.forEach((participant) => {
-      let p = { id: participant };
-      participants.push(p);
-    });
-    console.log('participants : ' + participants);
-
-    participants.forEach((p) => {
-      let reservation = {
-        dateReservation: '2022-04-15',
-        statut: 'A_venir',
-        etapes: etapes,
-        client: { id: localStorage.getItem('id'), type: 'client' },
-        roadtrip: { id: '1' },
-        participant: p,
-      };
-      this.reservationService.create(reservation).subscribe((ok) => {
-        console.log('reservation créée ' + ok.id);
-        console.log('participants' + ok.participant);
-      });
-    });
-
-    //console.log(reservation.participant);
-    //console.log(etapes);
-    //console.log(reservation);
+  redirect() {
+    this.router.navigateByUrl('/itineraire/reservations');
   }
 }
