@@ -26,6 +26,7 @@ import { ReservationEditComponent } from './component/reservation/reservation-ed
 import { ReservationListComponent } from './component/reservation/reservation-list/reservation-list.component';
 import { EtapesListComponent } from './component/itineraire/etapes-list/etapes-list.component';
 import { MapComponent } from './component/map/map.component';
+import { ParticipantComponent } from './component/participant/participant.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { MapComponent } from './component/map/map.component';
     ActivitesLogementsListComponent,
     MapComponent,
     EtapesListComponent,
+    ParticipantComponent,
   ],
   imports: [
     HttpClientModule,

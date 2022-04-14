@@ -16,11 +16,8 @@ export class ParticipantService {
     return this.http.get<any>(`${ParticipantService.URL}/${id}`);
   }
 
-  public create(participant: Participant): Observable<any> {
-    return this.http.post(
-      ParticipantService.URL,
-      this.participantToJson(participant)
-    );
+  public create(participant: any): Observable<any> {
+    return this.http.post(ParticipantService.URL, participant);
   }
 
   public update(participant: Participant): Observable<any> {
